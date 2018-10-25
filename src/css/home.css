@@ -1,0 +1,38 @@
+
+/**
+ * HOME
+ * -------------------------------
+*/
+.Et1 .screen.home {
+  /* flex-direction: column; */
+}
+ 
+
+/**
+ * Layouts
+ * ----------------------
+*/
+ 
+
+
+
+/**
+ * Smaller devices
+ * -------------------------
+*/
+@media (max-width: 991px) {
+  .Et1 .screen.home.focus .title-section {
+    font-size: 1.3rem;
+  }
+}
+
+
+/**
+ * Theme
+ * ----------------------
+*/
+ 
+.Et1 .screen.home.hero .card { 
+  border: 0px;
+}
+ 
