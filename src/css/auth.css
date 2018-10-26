@@ -14,12 +14,12 @@
 
 
 
-.Et1 .screen-auth .container {
+.App .screen-auth .container {
   position: relative;
   margin-bottom: 50px;
   top: 70px;
 }
-.Et1 .screen-auth [for="root_remember-auth"] {
+.App .screen-auth [for="root_remember-auth"] {
   display: none;
 }
 
@@ -28,7 +28,7 @@
  * -------------------------
 */
 @media (min-width: 992px) {
-  .Et1 .screen-auth .container {
+  .App .screen-auth .container {
     top: 200px;
   }
 }

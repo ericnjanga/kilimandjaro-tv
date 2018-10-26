@@ -14,7 +14,7 @@ import React from 'react';
 // firebase.initializeApp(firebaseConfig.dev); // 'dev or 'prod'
 
 // Application prefix
-export const APP_PREFIX = 'Et1';
+export const APP_PREFIX = 'App';
 // Global context
 export const GlobalContext = React.createContext({}); // Global Context
 

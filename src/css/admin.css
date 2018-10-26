@@ -39,7 +39,7 @@
 
 
 
-.Et1 .screen.admin {
+.App .screen.admin {
   display: flex;
 }
 
@@ -48,12 +48,12 @@
  * SIDEBAR
  * -------------------------------
 */
-.Et1 .screen.admin.sidebar {
+.App .screen.admin.sidebar {
   flex-basis: 100px;
   align-items: center;
   flex-direction: column;
 }
-.Et1 .screen.admin.sidebar button {
+.App .screen.admin.sidebar button {
   display: block;
   width: 100%;
   text-align: left;
@@ -62,7 +62,7 @@
   font-size: 16px;
 }
 
-.Et1 .screen.admin.sidebar .app__brand button {
+.App .screen.admin.sidebar .app__brand button {
   position: relative;
   top: 30px;
   width: 60px;
@@ -73,18 +73,18 @@
 }
 
 
-.Et1 .screen.admin.sidebar.isOpen {
+.App .screen.admin.sidebar.isOpen {
   align-items: normal;
   flex-basis: 900px;
 }
-.Et1 .screen.admin.sidebar ul {
+.App .screen.admin.sidebar ul {
   list-style: none;
   padding: 0;
 }
 
 
 
-.Et1 .screen.admin.content {
+.App .screen.admin.content {
   flex-direction: column;
   padding: 30px;
   width: 100%;
@@ -94,27 +94,27 @@
 
 
 
-/* .Et1 .screen:not(.admin.sidebar), */
-.Et1 .app__brand--text,
-.Et1 .menu,
-.Et1 .menu > ul {
+/* .App .screen:not(.admin.sidebar), */
+.App .app__brand--text,
+.App .menu,
+.App .menu > ul {
   display: none;
 }
 
-.Et1 .admin.sidebar.isOpen .app__brand--text,
-.Et1 .admin.sidebar.isOpen .menu {
+.App .admin.sidebar.isOpen .app__brand--text,
+.App .admin.sidebar.isOpen .menu {
   display: block;
 }
-.Et1 .admin.sidebar.isOpen .app__brand--text.active > ul,
-.Et1 .admin.sidebar.isOpen .menu.active > ul {
+.App .admin.sidebar.isOpen .app__brand--text.active > ul,
+.App .admin.sidebar.isOpen .menu.active > ul {
   display: block;
 }
-.Et1 .admin.sidebar.isOpen .app__brand {
+.App .admin.sidebar.isOpen .app__brand {
   padding: 40px 20px;
   color: #fff;
   font-size: 1.7rem;
 }
-.Et1 .admin.sidebar.isOpen .app__brand button {
+.App .admin.sidebar.isOpen .app__brand button {
   position: absolute;
   right: 20px;
   display: inline;
@@ -125,16 +125,16 @@
 
 
  /* styling */
- .Et1 .admin.sidebar .app__brand--text {
+ .App .admin.sidebar .app__brand--text {
   margin: 0;
   font-size: 2rem;
 }
  
-.Et1 .screen.admin.sidebar button { 
+.App .screen.admin.sidebar button { 
   border: 0px;
   color: #f7f7f7; 
 }
-.Et1 .screen.admin.sidebar ul button {
+.App .screen.admin.sidebar ul button {
   padding-left: 40px;
 }
 
@@ -155,8 +155,8 @@
  * Same color:
  * Active buttons and content
 */
-.Et1 .screen.admin.sidebar .menu.active li.active button,
-.Et1 .screen.admin.content {
+.App .screen.admin.sidebar .menu.active li.active button,
+.App .screen.admin.content {
   background: #9cc3e2;
   color: #333;
 }
@@ -166,7 +166,7 @@
 /**
  * all buttons
 */
-.Et1 .screen.admin.sidebar button {  
+.App .screen.admin.sidebar button {  
   border-bottom: 1px solid #11293b;
 }
 
@@ -174,19 +174,19 @@
  * Same color:
  * Inactive buttons, sidebar
 */ 
-.Et1 .screen.admin.sidebar {
+.App .screen.admin.sidebar {
   background-color: #11293b;
 }
  
 
-.Et1 .admin.sidebar .menu button {
+.App .admin.sidebar .menu button {
   background: #1d4361;
 }
 
-.Et1 .admin.sidebar .menu.active > button {
+.App .admin.sidebar .menu.active > button {
   background: #295f89;
 }
-.Et1 .admin.sidebar .menu.active ul button {
+.App .admin.sidebar .menu.active ul button {
   background: #2f6d9d;
 }
  

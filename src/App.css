@@ -1,7 +1,7 @@
 /**
  * ACRONYMS
  * -------------------------------
- * App prefix: Et1 (Ecommerce Template 1)
+ * App prefix: App (Ecommerce Template 1)
 */
 
 
@@ -15,8 +15,41 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700');
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #e6e6e6;
+  background-color: #666;
 }
+
+
+
+
+
+
+/**
+ * App init
+ * .......
+ * -------------------------------
+*/
+.App {
+  position: fixed;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+.App-sidedisplay {
+  background: red;
+}
+.App-maincontent {
+  background:lime
+}
+.App-sidedisplay,
+.App-maincontent {
+  overflow-y: scroll;
+  padding: 24px;
+}
+
+
+
+
+
 
 
 
@@ -64,7 +97,7 @@ body {
  * (Any panel that either occupies the entire window or part of it
  * -------------------------------
 */
-.Et1 .screen { 
+.App .screen { 
   position: relative; 
 }
 
@@ -156,7 +189,7 @@ ul {
  * Top Nav styles
  * ----------------------
 */
-.Et1 > .screen {
+.App > .screen {
   padding-top: 56px; /* Bootstrap navbar's height (collapsed) */
 }
 .top-navigation {
@@ -422,7 +455,7 @@ align-items: center; */
 
 
 
-.Et1 > .admin-login {
+.App > .admin-login {
   position: fixed;
   top: 0;
   left: 0;
@@ -449,12 +482,12 @@ align-items: center; */
 
 
 .app-preloder,
-.Et1 > .admin-login {
+.App > .admin-login {
   background: #2f6d9d;
 }
 
 .app-preloder .title,
-.Et1 > .admin-login .title {
+.App > .admin-login .title {
   color: #fff;
 }
 

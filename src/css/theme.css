@@ -6,11 +6,11 @@
 
 
 
-.Et1 .screen.home.hero .card,
-.Et1 .bg-dark1 {
+.App .screen.home.hero .card,
+.App .bg-dark1 {
   background-color:#21162A!important;
 }
 
-.Et1 .bg-primary1 {
+.App .bg-primary1 {
   background-color:#2f6d9d!important;
 }

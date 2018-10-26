@@ -3,7 +3,7 @@
  * HOME
  * -------------------------------
 */
-.Et1 .screen.home {
+.App .screen.home {
   /* flex-direction: column; */
 }
  
@@ -21,7 +21,7 @@
  * -------------------------
 */
 @media (max-width: 991px) {
-  .Et1 .screen.home.focus .title-section {
+  .App .screen.home.focus .title-section {
     font-size: 1.3rem;
   }
 }
@@ -32,7 +32,7 @@
  * ----------------------
 */
  
-.Et1 .screen.home.hero .card { 
+.App .screen.home.hero .card { 
   border: 0px;
 }
  

@@ -145,7 +145,7 @@ class App extends Component {
 
     this.state = {
       appLoader: {
-        firstRenderReady: false, // Prevent app from rendering multiple times "on first render"
+        firstRenderReady: true, // Prevent app from rendering multiple times "on first render"
         appInfo: false,
         userInfo: false,
       },
@@ -165,16 +165,6 @@ class App extends Component {
           this.setState({ dialogInfo });
         },
       },
-      // snackbar: { --- SNACKBAR NOT IN USE AT THIS TIME
-      //   hideTimeout: 2000,
-      //   active: false,
-      //   message: '',
-      //   handleClose: () => {
-      //     const { snackbar } = this.state;
-      //     snackbar.active = false;
-      //     this.setState({ snackbar });
-      //   }
-      // },
     };  
   }
 
@@ -189,7 +179,7 @@ class App extends Component {
    */
   componentDidMount() {
 
-    executeAppInitProcess.call(this, null);
+    // executeAppInitProcess.call(this, null);
 
   } // [end] componentDidMount
 
