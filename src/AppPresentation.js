@@ -88,6 +88,32 @@ class AppPresentation extends React.Component {
                           </GlobalContext.Consumer> */}
                 
                           {/* <TopNavigation /> */}
+
+                          <section className="App-horizontal-annonces">
+                            <ul className="App-horizontal-annonces-frame">
+                              <li className="item">
+                                Progressive Web Apps
+                              </li>
+                              <li className="item">
+                                React Apps
+                              </li>
+                              <li className="item">
+                                elementary my dear watson
+                              </li>
+                              <li className="item">
+                                Enterprise Level Applications
+                              </li>
+                              <li className="item">
+                                Walmart Labs is killiing it!
+                              </li>
+                              <li className="item">
+                                Explosive party tonight
+                              </li>
+                              <li className="item">
+                                2018 Municipal Elections
+                              </li>
+                            </ul>
+                          </section>
                           <Grid1 />
                           <CarsPresentation
                             handleUserLogin={handleUserLogin}

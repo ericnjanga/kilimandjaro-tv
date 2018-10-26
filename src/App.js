@@ -85,6 +85,7 @@ function verifySavedUserInfoAndHideAuthPanel () {
  * - brand name, app title, system info (for CRUD in the admin)
  * -----------------------------------------------------------------
  */
+/*
 function getAppInfo () {
 
   return new Promise((resolve)=>{
@@ -119,8 +120,11 @@ function getAppInfo () {
   }); //[end] promise
 
 } // [end] getAppInfo
+*/
 
 
+
+/*
 async function executeAppInitProcess() {
 
   let process1Done = await getAppInfo.call(this, null);
@@ -136,7 +140,7 @@ async function executeAppInitProcess() {
   }
 
 }
-
+*/
 
 class App extends Component {
 
@@ -268,38 +272,38 @@ class App extends Component {
     const { formData:{ name }, formData:{ password } } = event; 
     const { dialogInfo } = this.state;
 
-    // Inform the user ...
-    dialogInfo.set({ active:true, message:'Fetching information ...' });
+    // // Inform the user ...
+    // dialogInfo.set({ active:true, message:'Fetching information ...' });
 
-    dbGetNode(`site-info/adminCreds`).once('value', (snapshot) => {
+    // dbGetNode(`site-info/adminCreds`).once('value', (snapshot) => {
 
-      dbGetSnapshotData({ snapshot, singleData: true }).then((adminUser) => {
+    //   dbGetSnapshotData({ snapshot, singleData: true }).then((adminUser) => {
 
-        // Find-out if this user exist in the DB
-        if (adminUser && adminUser.name==name && adminUser.password==password) {
-          // console.log('---->>>>found it', adminUser);
-          const { globals } = this.state;
-          globals.adminUser = adminUser;
+    //     // Find-out if this user exist in the DB
+    //     if (adminUser && adminUser.name===name && adminUser.password==password) {
+    //       // console.log('---->>>>found it', adminUser);
+    //       const { globals } = this.state;
+    //       globals.adminUser = adminUser;
 
-          // Inform the user ...
-          dialogInfo.set({ active:false, message:'' });
+    //       // Inform the user ...
+    //       dialogInfo.set({ active:false, message:'' });
 
-          this.setState({ globals });
+    //       this.setState({ globals });
 
-        } else {
-          // Give some times before displaying the error message
-          window.setTimeout(()=>{
-            dialogInfo.set({ active:true, message:"nom d'utilisateur ou mot de passe incorrect" });
-          }, 800);
-          window.setTimeout(()=>{
-            dialogInfo.set({ active:false, message:'' });
-          }, 2200);
+    //     } else {
+    //       // Give some times before displaying the error message
+    //       window.setTimeout(()=>{
+    //         dialogInfo.set({ active:true, message:"nom d'utilisateur ou mot de passe incorrect" });
+    //       }, 800);
+    //       window.setTimeout(()=>{
+    //         dialogInfo.set({ active:false, message:'' });
+    //       }, 2200);
           
-        }
+    //     }
 
-      });
+    //   });
 
-    });
+    // });
 
   };
 

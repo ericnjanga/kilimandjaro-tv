@@ -8,8 +8,7 @@ import ItemsListing from './ItemsListing.js';
 import Footer from './Footer.js';
 
 
-const CarsPresentation = ({ 
-}) => {
+const CarsPresentation = () => {
 
   return (
     <React.Fragment>
@@ -49,7 +48,7 @@ const CarsPresentation = ({
         </section>
         
         
-        <footer className="box-padd50-tb bg-dark1 txt-light css-footer">
+        <footer className="box-padd50-tb txt-light css-footer">
           <Footer />
         </footer>
       </div>
