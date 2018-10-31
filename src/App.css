@@ -71,7 +71,34 @@ body {
 }
 
 
+.box-video {
+  cursor: pointer;
+}
 
+
+
+.modal-overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0,0, 0.8);
+}
+.modal-container {
+  position: relative;
+  top: 100px;
+}
+.modal-overlay .modal-close {
+  position: fixed;
+  top: 50px;  
+  right: 50px;
+  font-size: 50px;
+  color: #fff;
+}
 
 
 
@@ -133,6 +160,8 @@ body {
 @import 'css/small-tweaks.css';
 @import 'css/admin.css';
 @import 'css/theme.css';
+
+@import 'css/demos.css';
 
 
  

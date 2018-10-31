@@ -10,7 +10,8 @@ import { GlobalContext } from './settings/basics.js';
 import PreloaderScreen from './components/PrelaoderScreen';
 import Page404 from './terminals/404Page';
 
-import Grid1 from './components/tests/Grid1';
+import Grid1 from './components/tests/Grid1'; 
+
 import GridVertical from './components/tests/GridVertical';
 
 
@@ -22,6 +23,8 @@ class AppPresentation extends React.Component {
 
 
   render() {
+
+    alert('CONNECT WITH API')
 
     const {
       handleAdminLogin,
@@ -114,6 +117,9 @@ class AppPresentation extends React.Component {
                               </li>
                             </ul>
                           </section>
+
+ 
+
                           <Grid1 />
                           <CarsPresentation
                             handleUserLogin={handleUserLogin}

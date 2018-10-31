@@ -40,9 +40,12 @@ class GuttersGrid extends React.Component {
   componentDidMount() {
 
     // List of videos
-    const arrayVideos = [];  
-    for(var i=0 ; i < 25 ; i++){
-      arrayVideos.push({ key:i, category:'video' });
+    const arrayVideos = [
+      { key:0, category:'video', id:'294458799' },
+      { key:1, category:'video', id:'76979871' }
+    ];  
+    for(var i=2 ; i < 23 ; i++){
+      arrayVideos.push({ key:i, category:'video', id:'294458799' });
     }
 
     //  List of ads
