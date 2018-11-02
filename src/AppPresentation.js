@@ -17,14 +17,7 @@ import GridVertical from './components/tests/GridVertical';
 
 class AppPresentation extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
-
   render() {
-
-    alert('CONNECT WITH API')
 
     const {
       handleAdminLogin,

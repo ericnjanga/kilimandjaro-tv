@@ -3,6 +3,7 @@ import { dbGetNode, dbGetSnapshotData, dbSaveRecord, dbUpdateRecord, dbUploadFil
 import { APP_PREFIX, GlobalContext } from './settings/basics.js';
 import AppPresentation from './AppPresentation.js';
 import { localStorageSave, localStorageGetItem } from './utilities/func/mix1.js';
+
 // import { TEXT_COPY } from './settings/language-and-text.js';
 
 // import CheckBoxOffIcon from '@material-ui/icons/CheckBoxOutlineBlank';
@@ -15,7 +16,7 @@ import './App.css';
  * -----------------------------------------------------------------
  * HIDE "AUTH PANEL" IF USER INFO HAVE BEEN SAVED IN LOCAL STORAGE
  * -----------------------------------------------------------------
- */
+ *
 function verifySavedUserInfoAndHideAuthPanel () {
 
   return new Promise((resolve) => {
@@ -77,7 +78,7 @@ function verifySavedUserInfoAndHideAuthPanel () {
   }); // [end] promise
 
 } // [end] verifySavedUserInfoAndHideAuthPanel
-
+*/
 
 /**
  * -----------------------------------------------------------------
@@ -181,9 +182,9 @@ class App extends Component {
    * @param {*} data 
    * @param {*} itemId 
    */
-  componentDidMount() {
+  componentDidMount() { 
 
-    // executeAppInitProcess.call(this, null);
+
 
   } // [end] componentDidMount
 

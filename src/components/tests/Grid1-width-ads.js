@@ -10,15 +10,16 @@ import Paper from '@material-ui/core/Paper';
 
 import GetVimeoData from './../../utilities/funcAsChild/getVimeoData';
 
-import Video from './../Video'; 
+import Video from './../Video';
+import Ad from './../Ad';
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
   },
   paper: {
-    // height: 140,
-    width: 260,
+    height: 140,
+    width: 200,
   },
   control: {
     padding: theme.spacing.unit * 2,
@@ -27,56 +28,52 @@ const styles = theme => ({
 
 class GuttersGrid extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      firstRenderReady: false,
-      adStep: 3,
-      spacing: '16',
-      // arrayVideos = [],
-      // arrayAds = [],
-    };
-    this.user_id = '90813794';
-  }
+  state = {
+    firstRenderReady: false,
+    adStep: 3,
+    spacing: '16',
+    // arrayVideos = [],
+    // arrayAds = [],
+  };
 
   /**
    * Merging ads with videos (each ad can be spaced out by "step" videos) 
    */
   componentDidMount() {
 
-    // // List of videos
-    // const arrayVideos = [
-    //   { key:0, category:'video', id:'294458799' },
-    //   { key:1, category:'video', id:'76979871' }
-    // ];  
-    // for(var i=2 ; i < 23 ; i++){
-    //   arrayVideos.push({ key:i, category:'video', id:'294458799' });
-    // }
+    // List of videos
+    const arrayVideos = [
+      { key:0, category:'video', id:'294458799' },
+      { key:1, category:'video', id:'76979871' }
+    ];  
+    for(var i=2 ; i < 23 ; i++){
+      arrayVideos.push({ key:i, category:'video', id:'294458799' });
+    }
 
-    // //  List of ads
-    // const arrayAds = [];  
-    // for(var i=0 ; i < 4 ; i++){
-    //   arrayAds.push({ key:`${i}x-9`, category:'ad' });
-    // }
-    // let counterAds = 0;   // allows to keep track of which ad is added
-    // let counterJump = 1;
-    // const step = {nb:this.state.adStep, extended:false};       //insert advertising every "step" videos
+    //  List of ads
+    const arrayAds = [];  
+    for(var i=0 ; i < 4 ; i++){
+      arrayAds.push({ key:`${i}x-9`, category:'ad' });
+    }
+    let counterAds = 0;   // allows to keep track of which ad is added
+    let counterJump = 1;
+    const step = {nb:this.state.adStep, extended:false};       //insert advertising every "step" videos
     
-    // // Merging ads with videos (each ad can be spaced out by "step" videos) 
-    // arrayVideos.forEach((video, index) => {
-    //   if ( (counterJump===step.nb) && (counterAds < arrayAds.length)  ) { 
-    //     arrayVideos.splice((index + 1), 0, arrayAds[counterAds] );
-    //     counterAds += 1;
-    //     counterJump = 0;
-    //     if(!step.extended) {
-    //       step.nb += 1;
-    //       step.extended = true;
-    //     }
-    //   }
-    //   counterJump += 1;
-    // });
+    // Merging ads with videos (each ad can be spaced out by "step" videos) 
+    arrayVideos.forEach((video, index) => {
+      if ( (counterJump===step.nb) && (counterAds < arrayAds.length)  ) { 
+        arrayVideos.splice((index + 1), 0, arrayAds[counterAds] );
+        counterAds += 1;
+        counterJump = 0;
+        if(!step.extended) {
+          step.nb += 1;
+          step.extended = true;
+        }
+      }
+      counterJump += 1;
+    });
 
-    // this.setState({ arrayVideos, firstRenderReady:true });
+    this.setState({ arrayVideos, firstRenderReady:true });
   }
 
  
@@ -90,28 +87,26 @@ class GuttersGrid extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { spacing } = this.state;
+    const { spacing, arrayVideos, firstRenderReady } = this.state;
 
+    if(!firstRenderReady) {
+      return false;
+    }
 
     return (
       <Grid container className={classes.root} spacing={16}>
         <Grid item xs={12}>
           <Grid container className={classes.demo} justify="flex-start" spacing={Number(spacing)}>
-            <GetVimeoData url={`/users/${this.user_id}/videos`}>
-              {
-                (videoData) => {
-                  console.log('*******videoData=', videoData)
-                  return (
-                    videoData.map((video, index) => (
-                      <Grid key={video.uri} item className="video">
-                        <Video data={video} />
-                        { console.log('*******video=', video) }
-                      </Grid>
-                    ))
-                  );
+            {arrayVideos.map((video, index) => (
+              <Grid key={video.key} item className="video">
+                {
+                  video.category==='video' && <Video data={video} />
                 }
-              }
-            </GetVimeoData>
+                {
+                  video.category==='ad' && <Ad data={video} />
+                }
+              </Grid>
+            ))}
           </Grid>
         </Grid>
         <Grid item xs={12}>

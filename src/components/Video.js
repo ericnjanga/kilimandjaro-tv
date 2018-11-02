@@ -6,10 +6,13 @@ import ModalVideo from './ModalVideo';
 
 const styles = theme => ({
   paper: {
-    height: 140,
-    width: 200,
+    // height: 140,
+    width: 260,
     border:'10px solid blue',
   },
+  img: {
+    maxWidth: '100%',
+  }
 });
 
 
@@ -35,12 +38,17 @@ class Video extends React.Component {
 
   render() {
 
-    console.log('[render] - video');
     const {
-      data:{category, id},
+      // data:{category, id},
+      data:{uri, pictures, metadata},
       classes,
     } = this.props;
+
+    console.log('[render] - video');
+
     const { modal } = this.state; 
+    const videoId = uri.split('/videos/')[1];
+    const imgUrl = pictures.sizes[3].link;
 
     return(
       <React.Fragment>
@@ -48,12 +56,21 @@ class Video extends React.Component {
           className={`${classes.paper} box-video`}
           onClick={this.toggleModal}
         >
-          { category}
+          {/* <CardMedia
+            className={`${classes.media}`}
+            image={imgUrl}
+            title={metadata.name}
+          /> */}
+          <img 
+            src={imgUrl}
+            alt={metadata.name}
+            className={`${classes.img}`}
+          />
         </Paper> 
         <ModalVideo
           active={modal.active}
           toggle={this.toggleModal}
-          videoId={id}
+          videoId={videoId}
         />
       </React.Fragment>
     );
