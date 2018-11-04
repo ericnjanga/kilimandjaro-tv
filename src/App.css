@@ -35,15 +35,64 @@ body {
   width: 100%;
 }
 .App-sidedisplay {
-  background: red;
+  position: relative;
+  background: #fff;
+  list-style: none;
+  padding: 0;
+}
+.App-sidedisplay ul {
+  list-style: none;
+  padding: 0;
+}
+.App-brand { 
+  background: #22343c;
+  color: lime;
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+  height: 80px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: bold;
+}
+.App-brand,
+.App-sidedisplay__item { 
+  transition: background-color 0.2s ease-in-out;
+}
+.App-sidedisplay__item:hover,
+.App-brand:hover { 
+  color: #22343c;
+  background: lime;
+  text-decoration: none;
 }
 .App-maincontent {
-  background:lime
+  background:#22343c;
 }
-.App-sidedisplay,
+
+/* .App-sidedisplay__grid, */
 .App-maincontent {
   overflow-y: scroll;
   padding: 24px;
+}
+
+.App-sidedisplay__item {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: #22343c;
+}
+.App-sidedisplay__item span {
+  display: block;
+  margin-top: 20px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
 }
 
 .App-horizontal-annonces {

@@ -7,10 +7,12 @@ import Grid from '@material-ui/core/Grid';
 // import RadioGroup from '@material-ui/core/RadioGroup';
 // import Radio from '@material-ui/core/Radio';
 import Paper from '@material-ui/core/Paper';
+import CloseIcon from '@material-ui/icons/Close';
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    position: 'relative',
   },
   paper: {
     height: 140,
@@ -36,19 +38,37 @@ class GuttersGrid extends React.Component {
     const { classes } = this.props;
     // const { spacing } = this.state;
     const list = [];
-    for(var i=0 ; i < 10 ; i++){
+    for(var i=0 ; i < 4 ; i++){
       list.push(i);
     }
 
     return (
-      <Grid container className={classes.root} spacing={16}>
+      <ul container className={`${classes.root} App-sidedisplay__grid`} spacing={16}>
+        <li>
+          <a className="App-sidedisplay__item" href="#">
+            <CloseIcon />
+            <span>Cat 1</span>
+          </a>
+        </li>
+        <li>
+          <a className="App-sidedisplay__item" href="#">
+            <CloseIcon />
+            <span>Cat 2</span>
+          </a>
+        </li>
+        <li>
+          <a className="App-sidedisplay__item" href="#">
+            <CloseIcon />
+            <span>Cat 3</span>
+          </a>
+        </li>
         {/* <Grid item xs={12}> */}
           {/* <Grid container className={classes.demo} justify="flex-start" spacing={Number(spacing)}> */}
-            {list.map(value => (
+            {/* {list.map(value => (
               <Grid key={value++} item xs={12}>
                 <Paper className={classes.paper} />
               </Grid>
-            ))}
+            ))} */}
           {/* </Grid> */}
         {/* </Grid> */}
         {/* <Grid item xs={12}>
@@ -74,7 +94,7 @@ class GuttersGrid extends React.Component {
             </Grid>
           </Paper>
         </Grid> */}
-      </Grid>
+      </ul>
     );
   }
 }

@@ -8,7 +8,7 @@ const styles = theme => ({
   paper: {
     // height: 140,
     width: 260,
-    border:'10px solid blue',
+    // border:'10px solid blue',
   },
   img: {
     maxWidth: '100%',

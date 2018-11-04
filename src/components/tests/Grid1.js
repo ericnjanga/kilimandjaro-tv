@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import Radio from '@material-ui/core/Radio';
-import Paper from '@material-ui/core/Paper';
+// import FormLabel from '@material-ui/core/FormLabel';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import RadioGroup from '@material-ui/core/RadioGroup';
+// import Radio from '@material-ui/core/Radio';
+// import Paper from '@material-ui/core/Paper';
 
 import GetVimeoData from './../../utilities/funcAsChild/getVimeoData';
 
@@ -114,7 +114,7 @@ class GuttersGrid extends React.Component {
             </GetVimeoData>
           </Grid>
         </Grid>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <Paper className={classes.control}>
             <Grid container>
               <Grid item>
@@ -136,7 +136,7 @@ class GuttersGrid extends React.Component {
               </Grid>
             </Grid>
           </Paper>
-        </Grid>
+        </Grid> */}
       </Grid>
     );
   }

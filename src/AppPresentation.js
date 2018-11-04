@@ -47,6 +47,8 @@ class AppPresentation extends React.Component {
         <Router>
           <div className="App">
             <aside className="App-sidedisplay">
+
+              <a href="#" className="App-brand">KMD TV</a>
               <GridVertical
 
               />
@@ -85,6 +87,10 @@ class AppPresentation extends React.Component {
                 
                           {/* <TopNavigation /> */}
 
+ 
+
+                          <Grid1 />
+
                           <section className="App-horizontal-annonces">
                             <ul className="App-horizontal-annonces-frame">
                               <li className="item">
@@ -110,13 +116,9 @@ class AppPresentation extends React.Component {
                               </li>
                             </ul>
                           </section>
-
- 
-
-                          <Grid1 />
-                          <CarsPresentation
+                          {/* <CarsPresentation
                             handleUserLogin={handleUserLogin}
-                          />
+                          /> */}
                         </React.Fragment>
                       )
                     }
