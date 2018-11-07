@@ -23,6 +23,7 @@
     "react-scripts": "1.1.4",
     "react-transition-group": "^1.2.1",
     "reactstrap": "^6.4.0",
+    "styled-components": "^4.0.3",
     "vimeo": "^2.1.0"
   },
   "scripts": {

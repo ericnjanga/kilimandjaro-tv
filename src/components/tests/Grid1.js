@@ -94,9 +94,9 @@ class GuttersGrid extends React.Component {
 
 
     return (
-      <Grid container className={classes.root} spacing={16}>
-        <Grid item xs={12}>
-          <Grid container className={classes.demo} justify="flex-start" spacing={Number(spacing)}>
+       <Grid container className={classes.root} spacing={16}>
+         <Grid item xs={12}>
+           <Grid container className={classes.demo} justify="flex-start" spacing={Number(spacing)}>
             <GetVimeoData url={`/users/${this.user_id}/videos`}>
               {
                 (videoData) => {
@@ -112,8 +112,10 @@ class GuttersGrid extends React.Component {
                 }
               }
             </GetVimeoData>
-          </Grid>
-        </Grid>
+           </Grid>
+         </Grid>
+
+
         {/* <Grid item xs={12}>
           <Paper className={classes.control}>
             <Grid container>
@@ -137,6 +139,8 @@ class GuttersGrid extends React.Component {
             </Grid>
           </Paper>
         </Grid> */}
+
+
       </Grid>
     );
   }

@@ -1,5 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+
+import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
+
+
 import PropTypes from 'prop-types';
 import Admin from './terminals/admin/Admin.js';
 import CarsPresentation from './terminals/visitor/CarsPresentation.js';
@@ -11,8 +15,22 @@ import PreloaderScreen from './components/PrelaoderScreen';
 import Page404 from './terminals/404Page';
 
 import Grid1 from './components/tests/Grid1'; 
+ 
+import GridVertical from './components/tests/GridVertical'; 
 
-import GridVertical from './components/tests/GridVertical';
+
+import TopNav from './components/layout/TopNav';
+
+
+
+
+const AppDiv = styled.div`
+  position: fixed;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+`;
+
 
 
 class AppPresentation extends React.Component {
@@ -24,6 +42,7 @@ class AppPresentation extends React.Component {
       handleUserLogin,
       dialogInfo,
       appLoader,
+      classes,
     } = this.props;
 
     if(!appLoader.firstRenderReady) {
@@ -33,6 +52,8 @@ class AppPresentation extends React.Component {
         />
       );
     }
+
+ 
 
     
     console.log('[render] -AppPresentation');
@@ -45,7 +66,7 @@ class AppPresentation extends React.Component {
         />
 
         <Router>
-          <div className="App">
+          <AppDiv>
             <aside className="App-sidedisplay">
 
               <a href="#" className="App-brand">KMD TV</a>
@@ -54,7 +75,13 @@ class AppPresentation extends React.Component {
               />
             </aside>
             <section className="App-maincontent">
-              <Switch>
+              <TopNav />
+               
+              
+              <section className="App-maincontent__center">
+
+
+                <Switch>
                 {/* 
                   Welcome screen:
                   --------------
@@ -91,7 +118,8 @@ class AppPresentation extends React.Component {
 
                           <Grid1 />
 
-                          <section className="App-horizontal-annonces">
+                          {/* creates a problem because of its 3000px "App-horizontal-annonces-frame"  */}
+                          {/* <section className="App-horizontal-annonces">
                             <ul className="App-horizontal-annonces-frame">
                               <li className="item">
                                 Progressive Web Apps
@@ -115,7 +143,12 @@ class AppPresentation extends React.Component {
                                 2018 Municipal Elections
                               </li>
                             </ul>
-                          </section>
+                          </section> */}
+                          
+                          
+                          
+                          
+                          
                           {/* <CarsPresentation
                             handleUserLogin={handleUserLogin}
                           /> */}
@@ -197,8 +230,12 @@ class AppPresentation extends React.Component {
                   }
                 />
               </Switch>
+            
+
+              </section>
+                
             </section>
-          </div>  
+          </AppDiv>  
         </Router>
       </React.Fragment>
     );

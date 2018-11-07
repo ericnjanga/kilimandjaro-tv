@@ -28,15 +28,10 @@ body {
  * .......
  * -------------------------------
 */
-.App {
-  position: fixed;
-  display: flex;
-  height: 100vh;
-  width: 100%;
-}
+
 .App-sidedisplay {
   position: relative;
-  background: #fff;
+  background: #eee;
   list-style: none;
   padding: 0;
 }
@@ -45,8 +40,8 @@ body {
   padding: 0;
 }
 .App-brand { 
-  background: #22343c;
-  color: lime;
+  background: #fff;
+  color: #22343c;
   width: 100%;
   padding: 0 20px;
   text-align: center;
@@ -70,11 +65,12 @@ body {
   text-decoration: none;
 }
 .App-maincontent {
+  flex: 1;
   background:#22343c;
 }
 
 /* .App-sidedisplay__grid, */
-.App-maincontent {
+.App-maincontent__center {
   overflow-y: scroll;
   padding: 24px;
 }
