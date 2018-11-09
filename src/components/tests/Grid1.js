@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+
+import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
+
 // import FormLabel from '@material-ui/core/FormLabel';
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
 // import RadioGroup from '@material-ui/core/RadioGroup';
@@ -11,6 +14,95 @@ import Grid from '@material-ui/core/Grid';
 import GetVimeoData from './../../utilities/funcAsChild/getVimeoData';
 
 import Video from './../Video'; 
+
+
+
+const DivRow = styled.div`
+  // border: 3px solid red;
+  display: flex; 
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+
+  .col {
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;
+    min-height: 1px;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-right: 15px;
+    padding-left: 15px;
+  } 
+  .col:nth-of-type(2n) {
+    padding-left: 7.5px;
+  }
+  .col:nth-of-type(2n + 1) {
+    padding-right: 7.5px;
+  }
+
+
+  @media (min-width: 600px) {
+    .col {  
+      flex: 0 0 33.33333%;
+      max-width: 33.33333%; 
+    }
+    .col:nth-of-type(3n) {
+      // border: 5px solid green;
+      padding-right: 15px;
+      padding-left: 7.5px;
+    }
+    .col:nth-of-type(3n + 1) {
+      // border: 5px solid purple;
+      padding-left: 15px;
+      padding-right: 7.5px;
+    }
+    .col:nth-of-type(3n + 2) {
+      // border: 5px dashed purple;
+      padding-left: 7.5px;
+      padding-right: 7.5px;
+    }
+  }
+
+
+  @media (min-width: 900px) {
+    .col {  
+      flex: 0 0 25%;
+      max-width: 25%; 
+    }
+    .col:nth-of-type(4n + 1) {
+      // border: 5px solid purple;
+      padding-left: 15px;
+      padding-right: 7.5px;
+    }
+    .col:nth-of-type(4n + 2) {
+      // border: 5px dashed purple;
+      padding-left: 7.5px;
+      padding-right: 7.5px;
+    }
+    .col:nth-of-type(4n + 3) {
+      // border: 5px dashed blue;
+      padding-left: 7.5px;
+      padding-right: 7.5px;
+    }
+    .col:nth-of-type(4n) {
+      // border: 5px solid green;
+      padding-right: 15px;
+      padding-left: 7.5px;
+    }
+  }
+
+
+  @media (min-width: 1200px) {
+    .col {  
+      flex: 0 0 250px;
+      max-width: 250px; 
+      padding-left: 15px!important;
+      padding-right: 0!important;
+    }
+  }
+`;
+
 
 const styles = theme => ({
   root: {
@@ -94,26 +186,30 @@ class GuttersGrid extends React.Component {
 
 
     return (
-       <Grid container className={classes.root} spacing={16}>
-         <Grid item xs={12}>
-           <Grid container className={classes.demo} justify="flex-start" spacing={Number(spacing)}>
-            <GetVimeoData url={`/users/${this.user_id}/videos`}>
-              {
-                (videoData) => {
-                  console.log('*******videoData=', videoData)
-                  return (
-                    videoData.map((video, index) => (
-                      <Grid key={video.uri} item className="video">
-                        <Video data={video} />
-                        { console.log('*******video=', video) }
-                      </Grid>
-                    ))
-                  );
-                }
-              }
-            </GetVimeoData>
-           </Grid>
-         </Grid>
+      <DivRow>
+        <GetVimeoData url={`/users/${this.user_id}/videos`}>
+          {
+            (videoData) => {
+              console.log('*******videoData=', videoData)
+              return (
+                videoData.map((video, index) => (
+                  <div className="col">
+                    {/* <Grid key={video.uri} item className="video"> */}
+                      <Video data={video} />
+                      { console.log('*******video=', video) }
+                    {/* </Grid> */}
+                  </div>
+                ))
+              );
+            }
+          }
+        </GetVimeoData>
+
+
+
+
+
+
 
 
         {/* <Grid item xs={12}>
@@ -141,7 +237,30 @@ class GuttersGrid extends React.Component {
         </Grid> */}
 
 
-      </Grid>
+      </DivRow>
+
+
+      // <Grid container className={classes.root} spacing={16}>
+      //   <Grid item xs={12}>
+      //     <Grid container className={classes.demo} justify="flex-start" spacing={Number(spacing)}>
+      //       <GetVimeoData url={`/users/${this.user_id}/videos`}>
+      //         {
+      //           (videoData) => {
+      //             console.log('*******videoData=', videoData)
+      //             return (
+      //               videoData.map((video, index) => (
+      //                 <Grid key={video.uri} item className="video">
+      //                   <Video data={video} />
+      //                   { console.log('*******video=', video) }
+      //                 </Grid>
+      //               ))
+      //             );
+      //           }
+      //         }
+      //       </GetVimeoData>
+      //     </Grid>
+      //   </Grid> 
+      // </Grid>
     );
   }
 }

@@ -22,14 +22,31 @@ import GridVertical from './components/tests/GridVertical';
 import TopNav from './components/layout/TopNav';
 
 
+/**
+ * App theme: https://slackthemes.net/#/folio_purple
+ * #38307F,#737272,#DA6A2D,#FFFFFF,#737272,#FFFFFF,#DA6A2D,#DA6A2D
+ * 
+ * 
+ * App Layout: https://dribbble.com/shots/1732793-Task-App-Dashboard-UI
+ */
 
-
-const AppDiv = styled.div`
+const DivApp = styled.div`
   position: fixed;
   display: flex;
   height: 100vh;
   width: 100%;
 `;
+const DivAppMainContent = styled.section`
+  flex: 1;
+  background: #d6d6d6;
+
+  .maincontent-center {
+    overflow-y: scroll;
+    padding: 15px;
+  }
+`;
+
+
 
 
 
@@ -66,19 +83,19 @@ class AppPresentation extends React.Component {
         />
 
         <Router>
-          <AppDiv>
-            <aside className="App-sidedisplay">
+          <DivApp>
+            {/* <aside className="App-sidedisplay">
 
               <a href="#" className="App-brand">KMD TV</a>
               <GridVertical
 
               />
-            </aside>
-            <section className="App-maincontent">
+            </aside> */}
+            <DivAppMainContent>
               <TopNav />
                
               
-              <section className="App-maincontent__center">
+              <section className="maincontent-center">
 
 
                 <Switch>
@@ -234,8 +251,8 @@ class AppPresentation extends React.Component {
 
               </section>
                 
-            </section>
-          </AppDiv>  
+            </DivAppMainContent>
+          </DivApp>  
         </Router>
       </React.Fragment>
     );

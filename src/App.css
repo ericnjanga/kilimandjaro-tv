@@ -64,16 +64,7 @@ body {
   background: lime;
   text-decoration: none;
 }
-.App-maincontent {
-  flex: 1;
-  background:#22343c;
-}
 
-/* .App-sidedisplay__grid, */
-.App-maincontent__center {
-  overflow-y: scroll;
-  padding: 24px;
-}
 
 .App-sidedisplay__item {
   padding: 20px;
@@ -114,12 +105,7 @@ body {
 .box-ad {
   background: #ccc!important;
 }
-
-
-.box-video {
-  cursor: pointer;
-}
-
+ 
 
 
 .modal-overlay {
