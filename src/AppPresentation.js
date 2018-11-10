@@ -9,15 +9,14 @@ import Admin from './terminals/admin/Admin.js';
 import CarsPresentation from './terminals/visitor/CarsPresentation.js';
 import AdminLogin from './terminals/admin/login';
 import DialogInfo from './terminals/widgets/DialogInfo.js'
-import TopNavigation from './terminals/TopNavigation.js';
 import { GlobalContext } from './settings/basics.js';
 import PreloaderScreen from './components/PrelaoderScreen';
 import Page404 from './terminals/404Page';
 
 import Grid1 from './components/tests/Grid1'; 
 
-
-import TopNav from './components/layout/TopNav';
+import Drawer from './components/layout/Drawer';
+import HorizontalNav from './components/layout/HorizontalNav';
 
 import VerticalNav from './components/layout/VerticalNav';
 
@@ -30,10 +29,23 @@ const DivApp = styled.div`
   display: flex;
   height: 100vh;
   width: 100%;
+
+
+  // VERTICAL NAV
+  // ------------------------
+  .App-verticalNav {
+    display: none;
+  }
+  @media (min-width: 900px) {
+    .App-verticalNav {
+      display: flex;
+    }
+  }
 `;
 const DivAppMainContent = styled.section`
   flex: 1;
   background: ${theme.color.lightGray};
+
 
   .maincontent-center {
     overflow-y: scroll;
@@ -47,6 +59,14 @@ const DivAppMainContent = styled.section`
 
 class AppPresentation extends React.Component {
 
+  constructor(props) {
+    super(props);
+    // this.state = {
+    //   drawer: false,
+    // };
+  }
+
+
   render() {
 
     const {
@@ -55,6 +75,8 @@ class AppPresentation extends React.Component {
       dialogInfo,
       appLoader,
       classes,
+      drawer,
+      toggleDrawer,
     } = this.props;
 
     if(!appLoader.firstRenderReady) {
@@ -79,9 +101,23 @@ class AppPresentation extends React.Component {
 
         <Router>
           <DivApp>
-            <VerticalNav />
-            <DivAppMainContent>
-              <TopNav />
+
+            <Drawer
+              active={drawer}
+              toggle={toggleDrawer}
+            />
+
+            <VerticalNav
+              className="App-verticalNav"
+            />
+            <DivAppMainContent> {/*  onClick={toggleDrawer}  */}
+              <HorizontalNav
+                // leftContent={()=><button className="App-brand">??????</button>}
+              >
+                <button
+                  onClick={toggleDrawer}
+                  className="App-brand">??????</button>
+              </HorizontalNav>
                
               
               <section className="maincontent-center">
@@ -117,8 +153,7 @@ class AppPresentation extends React.Component {
                               )
                             }
                           </GlobalContext.Consumer> */}
-                
-                          {/* <TopNavigation /> */}
+                 
 
  
 
@@ -203,8 +238,7 @@ class AppPresentation extends React.Component {
                         {
                           (global) => (
                             global && global.adminUser ? 
-                            <React.Fragment>
-                              <TopNavigation />
+                            <React.Fragment> 
                               <Admin />
                             </React.Fragment>
                             :
@@ -227,8 +261,7 @@ class AppPresentation extends React.Component {
                   render={
                     () => {
                       return(
-                        <React.Fragment>
-                          <TopNavigation />
+                        <React.Fragment> 
                           <Page404 />
                         </React.Fragment>
                       )

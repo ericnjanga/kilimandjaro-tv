@@ -5,12 +5,16 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import NotificationIcon from '@material-ui/icons/Favorite';
 
+import Logo from './../content/Logo';
+
 
 import theme from './../../settings/theme';
 
 
 
-const TopNav = () => {
+const HorizontalNav = ({
+  children,
+}) => {
 
   const Nav = styled.nav`
     display: flex;
@@ -18,6 +22,10 @@ const TopNav = () => {
     justify-content: flex-end;
     background: transparent;
     height: 80px;
+
+    .App-brand {
+      margin-right: auto;
+    }
   `;
 
   const IconSearch = ({ className, children }) => (
@@ -41,10 +49,17 @@ const TopNav = () => {
 
   return (
     <Nav>
+     
+      {/* { LeftContent() } */}
+      { children }
+      {/* <Logo
+        size="large"
+        className="App-brand"
+      /> */}
       <StyledIconSearch />
       <StyledIconNotificationIcon />
     </Nav>
   );
 };
 
-export default TopNav;
+export default HorizontalNav;

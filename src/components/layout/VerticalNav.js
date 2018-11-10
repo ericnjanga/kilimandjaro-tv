@@ -9,6 +9,8 @@ import IconNews from '@material-ui/icons/KeyboardVoice';
 import BuzzIcon from '@material-ui/icons/Whatshot';
 import ListOfAdds from './../tests/ListOfAdds'; 
 
+import Logo from './../content/Logo';
+
 const asidePadding = '30px';
 const Aside = styled.aside`
   display: flex;
@@ -89,10 +91,15 @@ const Aside = styled.aside`
 `;
 
 
-const VerticalNav = () => {
+const VerticalNav = ({
+  className,
+}) => {
   return (
-    <Aside>
-
+    <Aside className={className}>
+      
+      <Logo
+        size="small'"
+      />
       <a href="#" className="App-brand">KMD TV</a>
       
       <ul>

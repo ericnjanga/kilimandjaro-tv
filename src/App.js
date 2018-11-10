@@ -143,12 +143,21 @@ async function executeAppInitProcess() {
 }
 */
 
+alert(
+  `
+    - Placeholder back (firstRenderReady)
+    - toggleDrawer
+  `
+);
+
+
 class App extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
+      drawer: false,
       appLoader: {
         firstRenderReady: true, // Prevent app from rendering multiple times "on first render"
         appInfo: false,
@@ -175,6 +184,14 @@ class App extends Component {
 
 
 
+
+
+  toggleDrawer = () => {
+    console.log('???????')
+    // this.setState((prevState) => {
+    //   return { drawer: !prevState.drawer }
+    // });
+  }
   /**
    * APP INIT
    * ------------------------
@@ -398,6 +415,7 @@ class App extends Component {
       <GlobalContext.Provider value={{...this.state.globals}}>
         <AppPresentation
           {...this.state} 
+          toggleDrawer={this.toggleDrawer}
           handleAdminLogin={this.handleAdminLogin}
           handleUserLogin={this.handleUserLogin}
           handleAdminDataSubmit={this.handleAdminDataSubmit}

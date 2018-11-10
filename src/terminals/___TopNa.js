@@ -16,7 +16,7 @@ import {
   NavItem
 } from 'reactstrap';
 
-export default class TopNavigation extends React.Component {
+export default class HorizontalNavigation extends React.Component {
   constructor(props) {
     super(props);
 
@@ -145,7 +145,7 @@ export default class TopNavigation extends React.Component {
 
 
 
-// const TopNavigation = () => {
+// const HorizontalNavigation = () => {
 
 //   return (
 //     <div className="top-navigation">
@@ -170,4 +170,4 @@ export default class TopNavigation extends React.Component {
 
 
 
-// export default TopNavigation;
+// export default HorizontalNavigation;
