@@ -6,6 +6,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import NotificationIcon from '@material-ui/icons/Favorite';
 
 
+import theme from './../../settings/theme';
+
+
 
 const TopNav = () => {
 
@@ -28,11 +31,11 @@ const TopNav = () => {
     </IconButton>
   );
   const StyledIconSearch = styled(IconSearch)`
-  color: #ccc!important;
+  color: ${theme.color.gray}!important;
     margin: 8px!important;
   `; 
   const StyledIconNotificationIcon = styled(IconNotificationIcon)`
-  color: #ccc!important;
+  color: ${theme.color.gray}!important;
     margin: 8px!important;
   `; 
 

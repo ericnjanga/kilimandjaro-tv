@@ -39,26 +39,7 @@ body {
   list-style: none;
   padding: 0;
 }
-.App-brand { 
-  background: #fff;
-  color: #22343c;
-  width: 100%;
-  padding: 0 20px;
-  text-align: center;
-  height: 80px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-weight: bold;
-}
-.App-brand,
-.App-sidedisplay__item { 
-  transition: background-color 0.2s ease-in-out;
-}
-.App-sidedisplay__item:hover,
+/* .App-sidedisplay__item:hover,
 .App-brand:hover { 
   color: #22343c;
   background: lime;
@@ -80,7 +61,7 @@ body {
   margin-top: 20px;
   font-size: 0.7rem;
   text-transform: uppercase;
-}
+} */
 
 .App-horizontal-annonces {
   overflow-x: hidden;

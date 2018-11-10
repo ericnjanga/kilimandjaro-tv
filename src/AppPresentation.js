@@ -15,20 +15,15 @@ import PreloaderScreen from './components/PrelaoderScreen';
 import Page404 from './terminals/404Page';
 
 import Grid1 from './components/tests/Grid1'; 
- 
-import GridVertical from './components/tests/GridVertical'; 
 
 
 import TopNav from './components/layout/TopNav';
 
+import VerticalNav from './components/layout/VerticalNav';
 
-/**
- * App theme: https://slackthemes.net/#/folio_purple
- * #38307F,#737272,#DA6A2D,#FFFFFF,#737272,#FFFFFF,#DA6A2D,#DA6A2D
- * 
- * 
- * App Layout: https://dribbble.com/shots/1732793-Task-App-Dashboard-UI
- */
+import theme from './settings/theme';
+
+
 
 const DivApp = styled.div`
   position: fixed;
@@ -38,7 +33,7 @@ const DivApp = styled.div`
 `;
 const DivAppMainContent = styled.section`
   flex: 1;
-  background: #d6d6d6;
+  background: ${theme.color.lightGray};
 
   .maincontent-center {
     overflow-y: scroll;
@@ -84,13 +79,7 @@ class AppPresentation extends React.Component {
 
         <Router>
           <DivApp>
-            {/* <aside className="App-sidedisplay">
-
-              <a href="#" className="App-brand">KMD TV</a>
-              <GridVertical
-
-              />
-            </aside> */}
+            <VerticalNav />
             <DivAppMainContent>
               <TopNav />
                
