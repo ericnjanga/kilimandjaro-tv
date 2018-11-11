@@ -1,37 +1,24 @@
 import React from 'react';
+import theme from './../settings/theme';
 // import { withStyles } from '@material-ui/core/styles';
 
 import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
 // import Paper from '@material-ui/core/Paper';
 import ModalVideo from './ModalVideo';
+import IconVideo from '@material-ui/icons/PlayCircleOutline';
 
 
 const DivContainer = styled.div`
+  position: relative;
   border-radius: 5px;
-  /* width: 260px; */
-  /* width: 50%; */
-  cursor: pointer;
- 
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-
-  overflow: hidden;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); 
 
   > img {
     max-width: 100%;
-    // border-ra
   }
-`;
 
-// const styles = theme => ({
-//   paper: {
-//     // height: 140,
-//     width: 260,
-//     // border:'10px solid blue',
-//   },
-//   img: {
-//     maxWidth: '100%',
-//   }
-// });
+  ${theme.hoverEffect1}
+`;
 
 
 class Video extends React.Component {
@@ -73,15 +60,10 @@ class Video extends React.Component {
         <DivContainer
           onClick={this.toggleModal}
         >
-          {/* <CardMedia
-            className={`${classes.media}`}
-            image={imgUrl}
-            title={metadata.name}
-          /> */}
+          <IconVideo className="icon" />
           <img 
             src={imgUrl}
             alt={metadata.name}
-            // className={`${classes.img}`}
           />
         </DivContainer> 
         <ModalVideo

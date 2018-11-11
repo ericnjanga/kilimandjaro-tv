@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import theme from './../../settings/theme';
 
 import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
@@ -28,43 +28,10 @@ const DivContainer = styled.ul`
 
   .add {
     position: relative;
-    cursor: pointer;
-    // min-height: 100px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    overflow: hidden;
     img {
       max-width: 100%;
     }
-    .icon {
-      position: absolute;
-      transform: translateY(-50px);
-      font-size: 32px;
-      left: calc(50% - ${32/2}px);
-      color: ${theme.color.secondary};
-      opacity: 0;
-      transition: ${theme.transition.basic};
-    }
-    &:hover {
-      &:before {
-        opacity: .4;
-      }
-      .icon {
-        opacity: 1;
-        transform: translateY(50%);
-      }
-    }
-    &:before {
-      position: absolute;
-      content: '';
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 1);
-      opacity: 0;
-      transition: ${theme.transition.basic};
-    }
+    ${theme.hoverEffect1}
   }
 `;
 
