@@ -21,10 +21,24 @@ const HorizontalNav = ({
     align-items: center;
     justify-content: flex-end;
     background: transparent;
+    padding: 0 15px;
     height: 80px;
 
     .App-brand {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
       margin-right: auto;
+      color: ${theme.color.secondary};
+      button {
+        padding-left: 0;
+        border: 0;
+        background: transparent;
+      }
+    }
+
+    .btnIcon {
+      margin-left: 8px!important;
     }
   `;
 
@@ -40,24 +54,18 @@ const HorizontalNav = ({
   );
   const StyledIconSearch = styled(IconSearch)`
   color: ${theme.color.gray}!important;
-    margin: 8px!important;
+    // margin: 8px!important;
   `; 
   const StyledIconNotificationIcon = styled(IconNotificationIcon)`
   color: ${theme.color.gray}!important;
-    margin: 8px!important;
+    // margin: 8px!important;
   `; 
 
   return (
     <Nav>
-     
-      {/* { LeftContent() } */}
       { children }
-      {/* <Logo
-        size="large"
-        className="App-brand"
-      /> */}
-      <StyledIconSearch />
-      <StyledIconNotificationIcon />
+      <StyledIconSearch className="btnIcon" />
+      <StyledIconNotificationIcon className="btnIcon" />
     </Nav>
   );
 };

@@ -97,10 +97,11 @@ const VerticalNav = ({
   return (
     <Aside className={className}>
       
-      <Logo
-        size="small'"
-      />
-      <a href="#" className="App-brand">KMD TV</a>
+      <a href="#" className="App-brand">
+        <Logo
+          size="small'"
+        />
+      </a>
       
       <ul>
         <li>

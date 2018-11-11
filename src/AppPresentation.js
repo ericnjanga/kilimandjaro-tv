@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
 
 
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import Admin from './terminals/admin/Admin.js';
-import CarsPresentation from './terminals/visitor/CarsPresentation.js';
-import AdminLogin from './terminals/admin/login';
-import DialogInfo from './terminals/widgets/DialogInfo.js'
+// import CarsPresentation from './terminals/visitor/CarsPresentation.js';
+// import AdminLogin from './terminals/admin/login';
+// import DialogInfo from './terminals/widgets/DialogInfo.js'
 import { GlobalContext } from './settings/basics.js';
 import PreloaderScreen from './components/PrelaoderScreen';
 import Page404 from './terminals/404Page';
@@ -19,6 +19,10 @@ import Drawer from './components/layout/Drawer';
 import HorizontalNav from './components/layout/HorizontalNav';
 
 import VerticalNav from './components/layout/VerticalNav';
+
+import Logo from './components/content/Logo';
+
+import IconMenu from '@material-ui/icons/Menu';
 
 import theme from './settings/theme';
 
@@ -70,9 +74,6 @@ class AppPresentation extends React.Component {
   render() {
 
     const {
-      handleAdminLogin,
-      handleUserLogin,
-      dialogInfo,
       appLoader,
       classes,
       drawer,
@@ -93,11 +94,7 @@ class AppPresentation extends React.Component {
     console.log('[render] -AppPresentation');
 
     return(
-      <React.Fragment>
-        
-        <DialogInfo
-          {...dialogInfo}
-        />
+      <React.Fragment> 
 
         <Router>
           <DivApp>
@@ -110,13 +107,16 @@ class AppPresentation extends React.Component {
             <VerticalNav
               className="App-verticalNav"
             />
-            <DivAppMainContent> {/*  onClick={toggleDrawer}  */}
-              <HorizontalNav
-                // leftContent={()=><button className="App-brand">??????</button>}
-              >
-                <button
-                  onClick={toggleDrawer}
-                  className="App-brand">??????</button>
+            <DivAppMainContent>
+              <HorizontalNav>
+                <section className="App-brand">
+                  <button
+                    onClick={toggleDrawer}
+                  >
+                    <IconMenu />
+                  </button>
+                  <Logo size="large" />
+                </section>
               </HorizontalNav>
                
               
@@ -211,10 +211,10 @@ class AppPresentation extends React.Component {
                   -- Redirected to '/admin/:id'
                   -- Never get to '/admin/'
                   -- Top nav (visible)
-                */}
+                
                 <Route path={'/admin'} exact render={(props) => (
                   <React.Fragment>
-                    {/* Declaring '/admin/' route with content (redirecting to 'admin landing' if authenticated) */}
+                    --- Declaring '/admin/' route with content (redirecting to 'admin landing' if authenticated) ---
                     <GlobalContext.Consumer>
                       {
                         (global) => (
@@ -229,6 +229,7 @@ class AppPresentation extends React.Component {
                     </GlobalContext.Consumer>
                   </React.Fragment>
                 )} />
+                */}
 
                 <Route path={'/admin'} render={(props) => (
                   <React.Fragment>
@@ -283,13 +284,13 @@ class AppPresentation extends React.Component {
 };
 
 
-// Props validation
-AppPresentation.propTypes = {
-  handleUserLogin: PropTypes.func.isRequired, 
-};
+// // Props validation
+// AppPresentation.propTypes = {
+//   handleUserLogin: PropTypes.func.isRequired, 
+// };
 
-AppPresentation.defaultProps = {
-};
+// AppPresentation.defaultProps = {
+// };
 
 
 export default AppPresentation;

@@ -8,11 +8,11 @@ const Logo = ({
 
   return (
     <React.Fragment>
-      <a href="#" className={className}>
+      <span className={className}>
         {
           size === 'large' ? 'KILIMANDJARO TV' : 'KMD TV'
         }
-      </a>
+      </span>
     </React.Fragment>
   );
 }

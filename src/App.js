@@ -125,30 +125,154 @@ function getAppInfo () {
 
 
 
-/*
+
+
+
+
+  /**
+   * [ADMIN] APP DATA (Admin saved data)
+   * ------------------------
+   * Handle data submission from admin to the database
+   * @param {*} param0 
+   */
+  // handleAdminDataSubmit = ({ event, nodeRoot, nodeDir1, isSingleRecord }) => {
+
+  //   // console.log('>>>handle submit')
+
+  //   const { dialogInfo } = this.state;
+
+  //   // Inform the user: "data is being saved"
+  //   dialogInfo.set({ active:true, message:'Saving your data ...' });
+
+  //   // Submitting a product
+  //   // 2 steps submission:
+  //   // - Image (going to storage)
+  //   // - Post (going to database)
+  //   if (nodeRoot==='products') {
+
+  //     const { image, title } = event.formData;
+  //     const imgUploaded = dbUploadFile({ dir:'products', fileUrl:image, fileName:title });
+
+  //     imgUploaded.then((data) => {
+
+  //       // Inform the user: "Image has been successfully uploaded"
+  //       dialogInfo.set({ active:true, message:'Image has been successfully uploaded! Now saving post ...' });
+  
+  //       //...
+  //       const { name } = data.metadata;
+  //       const record = event.formData;
+  //       record.image = name;
+
+  //       // [*] Submit record (code duplicated: must be optimized)
+  //       const prodSubmitted = dbSaveRecord({
+  //         url:`${nodeRoot}/`,
+  //         record: { ...record },
+  //         isSingleRecord,
+  //       });
+  
+  //       // Reset state after data is submitted
+  //       prodSubmitted.then(()=> {
+
+  //         // Hide the info dialog
+  //         dialogInfo.set({ active:false, message:'' });
+    
+  //       });
+  //       // [*] Submit record (code duplicated: must be optimized)
+  
+  //     }); // [end] imgUploaded
+
+  //   // Submit another record
+  //   } else {
+      
+  //     // [*] Submit record (code duplicated: must be optimized)
+  //     const submitUrl = nodeDir1 ? `${nodeRoot}/${nodeDir1}/` : `${nodeRoot}/`;
+  //     const prodSubmitted = dbSaveRecord({
+  //       url: submitUrl,
+  //       record: { ...event.formData },
+  //       isSingleRecord,
+  //     });
+
+  //     // Reset state after data is submitted
+  //     prodSubmitted.then(()=> {
+
+  //       // Hide the info dialog
+  //       dialogInfo.set({ active:false, message:'' });
+  
+  //     });
+  //     // [*] Submit record (code duplicated: must be optimized)
+
+  //   }
+
+  // } //...
+
+
+
+
+
+
+  // handleAdminLogin = (event) => {
+    
+  //   const { formData:{ name }, formData:{ password } } = event; 
+  //   const { dialogInfo } = this.state;
+
+  //   // // Inform the user ...
+  //   // dialogInfo.set({ active:true, message:'Fetching information ...' });
+
+  //   // dbGetNode(`site-info/adminCreds`).once('value', (snapshot) => {
+
+  //   //   dbGetSnapshotData({ snapshot, singleData: true }).then((adminUser) => {
+
+  //   //     // Find-out if this user exist in the DB
+  //   //     if (adminUser && adminUser.name===name && adminUser.password==password) {
+  //   //       // console.log('---->>>>found it', adminUser);
+  //   //       const { globals } = this.state;
+  //   //       globals.adminUser = adminUser;
+
+  //   //       // Inform the user ...
+  //   //       dialogInfo.set({ active:false, message:'' });
+
+  //   //       this.setState({ globals });
+
+  //   //     } else {
+  //   //       // Give some times before displaying the error message
+  //   //       window.setTimeout(()=>{
+  //   //         dialogInfo.set({ active:true, message:"nom d'utilisateur ou mot de passe incorrect" });
+  //   //       }, 800);
+  //   //       window.setTimeout(()=>{
+  //   //         dialogInfo.set({ active:false, message:'' });
+  //   //       }, 2200);
+          
+  //   //     }
+
+  //   //   });
+
+  //   // });
+
+  // };
+
+
+
+
+ 
+
+
+
 async function executeAppInitProcess() {
 
-  let process1Done = await getAppInfo.call(this, null);
-  let process2Done = await verifySavedUserInfoAndHideAuthPanel.call(this, null);
+  // let process1Done = await getAppInfo.call(this, null);
+  // let process2Done = await verifySavedUserInfoAndHideAuthPanel.call(this, null);
   
-  if (process1Done && process2Done) {
-    console.log(`first render ready: ${process1Done} - ${process2Done}`);
-    window.setTimeout(()=>{
-      const { appLoader } = this.state;
-      appLoader.firstRenderReady = true;
-      this.setState({ appLoader });
-    }, 1000);
-  }
+  // if (process1Done && process2Done) {
+  //   console.log(`first render ready: ${process1Done} - ${process2Done}`);
+  //   window.setTimeout(()=>{
+  //     const { appLoader } = this.state;
+  //     appLoader.firstRenderReady = true;
+  //     this.setState({ appLoader });
+  //   }, 1000);
+  // }
 
 }
-*/
 
-alert(
-  `
-    - Placeholder back (firstRenderReady)
-    - toggleDrawer
-  `
-);
 
 
 class App extends Component {
@@ -163,22 +287,19 @@ class App extends Component {
         appInfo: false,
         userInfo: false,
       },
-      globals: {
-        handleSubmit: this.handleAdminDataSubmit,
-      },
-      authPanel: {
-        active: true, 
-      },
-      dialogInfo: {
-        active: false,
-        message: '',
-        set: ({ active, message }) => {
-          const { dialogInfo } = this.state;
-          dialogInfo.active = active;
-          dialogInfo.message = message;
-          this.setState({ dialogInfo });
-        },
-      },
+      // globals: {
+      //   handleSubmit: this.handleAdminDataSubmit,
+      // }, 
+      // dialogInfo: {
+      //   active: false,
+      //   message: '',
+      //   set: ({ active, message }) => {
+      //     const { dialogInfo } = this.state;
+      //     dialogInfo.active = active;
+      //     dialogInfo.message = message;
+      //     this.setState({ dialogInfo });
+      //   },
+      // },
     };  
   }
 
@@ -188,10 +309,12 @@ class App extends Component {
 
   toggleDrawer = () => {
     console.log('???????')
-    // this.setState((prevState) => {
-    //   return { drawer: !prevState.drawer }
-    // });
+    this.setState((prevState) => {
+      return { drawer: !prevState.drawer }
+    });
   }
+
+
   /**
    * APP INIT
    * ------------------------
@@ -201,224 +324,25 @@ class App extends Component {
    */
   componentDidMount() { 
 
-
+    executeAppInitProcess.call(this, null);
 
   } // [end] componentDidMount
 
 
-  /**
-   * [ADMIN] APP DATA (Admin saved data)
-   * ------------------------
-   * Handle data submission from admin to the database
-   * @param {*} param0 
-   */
-  handleAdminDataSubmit = ({ event, nodeRoot, nodeDir1, isSingleRecord }) => {
-
-    // console.log('>>>handle submit')
-
-    const { dialogInfo } = this.state;
-
-    // Inform the user: "data is being saved"
-    dialogInfo.set({ active:true, message:'Saving your data ...' });
-
-    // Submitting a product
-    // 2 steps submission:
-    // - Image (going to storage)
-    // - Post (going to database)
-    if (nodeRoot==='products') {
-
-      const { image, title } = event.formData;
-      const imgUploaded = dbUploadFile({ dir:'products', fileUrl:image, fileName:title });
-
-      imgUploaded.then((data) => {
-
-        // Inform the user: "Image has been successfully uploaded"
-        dialogInfo.set({ active:true, message:'Image has been successfully uploaded! Now saving post ...' });
-  
-        //...
-        const { name } = data.metadata;
-        const record = event.formData;
-        record.image = name;
-
-        // [*] Submit record (code duplicated: must be optimized)
-        const prodSubmitted = dbSaveRecord({
-          url:`${nodeRoot}/`,
-          record: { ...record },
-          isSingleRecord,
-        });
-  
-        // Reset state after data is submitted
-        prodSubmitted.then(()=> {
-
-          // Hide the info dialog
-          dialogInfo.set({ active:false, message:'' });
-    
-        });
-        // [*] Submit record (code duplicated: must be optimized)
-  
-      }); // [end] imgUploaded
-
-    // Submit another record
-    } else {
-      
-      // [*] Submit record (code duplicated: must be optimized)
-      const submitUrl = nodeDir1 ? `${nodeRoot}/${nodeDir1}/` : `${nodeRoot}/`;
-      const prodSubmitted = dbSaveRecord({
-        url: submitUrl,
-        record: { ...event.formData },
-        isSingleRecord,
-      });
-
-      // Reset state after data is submitted
-      prodSubmitted.then(()=> {
-
-        // Hide the info dialog
-        dialogInfo.set({ active:false, message:'' });
-  
-      });
-      // [*] Submit record (code duplicated: must be optimized)
-
-    }
-
-  } //...
 
 
-
-
-  handleAdminLogin = (event) => {
-    
-    const { formData:{ name }, formData:{ password } } = event; 
-    const { dialogInfo } = this.state;
-
-    // // Inform the user ...
-    // dialogInfo.set({ active:true, message:'Fetching information ...' });
-
-    // dbGetNode(`site-info/adminCreds`).once('value', (snapshot) => {
-
-    //   dbGetSnapshotData({ snapshot, singleData: true }).then((adminUser) => {
-
-    //     // Find-out if this user exist in the DB
-    //     if (adminUser && adminUser.name===name && adminUser.password==password) {
-    //       // console.log('---->>>>found it', adminUser);
-    //       const { globals } = this.state;
-    //       globals.adminUser = adminUser;
-
-    //       // Inform the user ...
-    //       dialogInfo.set({ active:false, message:'' });
-
-    //       this.setState({ globals });
-
-    //     } else {
-    //       // Give some times before displaying the error message
-    //       window.setTimeout(()=>{
-    //         dialogInfo.set({ active:true, message:"nom d'utilisateur ou mot de passe incorrect" });
-    //       }, 800);
-    //       window.setTimeout(()=>{
-    //         dialogInfo.set({ active:false, message:'' });
-    //       }, 2200);
-          
-    //     }
-
-    //   });
-
-    // });
-
-  };
-
-
-  /**
-   * LOGIN SYSTEM
-   * ------------------------
-   * 1) Register user in DB (if no records exists), update "auth crendentials" in DB and move on
-   * 2) Save DB "auth crendentials" in user object
-   * 3) If "remember" is checked, save "auth crendentials" in local storage
-   * 5) Clear form 
-   * @param {*} param0 
-   */
-  handleUserLogin = ({ event, nodeRoot }) => {
-
-    let newUser = event.formData; // newly processed user data
-    let userInDB;       // user in database
-    let dataSubmitted;  // record submitted to DB
-
-    dbGetNode(`users`).once('value', (snapshot) => {
-
-      dbGetSnapshotData({ snapshot }).then((usersCollection) => {
-
-        // Find-out if this user exist in the DB
-        if (usersCollection) {
-
-          userInDB = usersCollection.filter(currUser => {
-            return (currUser.name===newUser.name && currUser.email===newUser.email && currUser.phone===newUser.phone);
-          });
-
-        }
-
-        // 1) Register user in DB (if no records exists), update "auth crendentials" in DB and move on
-        // ------------------
-        // [Create new record]:
-        // (This "new user doesn't exist" or "there is no users at all")
-        if (!usersCollection || (userInDB && !userInDB.length)){
-
-          dataSubmitted = dbSaveRecord({
-            url:`${nodeRoot}/`,
-            record: { ...newUser },
-          });
-
-        } // [Create new record]
-        
-        // [Update current record]:
-        // (user exists in DB)
-        if (userInDB && userInDB.length) {
-
-          dataSubmitted = dbUpdateRecord({
-            url: `users/${userInDB[0].id}`,
-            record: { ...userInDB[0] },
-          });
-
-        } // [Create new record]
-
-        // console.log('....1' );
-        // 2) Save DB "auth crendentials" in user object
-        // 3) If "remember" is checked, save "auth crendentials" in local storage
-        // *) Hide "auth page"
-        // ------------------
-        dataSubmitted.then((user)=> {     // console.log('....user=', user );
-
-          const { globals, authPanel } = this.state;
-          globals.user = { ...user };
-
-          // Hide "auth page"
-          authPanel.active = false;
-
-          this.setState({ globals, authPanel });
-          if (user['remember-auth']) {
-
-            localStorageSave({ 
-              prefix:`${APP_PREFIX}-`,
-              collection: Object.entries(user),
-            });
-          }
-
-        });
-        
-      });
-
-    }); // [end] dbGetNode
-
-  } // handleUserLogin
-
+ 
 
   render() {
+
+    console.log('....********', this.state);
 
     return (
       <GlobalContext.Provider value={{...this.state.globals}}>
         <AppPresentation
           {...this.state} 
           toggleDrawer={this.toggleDrawer}
-          handleAdminLogin={this.handleAdminLogin}
-          handleUserLogin={this.handleUserLogin}
-          handleAdminDataSubmit={this.handleAdminDataSubmit}
+          // handleAdminDataSubmit={this.handleAdminDataSubmit}
         />
       </GlobalContext.Provider>
     );
