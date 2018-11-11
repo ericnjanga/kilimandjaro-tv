@@ -65,7 +65,7 @@ const Aside = styled.aside`
 
     span {
       display: block;
-      margin-top: 20px;
+      margin-top: 10px;
       font-size: 0.7rem;
       text-transform: uppercase;
     }
