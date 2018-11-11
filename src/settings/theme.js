@@ -18,6 +18,10 @@ const theme1 = {
   transition: {
     basic: 'all 0.2s ease-in-out',
   },
+  videoThumbnail: {
+    maxWidth: 250,
+    padding: 15,
+  },
 };
 
 

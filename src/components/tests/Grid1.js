@@ -3,6 +3,7 @@ import React from 'react';
 // import Grid from '@material-ui/core/Grid';
 
 import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
+import theme from './../../settings/theme';
 
 // import FormLabel from '@material-ui/core/FormLabel';
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -20,18 +21,18 @@ const DivRow = styled.div`
   // border: 3px solid red;
   display: flex; 
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: -${theme.videoThumbnail.padding}px;
+  margin-left: -${theme.videoThumbnail.padding}px;
 
   .col {
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: ${theme.videoThumbnail.padding}px;
     width: 100%;
     min-height: 1px;
     flex: 0 0 50%;
     max-width: 50%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: ${theme.videoThumbnail.padding}px;
+    padding-left: ${theme.videoThumbnail.padding}px;
   } 
   .col:nth-of-type(2n) {
     padding-left: 7.5px;
@@ -48,12 +49,12 @@ const DivRow = styled.div`
     }
     .col:nth-of-type(3n) {
       // border: 5px solid green;
-      padding-right: 15px;
+      padding-right: ${theme.videoThumbnail.padding}px;
       padding-left: 7.5px;
     }
     .col:nth-of-type(3n + 1) {
       // border: 5px solid purple;
-      padding-left: 15px;
+      padding-left: ${theme.videoThumbnail.padding}px;
       padding-right: 7.5px;
     }
     .col:nth-of-type(3n + 2) {
@@ -71,7 +72,7 @@ const DivRow = styled.div`
     }
     .col:nth-of-type(4n + 1) {
       // border: 5px solid purple;
-      padding-left: 15px;
+      padding-left: ${theme.videoThumbnail.padding}px;
       padding-right: 7.5px;
     }
     .col:nth-of-type(4n + 2) {
@@ -86,7 +87,7 @@ const DivRow = styled.div`
     }
     .col:nth-of-type(4n) {
       // border: 5px solid green;
-      padding-right: 15px;
+      padding-right: ${theme.videoThumbnail.padding}px;
       padding-left: 7.5px;
     }
   }
@@ -94,9 +95,9 @@ const DivRow = styled.div`
 
   @media (min-width: 1200px) {
     .col {  
-      flex: 0 0 250px;
-      max-width: 250px; 
-      padding-left: 15px!important;
+      flex: 0 0 ${theme.videoThumbnail.maxWidth}px;
+      max-width: ${theme.videoThumbnail.maxWidth}px; 
+      padding-left: ${theme.videoThumbnail.padding}px!important;
       padding-right: 0!important;
     }
   }

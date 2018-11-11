@@ -16,11 +16,11 @@ export const firebaseConfig = {
     messagingSenderId: '25676979886',
   },
   prod: {
-    apiKey: 'AIzaSyBOAG43skMxFHF2zKEiN4VGoeFZFmD-FX0',
-    authDomain: 'dealerks-e9540.firebaseapp.com',
-    databaseURL: 'https://dealerks-e9540.firebaseio.com',
-    projectId: 'dealerks-e9540',
-    storageBucket: 'dealerks-e9540.appspot.com',
+    apiKey: 'AIzaSyBNwAzZXD-vtUS2w1o-EcdfbYu5FslLZaQ',
+    authDomain: 'kilimandjaro-tv-c09af.firebaseapp.com',
+    databaseURL: 'https://kilimandjaro-tv-c09af.firebaseio.com',
+    projectId: 'kilimandjaro-tv-c09af',
+    storageBucket: 'kilimandjaro-tv-c09af.appspot.com',
     messagingSenderId: '25676979886',
   },
 };

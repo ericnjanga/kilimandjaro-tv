@@ -35,18 +35,46 @@ const DivApp = styled.div`
   width: 100%;
 
 
-  // VERTICAL NAV
+  // Toggling "vertical nav" and "large logo" on viewport change
   // ------------------------
   .App-verticalNav {
     display: none;
+  }
+  .App-brand__large {
+    display: flex!important;
   }
   @media (min-width: 900px) {
     .App-verticalNav {
       display: flex;
     }
+    .App-brand__large {
+      display: none!important;
+    }
   }
+
+
+  @media (max-width: 899px) {
+    .maincontent-center {
+      padding-top: 0;
+      margin-top: 30px;
+    }
+  }
+
+
+  @media (min-width: 900px) {
+    .App-horizontalNav,
+    .maincontent-center {
+      margin: 0 auto;
+      width: ${(theme.videoThumbnail.maxWidth * 4) + theme.videoThumbnail.padding}px;
+    }
+  }
+
+
+
 `;
 const DivAppMainContent = styled.section`
+  display: flex;
+  flex-direction: column;
   flex: 1;
   background: ${theme.color.lightGray};
 
@@ -72,7 +100,7 @@ class AppPresentation extends React.Component {
 
 
   render() {
-
+ 
     const {
       appLoader,
       classes,
@@ -108,8 +136,10 @@ class AppPresentation extends React.Component {
               className="App-verticalNav"
             />
             <DivAppMainContent>
-              <HorizontalNav>
-                <section className="App-brand">
+              <HorizontalNav
+                className="App-horizontalNav"
+              >
+                <section className="App-brand__large">
                   <button
                     onClick={toggleDrawer}
                   >
