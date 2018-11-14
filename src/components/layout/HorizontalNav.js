@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
 
 import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
-import NotificationIcon from '@material-ui/icons/Favorite';
+import IconSrc from '@material-ui/icons/Search';
+import IconLogin from '@material-ui/icons/Person';
 
-import Logo from './../content/Logo';
+// // import Logo from './../content/Logo';
 
 
 import theme from './../../settings/theme';
@@ -98,19 +99,19 @@ const HorizontalNav = ({
 
   const IconSearch = ({ className, children }) => (
     <IconButton className={className} aria-label="Search">
-      <SearchIcon />
+      <IconSrc />
     </IconButton>
   );
-  const IconNotificationIcon = ({ className, children }) => (
+  const IconLoginRegister = ({ className, children }) => (
     <IconButton className={className} aria-label="Subscribe">
-      <NotificationIcon />
+      <IconLogin />
     </IconButton>
   );
   const StyledIconSearch = styled(IconSearch)`
   color: ${theme.color.gray}!important;
     // margin: 8px!important;
   `; 
-  const StyledIconNotificationIcon = styled(IconNotificationIcon)`
+  const StyledIconLoginRegister = styled(IconLoginRegister)`
   color: ${theme.color.gray}!important;
     // margin: 8px!important;
   `; 
@@ -121,8 +122,12 @@ const HorizontalNav = ({
       <ScrollingText
         className="announces"
       />
-      <StyledIconSearch className="btnIcon" />
-      <StyledIconNotificationIcon className="btnIcon" />
+      <Link to="/search">
+        <StyledIconSearch className="btnIcon" />
+      </Link>
+      <Link to="/connect">
+        <StyledIconLoginRegister className="btnIcon" />
+      </Link>
     </Nav>
   );
 };

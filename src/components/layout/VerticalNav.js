@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import theme from './../../settings/theme';
 
 import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
@@ -46,7 +47,9 @@ const Aside = styled.aside`
   }
 
 
+  .item.active,
   .item:hover,
+  .App-brand.active,
   .App-brand:hover { 
     color: ${theme.color.primaryHover};
     background: ${theme.color.primary};
@@ -96,31 +99,30 @@ const VerticalNav = ({
 }) => {
   return (
     <Aside className={className}>
-      
-      <a href="#" className="App-brand">
+      <NavLink exact to="/" className="App-brand" activeClassName="active">
         <Logo
           size="small'"
-        />
-      </a>
+        /> 
+      </NavLink>
       
       <ul>
         <li>
-          <a className="item" href="#">
+          <NavLink className="item" to="/films" activeClassName="active">
             <IconMovies />
             <span>Films</span>
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a className="item" href="#">
+          <NavLink className="item" to="/news" activeClassName="active">
             <IconNews />
             <span>Nouvelles</span>
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a className="item" href="#">
+          <NavLink className="item" to="/buzz" activeClassName="active">
             <BuzzIcon />
             <span>Buzz</span>
-          </a>
+          </NavLink>
         </li>
       </ul>
 

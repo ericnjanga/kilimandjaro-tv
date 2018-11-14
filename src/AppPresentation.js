@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-
+import { BrowserRouter as Router, Route, Switch, Redirect, Link } from "react-router-dom";
+ 
 import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
 
 
@@ -145,7 +145,9 @@ class AppPresentation extends React.Component {
                   >
                     <IconMenu />
                   </button>
-                  <Logo size="large" />
+                  <Link to="/">
+                    <Logo size="large" />
+                  </Link>
                 </section>
               </HorizontalNav>
                
@@ -154,80 +156,141 @@ class AppPresentation extends React.Component {
 
 
                 <Switch>
-                {/* 
-                  Welcome screen:
-                  --------------
-                  - Top nav (visible)
-                  - Cars presentation
-                */}
-                <Route 
-                  path={'/'}
-                  exact
-                  render={
-                    () => {
-                      return(
-                        <React.Fragment>
-                          {/*
-                            Display only auth panel is user is not admin
-                            -----------------
-                          */}
-                          {/* <GlobalContext.Consumer>
-                            {
-                              (global) => (
-                                global && !global.adminUser &&
-                                <AuthPresentation
-                                  className="screen-auth screen-fixed opaque-black full-screen"
-                                  active={authPanel.active}
-                                  handleLogin={handleUserLogin}
-                                />
-                              )
-                            }
-                          </GlobalContext.Consumer> */}
-                 
+                  {/* 
+                    Welcome screen:
+                    --------------
+                    - ...
+                  */}
+                  <Route 
+                    path={'/'}
+                    exact
+                    render={
+                      () => {
+                        return(
+                          <React.Fragment>
+                            {/*
+                              Display only auth panel is user is not admin
+                              -----------------
+                            */}
+                            {/* <GlobalContext.Consumer>
+                              {
+                                (global) => (
+                                  global && !global.adminUser &&
+                                  <AuthPresentation
+                                    className="screen-auth screen-fixed opaque-black full-screen"
+                                    active={authPanel.active}
+                                    handleLogin={handleUserLogin}
+                                  />
+                                )
+                              }
+                            </GlobalContext.Consumer> */}
 
- 
-
-                          <Grid1 />
-
-                          {/* creates a problem because of its 3000px "App-horizontal-annonces-frame"  */}
-                          {/* <section className="App-horizontal-annonces">
-                            <ul className="App-horizontal-annonces-frame">
-                              <li className="item">
-                                Progressive Web Apps
-                              </li>
-                              <li className="item">
-                                React Apps
-                              </li>
-                              <li className="item">
-                                elementary my dear watson
-                              </li>
-                              <li className="item">
-                                Enterprise Level Applications
-                              </li>
-                              <li className="item">
-                                Walmart Labs is killiing it!
-                              </li>
-                              <li className="item">
-                                Explosive party tonight
-                              </li>
-                              <li className="item">
-                                2018 Municipal Elections
-                              </li>
-                            </ul>
-                          </section> */}
-                          
-                          
-                          
-                          
-                          
-                          {/* <CarsPresentation
-                            handleUserLogin={handleUserLogin}
-                          /> */}
-                        </React.Fragment>
-                      )
+                            <Grid1 /> 
+                          </React.Fragment>
+                        )
+                      }
                     }
-                  }
-                />
+                  />
+
+
+                  {/* 
+                    Search:
+                    --------------
+                    - ...
+                  */}
+                  <Route 
+                    path={'/search'}
+                    exact
+                    render={
+                      () => {
+                        return(
+                          <React.Fragment>
+                            <h1>Search</h1>
+                          </React.Fragment>
+                        )
+                      }
+                    }
+                  />
+
+
+                  {/* 
+                    Films:
+                    --------------
+                    - ...
+                  */}
+                  <Route 
+                    path={'/Films'}
+                    exact
+                    render={
+                      () => {
+                        return(
+                          <React.Fragment>
+                            <h1>Films</h1>
+                          </React.Fragment>
+                        )
+                      }
+                    }
+                  />
+
+
+                  {/* 
+                    News:
+                    --------------
+                    - ...
+                  */}
+                  <Route 
+                    path={'/News'}
+                    exact
+                    render={
+                      () => {
+                        return(
+                          <React.Fragment>
+                            <h1>News</h1>
+                          </React.Fragment>
+                        )
+                      }
+                    }
+                  />
+
+
+                  {/* 
+                    Buzz:
+                    --------------
+                    - ...
+                  */}
+                  <Route 
+                    path={'/Buzz'}
+                    exact
+                    render={
+                      () => {
+                        return(
+                          <React.Fragment>
+                            <h1>Buzz</h1>
+                          </React.Fragment>
+                        )
+                      }
+                    }
+                  />
+
+
+                  {/* 
+                    Connect:
+                    --------------
+                    - ...
+                  */}
+                  <Route 
+                    path={'/Connect'}
+                    exact
+                    render={
+                      () => {
+                        return(
+                          <React.Fragment>
+                            <h1>Connect</h1>
+                          </React.Fragment>
+                        )
+                      }
+                    }
+                  />
 
 
                 {/* 
