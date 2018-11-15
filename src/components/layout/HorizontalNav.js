@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
+import theme from './../../settings/theme';
+
+import UserMenuComposition from './../content/UserMenuComposition';
 
 import IconButton from '@material-ui/core/IconButton';
 import IconSrc from '@material-ui/icons/Search';
 import IconLogin from '@material-ui/icons/Person';
-
+import IconTickets from '@material-ui/icons/Loyalty';
 // // import Logo from './../content/Logo';
 
-
-import theme from './../../settings/theme';
 
 
 
@@ -125,9 +126,16 @@ const HorizontalNav = ({
       <Link to="/search">
         <StyledIconSearch className="btnIcon" />
       </Link>
-      <Link to="/connect">
-        <StyledIconLoginRegister className="btnIcon" />
+      <Link to="/tickets">
+        <IconButton
+          className={'icon'}
+          aria-label="Tickets"
+        >
+          <IconTickets />
+        </IconButton>
       </Link>
+
+      <UserMenuComposition />
     </Nav>
   );
 };

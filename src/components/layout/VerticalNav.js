@@ -113,15 +113,15 @@ const VerticalNav = ({
           </NavLink>
         </li>
         <li>
-          <NavLink className="item" to="/news" activeClassName="active">
-            <IconNews />
-            <span>Nouvelles</span>
-          </NavLink>
-        </li>
-        <li>
           <NavLink className="item" to="/buzz" activeClassName="active">
             <BuzzIcon />
             <span>Buzz</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className="item" to="/news" activeClassName="active">
+            <IconNews />
+            <span>Nouvelles</span>
           </NavLink>
         </li>
       </ul>
