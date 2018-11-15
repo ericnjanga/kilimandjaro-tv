@@ -42,8 +42,15 @@ class GetVimeoData extends React.Component {
       if (error) {
         console.log(error);
       }
-      if (this._isMounted) {
-        this.setState({ data:body.data });
+      if (this._isMounted && body) {
+        const { category } = this.props;
+        let data = '';
+        if(category){
+          data = body.data.filter(data => data.tags[0] && data.tags[0].name===category)
+        } else {
+          data = body.data;
+        }
+        this.setState({ data });
       }
       
       // Body contains:

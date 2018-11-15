@@ -105,16 +105,20 @@ const DivRow = styled.div`
 
  
 
-const Grid = () => {
+const Grid = ({
+  category
+}) => {
 
   const user_id = '90813794';
 
+  const uri = `/users/${user_id}/videos`
+
   return (
     <DivRow>
-      <GetVimeoData url={`/users/${user_id}/videos`}>
+      <GetVimeoData url={uri} category={category}>
         {
           (videoData) => {
-            // console.log('*******videoData=', videoData)
+            console.log('*******videoData=', videoData)
             return (
               videoData.map((video, index) => (
                 <div className="col" key={video.uri}>

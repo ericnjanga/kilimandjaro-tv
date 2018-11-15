@@ -225,7 +225,14 @@ class AppPresentation extends React.Component {
                       () => {
                         return(
                           <React.Fragment>
-                            <h1>Films</h1>
+                            <h1>Troubleshoot</h1>
+                            <h3>Is category passed?</h3>
+                            <h3>Preloader?</h3>
+                            <h3>Switch between request?</h3>
+                            <h3>How empty results are handled?</h3>
+                            <Grid1
+                              category="film"
+                            /> 
                           </React.Fragment>
                         )
                       }
@@ -238,7 +245,7 @@ class AppPresentation extends React.Component {
                     --------------
                     - ...
                   */}
-                  <Route 
+                  {/* <Route 
                     path={'/News'}
                     exact
                     render={
@@ -250,7 +257,7 @@ class AppPresentation extends React.Component {
                         )
                       }
                     }
-                  />
+                  /> */}
 
 
                   {/* 
