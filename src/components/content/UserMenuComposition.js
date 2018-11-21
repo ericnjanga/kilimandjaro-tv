@@ -18,28 +18,31 @@ import MenuList from "@material-ui/core/MenuList";
 export default class UserMenuComposition extends React.Component {
 
   state = {
-    open: false
+    openMenu: false
   };
 
-  handleToggle = () => {
-    this.setState(state => ({ open: !state.open }));
+  handleToggleMenu = () => {
+    this.setState(state => ({ openMenu: !state.openMenu }));
   };
 
-  handleClose = event => {
+  handleCloseMenu = event => {
     if (this.anchorEl.contains(event.target)) {
       return;
     }
 
-    this.setState({ open: false });
+    this.setState({ openMenu: false });
   };
 
 
 
   render() {
 
-    const { open } = this.state;
+    const { openMenu } = this.state;
 
     const Div = styled.nav`
+      position: relative;
+      z-index: 9;
+
       .icon {
         color: ${theme.color.gray}!important;
       }
@@ -48,26 +51,26 @@ export default class UserMenuComposition extends React.Component {
 
     return (
       <Div>
-        <Link to="/connect">
+        {/* <Link to="/connect"> */}
           <IconButton
             className={'icon'}
             aria-label="Connect"
           >
             <IconLogin />
           </IconButton>
-        </Link>
+        {/* </Link> */}
         <IconButton
           className={'icon'}
           aria-label="User Account"
           buttonRef={node => {
             this.anchorEl = node;
           }}
-          onClick={this.handleToggle}
+          onClick={this.handleToggleMenu}
         >
           <IconLogin />
         </IconButton>
   
-        <Popper open={open} anchorEl={this.anchorEl} transition disablePortal>
+        <Popper open={openMenu} anchorEl={this.anchorEl} transition disablePortal>
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
@@ -78,11 +81,11 @@ export default class UserMenuComposition extends React.Component {
               }}
             >
               <Paper>
-                <ClickAwayListener onClickAway={this.handleClose}>
+                <ClickAwayListener onClickAway={this.handleCloseMenu}>
                   <MenuList>
-                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={this.handleClose}>My account</MenuItem>
-                    <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={this.handleCloseMenu}>Profile</MenuItem>
+                    <MenuItem onClick={this.handleCloseMenu}>My account</MenuItem>
+                    <MenuItem onClick={this.handleCloseMenu}>Logout</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
@@ -94,3 +97,11 @@ export default class UserMenuComposition extends React.Component {
   }
 
 }
+
+
+
+const UserMenu = () => {
+  return (
+    '..'
+  );
+};

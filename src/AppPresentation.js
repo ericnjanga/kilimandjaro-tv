@@ -14,6 +14,7 @@ import PreloaderScreen from './components/PrelaoderScreen';
 import Page404 from './terminals/404Page';
 
 import Grid1 from './components/tests/Grid1'; 
+import LoginDialog from './components/content/LoginDialog';
 
 import Drawer from './components/layout/Drawer';
 import HorizontalNav from './components/layout/HorizontalNav';
@@ -126,6 +127,10 @@ class AppPresentation extends React.Component {
 
         <Router>
           <DivApp>
+
+            <LoginDialog
+
+            />
 
             <Drawer
               active={drawer}

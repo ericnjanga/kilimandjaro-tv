@@ -36,108 +36,125 @@ const ScrollingText = ({
 
 
 
-const HorizontalNav = ({
-  className,
-  children,
-}) => {
+class HorizontalNav extends React.Component {
 
-  const Nav = styled.nav`
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    background: transparent;
-    padding: 0 15px;
-    height: 80px;
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      // login: false,
+      register: true //login:false,
+    };
 
-    .App-brand__large {
+  }
+
+  toggleConnectionStatus = () => {
+    this.setState(prevState => {
+      return { register: !prevState.register };
+    });
+  };
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
+
+  render () {
+
+    const {
+      className,
+      children,
+    } = this.props;
+
+    const Nav = styled.nav`
       display: flex;
       align-items: center;
-      font-weight: bold;
-      margin-right: auto;
-      color: ${theme.color.secondary};
-      button {
-        padding-left: 0;
-        border: 0;
-        background: transparent;
-      }
-    }
+      justify-content: flex-end;
+      background: transparent;
+      padding: 0 15px;
+      height: 80px;
 
-    .announces {
-      flex: 1;
-      overflow: hidden;
-      ul {
-        list-style: none;
-        padding: 0;
-        li {
-          display: inline-block;
-          margin-right: 50px;
-          font-size: 0.8rem;
-          animation: marquee 15s linear infinite;
+      .App-brand__large {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        margin-right: auto;
+        color: ${theme.color.secondary};
+        button {
+          padding-left: 0;
+          border: 0;
+          background: transparent;
         }
       }
-    }
 
-
-    @media (max-width: 899px) {
       .announces {
-        position: absolute;
-        top: 55px;
-        left: 0;
-        margin: 0 15px;
+        flex: 1;
+        overflow: hidden;
+        ul {
+          list-style: none;
+          padding: 0;
+          li {
+            display: inline-block;
+            margin-right: 50px;
+            font-size: 0.8rem;
+            animation: marquee 15s linear infinite;
+          }
+        }
       }
-    }
-
-    @keyframes marquee {
-      0%   { transform: translate(0, 0); }
-      100% { transform: translate(-100%, 0); }
-    }
 
 
-    .btnIcon {
-      margin-left: 8px!important;
-    }
-  `;
+      @media (max-width: 899px) {
+        .announces {
+          position: absolute;
+          top: 55px;
+          left: 0;
+          margin: 0 15px;
+        }
+      }
 
-  const IconSearch = ({ className, children }) => (
-    <IconButton className={className} aria-label="Search">
-      <IconSrc />
-    </IconButton>
-  );
-  const IconLoginRegister = ({ className, children }) => (
-    <IconButton className={className} aria-label="Subscribe">
-      <IconLogin />
-    </IconButton>
-  );
-  const StyledIconSearch = styled(IconSearch)`
-  color: ${theme.color.gray}!important;
-    // margin: 8px!important;
-  `; 
-  const StyledIconLoginRegister = styled(IconLoginRegister)`
-  color: ${theme.color.gray}!important;
-    // margin: 8px!important;
-  `; 
+      @keyframes marquee {
+        0%   { transform: translate(0, 0); }
+        100% { transform: translate(-100%, 0); }
+      }
 
-  return (
-    <Nav className={className}>
-      { children }
-      <ScrollingText
-        className="announces"
-      />
-      <Link to="/search">
-        <StyledIconSearch className="btnIcon" />
-      </Link>
-      <Link to="/tickets">
-        <IconButton
-          className={'icon'}
-          aria-label="Tickets"
-        >
-          <IconTickets />
-        </IconButton>
-      </Link>
 
-      <UserMenuComposition />
-    </Nav>
-  );
+      .btnIcon {
+        margin-left: 8px!important;
+      }
+    `;
+
+
+    return (
+      <Nav className={className}>
+        { children }
+
+        <ScrollingText
+          className="announces"
+        />
+
+        <Link to="/search">
+          <IconButton className={'icon'} aria-label="Search">
+            <IconSrc />
+          </IconButton>
+        </Link>
+        
+        <Link to="/tickets">
+          <IconButton
+            className={'icon'}
+            aria-label="Tickets"
+          >
+            <IconTickets />
+          </IconButton>
+        </Link>
+
+        <UserMenuComposition />
+      </Nav>
+    );
+  }
 };
 
 export default HorizontalNav;
