@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
 import theme from './../../settings/theme';
 
-import UserMenuComposition from './../content/UserMenuComposition';
+import MenuUserConnected from './../content/MenuUserConnected';
 
 import IconButton from '@material-ui/core/IconButton';
 import IconSrc from '@material-ui/icons/Search';
@@ -54,7 +54,7 @@ class HorizontalNav extends React.Component {
     });
   };
 
-  handleClickOpen = () => {
+  handleOpen = () => {
     this.setState({ open: true });
   };
 
@@ -68,6 +68,7 @@ class HorizontalNav extends React.Component {
     const {
       className,
       children,
+      dialogLoginHandleOpen,
     } = this.props;
 
     const Nav = styled.nav`
@@ -151,7 +152,15 @@ class HorizontalNav extends React.Component {
           </IconButton>
         </Link>
 
-        <UserMenuComposition />
+        <IconButton
+          className={'icon'}
+          aria-label="Connect"
+          onClick={dialogLoginHandleOpen}
+        >
+          <IconLogin />
+        </IconButton>
+
+        <MenuUserConnected />
       </Nav>
     );
   }

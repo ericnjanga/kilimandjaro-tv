@@ -15,7 +15,7 @@ import MenuList from "@material-ui/core/MenuList";
 
 
 
-export default class UserMenuComposition extends React.Component {
+export default class MenuUserConnected extends React.Component {
 
   state = {
     openMenu: false
@@ -51,14 +51,6 @@ export default class UserMenuComposition extends React.Component {
 
     return (
       <Div>
-        {/* <Link to="/connect"> */}
-          <IconButton
-            className={'icon'}
-            aria-label="Connect"
-          >
-            <IconLogin />
-          </IconButton>
-        {/* </Link> */}
         <IconButton
           className={'icon'}
           aria-label="User Account"

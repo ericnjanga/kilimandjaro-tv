@@ -14,7 +14,7 @@ import PreloaderScreen from './components/PrelaoderScreen';
 import Page404 from './terminals/404Page';
 
 import Grid1 from './components/tests/Grid1'; 
-import LoginDialog from './components/content/LoginDialog';
+import DialogLogin from './components/content/DialogLogin';
 
 import Drawer from './components/layout/Drawer';
 import HorizontalNav from './components/layout/HorizontalNav';
@@ -94,10 +94,25 @@ class AppPresentation extends React.Component {
 
   constructor(props) {
     super(props);
-    // this.state = {
-    //   drawer: false,
-    // };
+    this.state = {
+      dialogLogin: false,
+      // drawer: false,
+    };
   }
+
+
+
+  dialogLoginHandleOpen = () => {
+    let { dialogLogin } = this.state;
+    dialogLogin = true;
+    this.setState({ dialogLogin });
+  };
+
+  dialogLoginHandleClose = () => {
+    let { dialogLogin } = this.state;
+    dialogLogin = false;
+    this.setState({ dialogLogin });
+  };
 
 
   render() {
@@ -128,8 +143,10 @@ class AppPresentation extends React.Component {
         <Router>
           <DivApp>
 
-            <LoginDialog
-
+            <DialogLogin
+              open={this.state.dialogLogin}
+              handleOpen={this.dialogLoginHandleOpen}
+              handleClose={this.dialogLoginHandleClose}
             />
 
             <Drawer
@@ -143,6 +160,7 @@ class AppPresentation extends React.Component {
             <DivAppMainContent>
               <HorizontalNav
                 className="App-horizontalNav"
+                dialogLoginHandleOpen={this.dialogLoginHandleOpen}
               >
                 <section className="App-brand__large">
                   <button

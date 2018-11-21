@@ -1,19 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import IconButton from "@material-ui/core/IconButton";
-import IconPerson from "@material-ui/icons/Person";
 
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
+// import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
+// import DialogContentText from "@material-ui/core/DialogContentText";
+// import DialogTitle from "@material-ui/core/DialogTitle";
 
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default class LoginDialog extends React.Component {
+export default class DialogLogin extends React.Component {
   state = {
     open: false,
     // login: false,
@@ -24,14 +22,6 @@ export default class LoginDialog extends React.Component {
   //   this.setState(prevState => {
   //     return { register: !prevState.register };
   //   });
-  // };
-
-  // handleClickOpen = () => {
-  //   this.setState({ open: true });
-  // };
-
-  // handleClose = () => {
-  //   this.setState({ open: false });
   // };
 
   render() {
@@ -77,17 +67,20 @@ export default class LoginDialog extends React.Component {
       }
     `;
 
+    const {
+      handleOpen,
+      handleClose,
+      open,
+    } = this.props;
+
     const { register } = this.state;
     const brandName = "Kilimandjaro TV";
 
     return (
       <div>
-        <IconButton onClick={this.handleClickOpen} style={{ color: "blue" }}>
-          <IconPerson fontSize="small" />
-        </IconButton>
         <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
+          open={open}
+          onClose={handleClose}
           aria-labelledby="form-dialog-title"
         >
           <Container>
