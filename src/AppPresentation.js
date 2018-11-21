@@ -13,7 +13,7 @@ import { GlobalContext } from './settings/basics.js';
 import PreloaderScreen from './components/PrelaoderScreen';
 import Page404 from './terminals/404Page';
 
-import Grid1 from './components/tests/Grid1'; 
+import VideosFeed from './components/tests/VideosFeed'; 
 import DialogLogin from './components/content/DialogLogin';
 
 import Drawer from './components/layout/Drawer';
@@ -119,7 +119,6 @@ class AppPresentation extends React.Component {
  
     const {
       appLoader,
-      classes,
       drawer,
       toggleDrawer,
     } = this.props;
@@ -208,7 +207,7 @@ class AppPresentation extends React.Component {
                               }
                             </GlobalContext.Consumer> */}
 
-                            <Grid1 /> 
+                            <VideosFeed /> 
                           </React.Fragment>
                         )
                       }
@@ -248,12 +247,7 @@ class AppPresentation extends React.Component {
                       () => {
                         return(
                           <React.Fragment>
-                            <h1>Troubleshoot</h1>
-                            <h3>Is category passed?</h3>
-                            <h3>Preloader?</h3>
-                            <h3>Switch between request?</h3>
-                            <h3>How empty results are handled?</h3>
-                            <Grid1
+                            <VideosFeed
                               category="film"
                             /> 
                           </React.Fragment>
@@ -296,6 +290,9 @@ class AppPresentation extends React.Component {
                         return(
                           <React.Fragment>
                             <h1>Buzz</h1>
+                            <VideosFeed
+                              category="buzz"
+                            /> 
                           </React.Fragment>
                         )
                       }

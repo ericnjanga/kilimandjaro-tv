@@ -42,6 +42,9 @@ class GetVimeoData extends React.Component {
       if (error) {
         console.log(error);
       }
+
+      console.log('?????????body=', body);
+
       if (this._isMounted && body) {
         const { category } = this.props;
         let data = '';
@@ -50,6 +53,7 @@ class GetVimeoData extends React.Component {
         } else {
           data = body.data;
         }
+        console.log('?????????data=', data);
         this.setState({ data });
       }
       

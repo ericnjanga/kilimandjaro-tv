@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
 import theme from './../../settings/theme';
 
@@ -12,8 +12,6 @@ import Paper from "@material-ui/core/Paper";
 import Popper from "@material-ui/core/Popper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
-
-
 
 export default class MenuUserConnected extends React.Component {
 
@@ -32,8 +30,6 @@ export default class MenuUserConnected extends React.Component {
 
     this.setState({ openMenu: false });
   };
-
-
 
   render() {
 
@@ -89,11 +85,3 @@ export default class MenuUserConnected extends React.Component {
   }
 
 }
-
-
-
-const UserMenu = () => {
-  return (
-    '..'
-  );
-};

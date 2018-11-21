@@ -32,7 +32,7 @@ const Page404 = () => {
           alt="Cette page n'existe pas!"
         />
         <figcaption>
-          <a href="http://www.betatinz.com/2017/09/dj-arafat-ft-tenor-chigoter-les-tympans.html" target="_blank">http://www.betatinz.com</a>
+          <a href="http://www.betatinz.com/2017/09/dj-arafat-ft-tenor-chigoter-les-tympans.html" rel="noopener noreferrer" target="_blank">http://www.betatinz.com</a>
         </figcaption>
       </Figure>
       <p>

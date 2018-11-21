@@ -30,7 +30,6 @@ export default class DialogLogin extends React.Component {
     console.log('[render] DialogLogin');
 
     const {
-      handleOpen,
       handleClose,
       open,
     } = this.props;

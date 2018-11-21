@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { dbGetNode, dbGetSnapshotData, dbSaveRecord, dbUpdateRecord, dbUploadFile } from './utilities/func/mix1.js';
-import { APP_PREFIX, GlobalContext } from './settings/basics.js';
+// import { dbGetNode, dbGetSnapshotData, dbSaveRecord, dbUpdateRecord, dbUploadFile } from './utilities/func/mix1.js';
+import { /*APP_PREFIX,*/ GlobalContext } from './settings/basics.js';
 import AppPresentation from './AppPresentation.js';
-import { localStorageSave, localStorageGetItem } from './utilities/func/mix1.js';
+// import { localStorageSave, localStorageGetItem } from './utilities/func/mix1.js';
 
 // import { TEXT_COPY } from './settings/language-and-text.js';
 

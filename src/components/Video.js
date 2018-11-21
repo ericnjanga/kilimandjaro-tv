@@ -46,7 +46,6 @@ class Video extends React.Component {
     const {
       // data:{category, id},
       data:{uri, pictures, metadata},
-      classes,
     } = this.props;
 
     console.log('[render] - video');

@@ -32,7 +32,7 @@ class AppDrawer extends React.Component {
 
 
   render() {
-    const { classes, toggle } = this.props;
+    const { toggle } = this.props;
 
     // const sideList = (
     //   <div className={classes.list}>
