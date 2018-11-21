@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import theme from './../../settings/theme';
 
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -18,54 +19,15 @@ export default class DialogLogin extends React.Component {
     register: true //login:false,
   };
 
-  // toggleConnectionStatus = () => {
-  //   this.setState(prevState => {
-  //     return { register: !prevState.register };
-  //   });
-  // };
+  toggleConnectionStatus = () => {
+    this.setState(prevState => {
+      return { register: !prevState.register };
+    });
+  };
 
   render() {
-    const Container = styled.div`
-      max-width: 260px;
-      margin-left: auto;
-      margin-right: auto;
 
-      h1 {
-        margin-bottom: 0;
-      }
-
-      h1,
-      p {
-        text-align: center;
-      }
-      button {
-        text-transform: inherit;
-      }
-      .btn-secondary {
-        background-color: rgb(66, 133, 244);
-      }
-    `;
-
-    const Footer = styled.footer`
-      max-width: 260px;
-      flex: 1 1 auto;
-      padding: 0 24px 24px;
-      text-align: center;
-
-      p {
-        border: 10px solid lime;
-      }
-
-      br {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        display: block;
-        border-bottom: 1px solid #ccc;
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    `;
+    console.log('[render] DialogLogin');
 
     const {
       handleOpen,
@@ -84,14 +46,14 @@ export default class DialogLogin extends React.Component {
           aria-labelledby="form-dialog-title"
         >
           <Container>
-            <h1>
-              {register ? "Enregistrez" : "Identifiez"}
-              -vous et decouvrez plus
-            </h1>
-          </Container>
+            <Header>
+              <h1>
+                {register ? "Enregistrement" : "Identification"}
+              </h1>
+              <p>Et soyez toujours au top du meilleur showbiz Africain!</p>
+            </Header>
 
-          <DialogContent>
-            <Container>
+            <DialogContent>
               {/*<DialogContentText>
                 To subscribe to this website, please enter your email address
                 here. We will send updates occasionally.
@@ -100,40 +62,39 @@ export default class DialogLogin extends React.Component {
               <div>
                 {register ? <RegisterInputs /> : <LoginInputs />}
 
-                <p>Ou</p>
+                <p className="separator">Ou</p>
 
                 <Button
+                  className="button button-bottom-spacing"
                   variant="contained"
                   color="primary"
-                  style={{ marginBottom: "10px", width: "100%" }}
                 >
                   Continuez avec Google
                 </Button>
 
                 <Button
+                  className="button btn-secondary"
                   variant="contained"
                   color="primary"
-                  className="btn-secondary"
-                  style={{ marginBottom: "10px", width: "100%" }}
                 >
                   Continuez avec Facebook
                 </Button>
               </div>
-            </Container>
+            </DialogContent>
 
-          </DialogContent>
-          <Footer>
-            <div>
-              {register ? (
-                <RegisterFooter action={this.toggleConnectionStatus} />
-              ) : (
-                <LoginFooter
-                  action={this.toggleConnectionStatus}
-                  brandName={brandName}
-                />
-              )}
-            </div>
-          </Footer>
+            <Footer>
+              <div>
+                {register ? (
+                  <RegisterFooter action={this.toggleConnectionStatus} />
+                ) : (
+                  <LoginFooter
+                    action={this.toggleConnectionStatus}
+                    brandName={brandName}
+                  />
+                )}
+              </div>
+            </Footer>
+          </Container>
         </Dialog>
       </div>
     );
@@ -164,14 +125,12 @@ const RegisterInputs = () => {
         label="Confirmez votre mot de Passe"
         type="password"
         fullWidth
-        style={{
-          marginBottom: "20px"
-        }}
+        className="txtfield-bottom-space"
       />
       <Button
+        className="button"
         variant="contained"
         color="secondary"
-        style={{ marginBottom: "0px", width: "100%" }}
       >
         Enregistrez-vous
       </Button>
@@ -196,11 +155,12 @@ const LoginInputs = () => {
         label="Mot de Passe"
         type="password"
         fullWidth
+        className="txtfield-bottom-space"
       />
       <Button
+        className="button"
         variant="contained"
         color="secondary"
-        style={{ marginBottom: "0px", width: "100%" }}
       >
         Connectez-vous
       </Button>
@@ -212,9 +172,9 @@ const RegisterFooter = ({ brandName, action }) => {
   return (
     <div>
       Déjà membre?{" "}
-      <a href="#" onClick={action}>
-        identifiez-vous
-      </a>
+      <Button className="btn-link" onClick={action}>
+      identifiez-vous
+      </Button>
     </div>
   );
 };
@@ -225,9 +185,130 @@ const LoginFooter = ({ brandName, action }) => {
       <a href="#">Mot de passe oublié?</a>
       <br />
       {`Pas encore chez ${brandName}? `}
-      <a href="#" onClick={action}>
+      <Button className="btn-link" onClick={action}>
         enregistrez-vous
-      </a>
+      </Button>
     </div>
   );
 };
+
+
+
+// Main styles 
+const containerWidth = 440;
+const Container = styled.div`
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  @media(min-width: 420px) {
+    max-width: ${containerWidth}px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 60px;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+    line-height: 2.5rem;
+    font-size: 1.9rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+    color: ${theme.color.gray};
+  }
+
+  .button {
+    width: 100%;
+  }
+  .button-bottom-spacing {
+    margin-bottom: 10px;
+  }
+
+  .btn-link {
+    padding: 0;
+    color: #007bff;
+    min-height: initial;
+    font-weight: bold;
+    display: inline-block;
+    &:hover {
+      color: #0056b3;
+      background-color: transparent;
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .txtfield-bottom-space {
+    margin-bottom: 20px;
+  }
+
+  header p {
+    margin-bottom: 0;
+  }
+
+  h1, h2,
+  p {
+    text-align: center;
+  }
+  button {
+    text-transform: inherit;
+  }
+  p.separator {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .btn-secondary {
+    background-color: rgb(66, 133, 244);
+  }
+  footer {
+    font-size: .8rem;
+    a {
+      font-weight: bold;
+    }
+  }
+
+
+  @media(min-width: ${containerWidth + 20}px) {
+    h1 {
+      font-size: 2.1rem;
+    }
+    p.separator {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+`;
+
+
+const WrapperStyle = `
+
+  @media(min-width: ${containerWidth + 20}px) {
+    max-width: ${containerWidth}px;
+  }
+
+  flex: 1 1 auto;
+  padding: 0 24px 0 24px;
+  text-align: center;
+
+  br {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    border-bottom: 1px solid #ccc;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
+
+
+
+const Header = styled.header`
+  ${WrapperStyle}
+`;
+const Footer = styled.footer`
+  ${WrapperStyle}
+`;
