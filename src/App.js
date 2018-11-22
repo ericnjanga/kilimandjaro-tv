@@ -308,7 +308,7 @@ class App extends Component {
 
 
   toggleDrawer = () => {
-    console.log('???????')
+    // console.log('???????')
     this.setState((prevState) => {
       return { drawer: !prevState.drawer }
     });
@@ -334,8 +334,7 @@ class App extends Component {
  
 
   render() {
-
-    console.log('....********', this.state);
+    // console.log('....********', this.state);
 
     return (
       <GlobalContext.Provider value={{...this.state.globals}}>

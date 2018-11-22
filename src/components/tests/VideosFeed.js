@@ -18,7 +18,9 @@ class VideosFeed extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      category: null,
+    };
 
     this.user_id = '90813794';
     this.uri = `/users/${this.user_id}/videos`;
@@ -28,10 +30,14 @@ class VideosFeed extends React.Component {
     this.client = new Vimeo.Vimeo(this.client_id, this.client_secret, this.access_token);
   }
 
+  /**
+   * Fetch videos from VIMEO:
+   * - If a category is provided, filter result, otherwise return result
+   * - save result into state.data
+   */
+  fetchVideos = ({ category }) => {
 
-  componentDidMount() {
-
-    this._isMounted = true;
+    console.log('- -------- fetchData ---------: ', category);
 
     this.client.request({
       method: 'GET',
@@ -41,8 +47,11 @@ class VideosFeed extends React.Component {
         console.log(error);
       }
 
-      if (this._isMounted && body) {
-        const { category } = this.props;
+      if (/* this._isMounted && */ body) {
+        // const { category } = this.props;
+
+        console.log('- [VideosFeed] category: ', category);
+
         let data = '';
         if(category){
           data = body.data.filter(data => data.tags[0] && data.tags[0].name===category)
@@ -50,7 +59,8 @@ class VideosFeed extends React.Component {
           data = body.data;
         }
         
-        this.setState({ data });
+        console.log('- [VideosFeed] data: ', data);
+        this.setState({ data, category });
       }
       
       // Body contains:
@@ -61,18 +71,41 @@ class VideosFeed extends React.Component {
       // total: 3
     
     }); // [end] client.request
+  };
+
+
+  componentDidMount() {
+    console.log('- [VideosFeed] componentDidMount ' );
+
+    // this._isMounted = true;
+    this.fetchVideos(this.props);
 
   }
 
 
-  componentWillUnmount() {
+  componentWillReceiveProps(newProps) {
 
-    this._isMounted = false;
+    const { category } = newProps;
+    console.log('- [VideosFeed] componentWillReceiveProps: ', newProps);
+
+    if(category !== this.state.category) {
+      console.log('- [VideosFeed] Fetching new videos: ', category);
+      this.fetchVideos(this.props);
+    }
+  }
+
+
+  componentWillUnmount() {
+    console.log('- [VideosFeed] componentWillUnmount ' );
+
+    // this._isMounted = false;
     // OFF vimeo.request ???
   }
 
 
   render() {
+
+    console.log('- [VideosFeed] render' );
 
     const { data } = this.state;
   

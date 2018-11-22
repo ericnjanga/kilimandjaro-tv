@@ -40,7 +40,7 @@ class AppPresentation extends React.Component {
 
   render() {
 
-    console.log('[render] -AppPresentation');
+    // console.log('[render] -AppPresentation');
     const { 
       DivApp,
       DivAppMainContent,
@@ -99,8 +99,6 @@ class AppPresentation extends React.Component {
                
               
               <section className="maincontent-center">
-
-
                 <Switch>
                   {/* 
                     Welcome screen:
