@@ -1,19 +1,14 @@
-/**
- * ACRONYMS
- * -------------------------------
- * App prefix: App (Ecommerce Template 1)
-*/
-
-
+ 
 /**
  * Init
  * -------------------------------
 */
-/* Bootstrap framework */
+ 
 @import 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css';
 /* Fonts in use */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700');
 @import url('https://fonts.googleapis.com/css?family=Rubik:500,700');
+@import url('https://fonts.googleapis.com/css?family=Oswald:600');
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: #666;
@@ -24,386 +19,11 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
+/* 
 
+  FORM IN GENERAL
+  -----------------------------------
 
-
-/**
- * App init
- * .......
- * -------------------------------
-*/
-
-.App-sidedisplay {
-  position: relative;
-  background: #eee;
-  list-style: none;
-  padding: 0;
-}
-.App-sidedisplay ul {
-  list-style: none;
-  padding: 0;
-}
-/* .App-sidedisplay__item:hover,
-.App-brand:hover { 
-  color: #22343c;
-  background: lime;
-  text-decoration: none;
-}
-
-
-.App-sidedisplay__item {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  color: #22343c;
-}
-.App-sidedisplay__item span {
-  display: block;
-  margin-top: 20px;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-} */
-
-.App-horizontal-annonces {
-  overflow-x: hidden;
-}
-.App-horizontal-annonces-frame {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 30px;
-  width: 3000px;
-}
-.App-horizontal-annonces .item {
-  margin-right: 30px;
-}
-
-
-.App-maincontent .video {
-  margin-bottom: 30px;
-}
-
-.box-ad {
-  background: #ccc!important;
-}
- 
-
-
-.modal-overlay {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0,0, 0.8);
-}
-.modal-container {
-  position: relative;
-  top: 100px;
-}
-.modal-overlay .modal-close {
-  position: fixed;
-  top: 50px;  
-  right: 50px;
-  font-size: 50px;
-  color: #fff;
-}
-
-
-
-
-
-
-
-/**
- * COLOR SCHEME
- * .......
- * -------------------------------
- * DARK 1: #21162A
- * PRIMARY: #47BDA7   rgba(71, 189, 167, 1)
- * LIGHT 1: #f5f5f5;  rgba(245, 245, 245, 1)
-*/
-.btn-primary {
-  background-color: #47BDA7!important;
-  border-color: #47BDA7!important;
-}
-.btn-primary.focus, .btn-primary:focus {
-  box-shadow: 0 0 0 0.2rem rgba(71, 189, 167,.5);
-}
-
-.card .link:hover,
-.navbar-dark .navbar-brand,
-.navbar-collapse .nav-item a:hover, /* react-router links */
-.navbar-collapse .nav-item a.selected, /* react-router links */
-.navbar-dark .navbar-nav .nav-link:hover {
-  color: #47BDA7;
-  text-decoration: none; /* for react-router links */
-}
-.badge-primary,
-.dropdown-item:focus, .dropdown-item:hover {
-  /* color: #16181b;
-  text-decoration: none; */
-  background-color: #47BDA7;
-}
-
-
-
-
-
-
-
-/**
- * SCREEN
- * (Any panel that either occupies the entire window or part of it
- * -------------------------------
-*/
-.App .screen { 
-  position: relative; 
-}
-
-
-@import 'css/layouts.css';
-@import 'css/product.css';
-@import 'css/auth.css';
-@import 'css/home.css';
-@import 'css/small-tweaks.css';
-@import 'css/admin.css';
-@import 'css/theme.css';
-
-@import 'css/demos.css';
-
-
- 
-
-.test-with-class {
-  border: 40px dashed lime;
-}
-ul {
-  margin: 0;
-}
-
-
-
-
-
-
-/**
- * Utilities
- * -----------
-*/
-.full-screen {
-  width: 100%;
-  height: 100vh;
-}
-.panel.panel-danger.errors {
-  color: #dc3545!important;
-}
-.panel.panel-danger.errors .panel-title {
-  font-size: 1.3rem;
-}
-.text-danger {
-  background: #e8cccf!important;
-}
-.txt-highlight {
-  color: #007bff;
-}
-.txt-dark {
-  color: #000;
-}
-.txt-light {
-  color: #f5f5f5;
-}
-.txt-grayed {
-  color: #666;
-}
-.txt-bold {
-  font-weight: 600;
-}
-.block {
-  display: block;
-} 
-
-
-
-
-/**
- * App grid
- * -----------
-*/
-.app-row {
-  display: flex;
-  /* border: 2px solid lime; */
-}
-.app-row .app-col {
-  flex: 1;
-  /* border: 2px solid turquoise; */
-}
-.title-size4 {
-  font-size: 1.3rem;
-}
-
-
-
-
-
-
-/**
- * Top Nav styles
- * ----------------------
-*/
-.App > .screen {
-  padding-top: 56px; /* Bootstrap navbar's height (collapsed) */
-}
-.top-navigation {
-  position: fixed;
-  top: 0;
-  z-index: 11;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  /* height: 40px; */
-  background-color: #333;
-}
-.PreviewBox {
-  font-size: 0.7rem;
-}
-.PreviewBox p {
-  margin: 0;
-}
-
-
-
-
-
-
-/**
- * itemModal
- * ----------------------
-*/
-.itemModal .modal-title {
-  text-transform: capitalize;
-}
-.itemModal__image,
-.itemModal__title,
-.itemModal__article {
-  margin-bottom: 1.5rem;
-}
-.itemModal__addinfo {
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-}
-
-.itemModal__footer {
-  background: #ddd;
-  border-bottom-right-radius: .3rem;
-  border-bottom-left-radius: .3rem;
-}
-
-.itemModal__title {
-  position: relative;
-}
-.itemModal__title small {
-  font-size: 1rem;
-}
-.itemModal__title small .title-size4 {
-  font-size: 0.95rem;
-}
-
-
-/* .modal-body  */
-
-
-.box-shadow-hover {
-  -webkit-transition: box-shadow 0.3s ease-out;
-  -moz-transition: box-shadow 0.3s ease-out;
-  -o-transition: box-shadow 0.3s ease-out;
-  transition: box-shadow 0.3s ease-out;
-}
-
-.box-shadow-hover:hover {
-  -webkit-box-shadow: 0px 0px 71px -7px rgba(71, 189, 167, 1);
-  -moz-box-shadow: 0px 0px 71px -7px rgba(71, 189, 167, 1);
-  box-shadow: 0px 0px 71px -7px rgba(71, 189, 167, 1);
-}
-
-
-
-
-
-
-
-
-.navbar .navbar-nav {
-  text-transform: uppercase;
-}
-.navbar .navbar-nav {
-  text-transform: uppercase;
-  font-size: 0.85rem;
-}
-.navbar a {
-  color: #f5f5f5;  
-}
-.navbar-toggler {
-  border: 1px solid #f5f5f5; 
-}
-.navbar-dark .navbar-toggler {
-  color: rgba(245, 245, 245, 1)!important;
-  border-color: rgba(245, 245, 245, 1)!important;
-}
-
-/* Adapting react-router links to bootstrap's */
-@media (min-width: 768px) {
-  .navbar-collapse .nav-item a {
-    color: rgba(255,255,255,.5);
-    display: block;
-    padding: .5rem 1rem;
-    padding-right: .5rem;
-    padding-left: .5rem;
-  }
-}
-
-
-
-
-body.modal-open {
-  overflow: visible;
-}
-
-
-
-.screen-fixed {
-  position: fixed!important;
-  top: 0;
-  left: 0;
-  overflow-y: scroll;
-  z-index: 2000;
-}
-.opaque-black {
-  color: #fff;
-  background: rgba(0,0,0,0.7);
-}
-.opaque-black label,
-.opaque-black form .control-label {
-  color: #fff;
-}
-
-
-
-
-
-
-/**
- * Form in general
- * ----------------------
-*/
 form label.radio-inline {
   margin-right: 20px;
 }
@@ -430,12 +50,7 @@ form .form-group textarea {
 
 
 @media (min-width: 600px) {
-  .admin-form .form-group.field-object .form-group {
-    width: calc(50% - 30px);
-    float: left;
-    min-height: 75px;
-    /* border: 1px solid red; */
-  }
+
   .admin-form .form-group.field-object .form-group:nth-of-type(2n) {
     margin-left:30px;
   }
@@ -443,14 +58,16 @@ form .form-group textarea {
   .admin-form .btn[type="submit"] {
     width: calc(50% - 30px);
   }
-}
+} 
+*/
 
 
 
 
 
-
-
+/* 
+  PRELOADER
+  -----------------------------------
 .app-preloder {
   display: flex;
   flex-direction: column;
@@ -480,41 +97,18 @@ form .form-group textarea {
 .app-preloder__icon {
   margin-right: 10px;
 }
+  */
+
+
+
+
+
+
+
 /* 
-
-display: flex;
-height: 30px;
-align-items: center; */
-
-
-
-
-
-
-
-
-.page404 {
-  padding-top: 100px;
-  text-align: center;
-}
-.page404 h1, 
-.page404 p {
-} 
-.page404 .btn-primary {
-  padding: 10px 30px;
-}
-
-@media (min-width: 501px) { 
-  .page404 p {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 500px;
-  }
-}
-
-
-
-
+  ADMIN
+  -----------------------------------
+@import 'css/admin.css';
 .App > .admin-login {
   position: fixed;
   top: 0;
@@ -556,3 +150,4 @@ align-items: center; */
   padding-left: 30px;
   padding-right: 30px;
 }
+----- */
