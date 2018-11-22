@@ -1,9 +1,9 @@
 {
-  "name": "ecomm-template1",
+  "name": "kilimandjaro-tv",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.3.2",
+    "@material-ui/core": "^3.5.1",
     "@material-ui/icons": "^3.0.1",
     "@vimeo/player": "^2.6.4",
     "firebase": "^5.4.0",
