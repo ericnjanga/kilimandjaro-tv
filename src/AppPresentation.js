@@ -1,93 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect, Link } from "react-router-dom";
- 
-import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
-
-
+import AppPresentationStyles from './components/styles/AppPresentation';
 // import PropTypes from 'prop-types';
-import Admin from './terminals/admin/Admin.js';
-// import CarsPresentation from './terminals/visitor/CarsPresentation.js';
-// import AdminLogin from './terminals/admin/login';
-// import DialogInfo from './terminals/widgets/DialogInfo.js'
+import Admin from './terminals/admin/Admin.js'; 
 import { GlobalContext } from './settings/basics.js';
 import PreloaderScreen from './components/PrelaoderScreen';
 import Page404 from './terminals/404Page';
-
 import VideosFeed from './components/tests/VideosFeed'; 
 import DialogLogin from './components/content/DialogLogin';
-
 import Drawer from './components/layout/Drawer';
 import HorizontalNav from './components/layout/HorizontalNav';
-
 import VerticalNav from './components/layout/VerticalNav';
-
 import Logo from './components/content/Logo';
-
 import IconMenu from '@material-ui/icons/Menu';
-
-import theme from './settings/theme';
-
-
-
-const DivApp = styled.div`
-  position: fixed;
-  display: flex;
-  height: 100vh;
-  width: 100%;
-
-
-  // Toggling "vertical nav" and "large logo" on viewport change
-  // ------------------------
-  .App-verticalNav {
-    display: none;
-  }
-  .App-brand__large {
-    display: flex!important;
-  }
-  @media (min-width: 900px) {
-    .App-verticalNav {
-      display: flex;
-    }
-    .App-brand__large {
-      display: none!important;
-    }
-  }
-
-
-  @media (max-width: 899px) {
-    .maincontent-center {
-      padding-top: 0;
-      margin-top: 30px;
-    }
-  }
-
-
-  @media (min-width: 900px) {
-    .App-horizontalNav,
-    .maincontent-center {
-      margin: 0 auto;
-      width: ${(theme.videoThumbnail.maxWidth * 4) + theme.videoThumbnail.padding}px;
-    }
-  }
-
-
-
-`;
-const DivAppMainContent = styled.section`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  background: ${theme.color.lightGray};
-
-
-  .maincontent-center {
-    overflow-y: scroll;
-    padding: 15px;
-  }
-`;
-
-
-
 
 
 class AppPresentation extends React.Component {
@@ -99,8 +24,6 @@ class AppPresentation extends React.Component {
       // drawer: false,
     };
   }
-
-
 
   dialogLoginHandleOpen = () => {
     let { dialogLogin } = this.state;
@@ -116,6 +39,12 @@ class AppPresentation extends React.Component {
 
 
   render() {
+
+    console.log('[render] -AppPresentation');
+    const { 
+      DivApp,
+      DivAppMainContent,
+    } = AppPresentationStyles;
  
     const {
       appLoader,
@@ -130,11 +59,6 @@ class AppPresentation extends React.Component {
         />
       );
     }
-
- 
-
-    
-    console.log('[render] -AppPresentation');
 
     return(
       <React.Fragment> 
