@@ -13,7 +13,7 @@ const {
   DivRow,
 } = VideosFeedStyle;
  
-
+alert('make sure video fee receives')
 class VideosFeed extends React.Component {
 
   constructor(props) {
