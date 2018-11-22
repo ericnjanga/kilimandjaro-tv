@@ -1,7 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
-import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
-import theme from './../../settings/theme';
+import MenuUserConnectedStyles from './../styles/StyleMenuUserConnected';
 
 import IconButton from '@material-ui/core/IconButton'; 
 import IconLogin from '@material-ui/icons/Person';
@@ -33,17 +31,11 @@ export default class MenuUserConnected extends React.Component {
 
   render() {
 
+    const { 
+      Div
+    } = MenuUserConnectedStyles;
+
     const { openMenu } = this.state;
-
-    const Div = styled.nav`
-      position: relative;
-      z-index: 9;
-
-      .icon {
-        color: ${theme.color.gray}!important;
-      }
-    `;
-
 
     return (
       <Div>

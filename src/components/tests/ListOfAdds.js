@@ -1,40 +1,13 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import theme from './../../settings/theme';
-
-import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
+import AppPresentationStyles from './../styles/StyleListOfAdds';
 import CheckLinkIcon from '@material-ui/icons/RemoveRedEye';
-// import Grid from '@material-ui/core/Grid';
-// import FormLabel from '@material-ui/core/FormLabel';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import RadioGroup from '@material-ui/core/RadioGroup';
-// import Radio from '@material-ui/core/Radio';
-// import Paper from '@material-ui/core/Paper';
-// import CloseIcon from '@material-ui/icons/Close';
- 
 
 
 
-const DivContainer = styled.ul`
-  list-style: none;
-  padding: 0;
-
-  li {
-    margin-bottom: 20px;
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-  }
-
-  .add {
-    position: relative;
-    img {
-      max-width: 100%;
-    }
-    ${theme.hoverEffect1}
-  }
-`;
-
+const { 
+  DivContainer,
+} = AppPresentationStyles;
 
 const ListOfAdds = () => {
     

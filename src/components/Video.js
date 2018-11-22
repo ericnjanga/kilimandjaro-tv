@@ -1,25 +1,12 @@
 import React from 'react';
-import theme from './../settings/theme';
-// import { withStyles } from '@material-ui/core/styles';
-
-import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
-// import Paper from '@material-ui/core/Paper';
+import VideoStyle from './styles/StyleVideo';
 import ModalVideo from './ModalVideo';
 import IconVideo from '@material-ui/icons/PlayCircleOutline';
 
 
-const DivContainer = styled.div`
-  position: relative;
-  border-radius: 5px;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); 
-
-  > img {
-    max-width: 100%;
-  }
-
-  ${theme.hoverEffect1}
-`;
-
+const { 
+  DivContainer,
+} = VideoStyle;
 
 class Video extends React.Component {
   constructor(props) {

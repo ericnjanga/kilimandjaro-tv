@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect, Link } from "react-router-dom";
-import AppPresentationStyles from './components/styles/AppPresentation';
+import AppPresentationStyles from './components/styles/StyleAppPresentation';
 // import PropTypes from 'prop-types';
 import Admin from './terminals/admin/Admin.js'; 
 import { GlobalContext } from './settings/basics.js';
