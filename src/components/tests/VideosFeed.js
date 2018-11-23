@@ -13,13 +13,13 @@ const {
   DivRow,
 } = VideosFeedStyle;
  
-alert('make sure video fee receives')
 class VideosFeed extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       category: null,
+      contentReady: false,
     };
 
     this.user_id = '90813794';
@@ -36,9 +36,12 @@ class VideosFeed extends React.Component {
    * - save result into state.data
    */
   fetchVideos = ({ category }) => {
+    console.log(` [fetchData] ---------: ${category}`);
 
-    console.log('- -------- fetchData ---------: ', category);
+    // Let state know that content isn't ready (will trigger "circular progress")
+    this.setState({ contentReady:false }); 
 
+    // Fetch videos from vimeo API
     this.client.request({
       method: 'GET',
       path: this.uri,
@@ -47,19 +50,14 @@ class VideosFeed extends React.Component {
         console.log(error);
       }
 
-      if (/* this._isMounted && */ body) {
-        // const { category } = this.props;
-
-        console.log('- [VideosFeed] category: ', category);
-
-        let data = '';
+      // Filter result by category (if available)
+      if (body) {
+        let { data } = body;
         if(category){
-          data = body.data.filter(data => data.tags[0] && data.tags[0].name===category)
-        } else {
-          data = body.data;
+          data = data.filter(data => data.tags[0] && data.tags[0].name===category)
         }
         
-        console.log('- [VideosFeed] data: ', data);
+        console.log(' [fetchData] ---------: ', data);
         this.setState({ data, category });
       }
       
@@ -75,29 +73,30 @@ class VideosFeed extends React.Component {
 
 
   componentDidMount() {
-    console.log('- [VideosFeed] componentDidMount ' );
 
-    // this._isMounted = true;
+    console.log('- [VideosFeed] componentDidMount ' );
     this.fetchVideos(this.props);
 
   }
 
-
+  /**
+   * Fetch new videos if a different category is received
+   * @param {*} newProps 
+   */
   componentWillReceiveProps(newProps) {
 
     const { category } = newProps;
-    console.log('- [VideosFeed] componentWillReceiveProps: ', newProps);
 
     if(category !== this.state.category) {
-      console.log('- [VideosFeed] Fetching new videos: ', category);
-      this.fetchVideos(this.props);
+
+      console.log(`- [VideosFeed] componentWillReceiveProps - Fetching new videos filtered by ${category}`);
+      this.fetchVideos(newProps);
     }
   }
 
 
   componentWillUnmount() {
     console.log('- [VideosFeed] componentWillUnmount ' );
-
     // this._isMounted = false;
     // OFF vimeo.request ???
   }
@@ -105,7 +104,7 @@ class VideosFeed extends React.Component {
 
   render() {
 
-    console.log('- [VideosFeed] render' );
+    console.log('- [VideosFeed] render');
 
     const { data } = this.state;
   
@@ -128,7 +127,6 @@ class VideosFeed extends React.Component {
         }
       </DivRow>
     );
-
   }
 }
 
