@@ -24,6 +24,7 @@ export default class DialogLogin extends React.Component {
       passwordConfirm: '',
     }
   };
+  
 
   toggleConnectionStatus = () => {
     this.setState(prevState => {

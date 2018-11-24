@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase from './../../settings/firebase-configs';
 import MenuUserConnectedStyles from './../styles/StyleMenuUserConnected';
 
 import IconButton from '@material-ui/core/IconButton'; 
@@ -28,6 +29,18 @@ export default class MenuUserConnected extends React.Component {
 
     this.setState({ openMenu: false });
   };
+
+
+  handleLogout = (event) => {
+    this.handleCloseMenu(event);
+
+    firebase.auth().signOut().then(function() {
+      console.log('Signed Out');
+    }, function(error) {
+      console.error('Sign Out Error', error);
+    });
+  };
+
 
   render() {
 
@@ -65,7 +78,7 @@ export default class MenuUserConnected extends React.Component {
                   <MenuList>
                     <MenuItem onClick={this.handleCloseMenu}>Profile</MenuItem>
                     <MenuItem onClick={this.handleCloseMenu}>My account</MenuItem>
-                    <MenuItem onClick={this.handleCloseMenu}>Logout</MenuItem>
+                    <MenuItem onClick={this.handleLogout}>Logout</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

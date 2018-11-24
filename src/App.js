@@ -353,20 +353,16 @@ class App extends Component {
 
     executeAppInitProcess.call(this, null);
 
-    const _this = this;
-
     // Set an authentication state observer and get user data
     firebase.auth().onAuthStateChanged((user) => {
+
       if (user) {
         // User is signed in.
-        alert('user has signed in');
-        saveLoggedUserInfo.call(_this, user);
+        console.log('[authentication state observer] user has signed in');
+        saveLoggedUserInfo.call(this, user);
         
-      } else {
-        // User is signed out.
-        // ...
-        alert('user has signed in');
       }
+
     });
 
   } // [end] componentDidMount
