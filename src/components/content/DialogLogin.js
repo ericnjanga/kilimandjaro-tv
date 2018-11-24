@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import theme from './../../settings/theme';
+import firebase from './../../settings/firebase-configs';
 
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -16,7 +17,12 @@ export default class DialogLogin extends React.Component {
   state = {
     open: false,
     // login: false,
-    register: true //login:false,
+    register: true, //login:false,
+    form: {
+      email: '',
+      password: '',
+      passwordConfirm: '',
+    }
   };
 
   toggleConnectionStatus = () => {
@@ -24,6 +30,35 @@ export default class DialogLogin extends React.Component {
       return { register: !prevState.register };
     });
   };
+
+
+  /**
+   * Handles changes on inputs
+   * (TODO; INPUT VALIDATION)
+   */
+  handleChange = (event) => {
+    const { form } = this.state;
+    const { target: {name, value} } = event;
+    form[name] = value;
+    this.setState({ form });
+  };
+
+  /**
+   * Submits email registration request to firebase
+   */
+  handleEmailRegistration = () => {
+
+    const { email, password } = this.state.form;
+
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+      alert('user created');
+    });
+  }
+
 
   render() {
 
@@ -34,7 +69,7 @@ export default class DialogLogin extends React.Component {
       open,
     } = this.props;
 
-    const { register } = this.state;
+    const { register, form } = this.state;
     const brandName = "Kilimandjaro TV";
 
     return (
@@ -59,7 +94,14 @@ export default class DialogLogin extends React.Component {
               </DialogContentText>*/}
 
               <div>
-                {register ? <RegisterInputs /> : <LoginInputs />}
+                {
+                  register ? 
+                  <RegisterInputs
+                    {...form}
+                    handleChange={this.handleChange}
+                    handleEmailRegistration={this.handleEmailRegistration}
+                  /> : 
+                  <LoginInputs {...form} handleChange={this.handleChange} />}
 
                 <p className="separator">Ou</p>
 
@@ -100,36 +142,52 @@ export default class DialogLogin extends React.Component {
   }
 }
 
-const RegisterInputs = () => {
+const RegisterInputs = ({
+  email,
+  password,
+  passwordConfirm,
+  handleChange,
+  handleEmailRegistration,
+}) => {
   return (
     <React.Fragment>
       <TextField
         autoFocus
         margin="dense"
         id="email"
+        name="email"
         label="Addresse e-mail"
         type="email"
         fullWidth
+        value={email}
+        onChange={handleChange}
       />
       <TextField
         margin="dense"
         id="password"
+        name="password"
         label="Mot de Passe"
         type="password"
         fullWidth
+        value={password}
+        onChange={handleChange}
       />
       <TextField
         margin="dense"
-        id="password"
+        id="passwordConfirm"
+        name="passwordConfirm"
         label="Confirmez votre mot de Passe"
         type="password"
         fullWidth
         className="txtfield-bottom-space"
+        value={passwordConfirm}
+        onChange={handleChange}
       />
       <Button
         className="button"
         variant="contained"
         color="secondary"
+        onClick={handleEmailRegistration}
       >
         Enregistrez-vous
       </Button>
