@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import firebase from './settings/firebase-configs';
 // import { dbGetNode, dbGetSnapshotData, dbSaveRecord, dbUpdateRecord, dbUploadFile } from './utilities/func/mix1.js';
 import { /*APP_PREFIX,*/ GlobalContext } from './settings/basics.js';
 import AppPresentation from './AppPresentation.js';
@@ -250,6 +251,32 @@ function getAppInfo () {
 
   // };
 
+  /**
+   * Save user object in the state
+   * info: https://firebase.google.com/docs/auth/web/start
+   */
+  function saveLoggedUserInfo({
+    displayName,
+    email,
+    emailVerified,
+    photoURL,
+    isAnonymous,
+    uid,
+    providerData,
+  }) {
+    const user = {
+      displayName,
+      email,
+      emailVerified,
+      photoURL,
+      isAnonymous,
+      uid,
+      providerData,
+    };
+
+    this.setState({ user });
+  }
+
 
 
 
@@ -325,6 +352,22 @@ class App extends Component {
   componentDidMount() { 
 
     executeAppInitProcess.call(this, null);
+
+    const _this = this;
+
+    // Set an authentication state observer and get user data
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in.
+        alert('user has signed in');
+        saveLoggedUserInfo.call(_this, user);
+        
+      } else {
+        // User is signed out.
+        // ...
+        alert('user has signed in');
+      }
+    });
 
   } // [end] componentDidMount
 
