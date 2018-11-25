@@ -16,8 +16,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 export default class DialogLogin extends React.Component {
   state = {
     open: false,
-    // login: false,
-    register: true, //login:false,
+    register: false, // Login form should first be displayed
     form: {
       email: '',
       password: '',
@@ -44,6 +43,7 @@ export default class DialogLogin extends React.Component {
     this.setState({ form });
   };
 
+
   /**
    * Submits email registration request to firebase
    */
@@ -56,7 +56,23 @@ export default class DialogLogin extends React.Component {
       var errorCode = error.code;
       var errorMessage = error.message;
       // ...
-      alert('user created');
+    });
+  }
+
+
+
+  /**
+   * Submits email signin request to firebase
+   */
+  handleEmailSignin = () => {
+
+    const { email, password } = this.state.form;
+
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
     });
   }
 
@@ -102,7 +118,12 @@ export default class DialogLogin extends React.Component {
                     handleChange={this.handleChange}
                     handleEmailRegistration={this.handleEmailRegistration}
                   /> : 
-                  <LoginInputs {...form} handleChange={this.handleChange} />}
+                  <LoginInputs
+                    {...form}
+                    handleChange={this.handleChange}
+                    handleEmailSignin={this.handleEmailSignin}
+                  />
+                }
 
                 <p className="separator">Ou</p>
 
@@ -196,31 +217,43 @@ const RegisterInputs = ({
   );
 };
 
-const LoginInputs = () => {
+const LoginInputs = ({
+  email,
+  password,
+  handleChange,
+  handleEmailSignin,
+}) => {
   return (
     <React.Fragment>
       <TextField
         autoFocus
         margin="dense"
         id="email"
+        name="email"
         label="Addresse e-mail"
         type="email"
         fullWidth
+        value={email}
+        onChange={handleChange}
       />
       <TextField
         margin="dense"
         id="password"
+        name="password"
         label="Mot de Passe"
         type="password"
         fullWidth
         className="txtfield-bottom-space"
+        value={password}
+        onChange={handleChange}
       />
       <Button
         className="button"
         variant="contained"
         color="secondary"
+        onClick={handleEmailSignin}
       >
-        Connectez-vous
+        Connectez-vous ...
       </Button>
     </React.Fragment>
   );
