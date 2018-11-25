@@ -158,6 +158,46 @@ class AppPresentation extends React.Component {
 
 
                   {/* 
+                    My account:
+                    --------------
+                    - ...
+                  */}
+                  <Route 
+                    path={'/my-account'}
+                    exact
+                    render={
+                      () => {
+                        return(
+                          <React.Fragment>
+                            <h1>My Account</h1>
+                          </React.Fragment>
+                        )
+                      }
+                    }
+                  />
+
+
+                  {/* 
+                    Profile:
+                    --------------
+                    - ...
+                  */}
+                  <Route 
+                    path={'/profile'}
+                    exact
+                    render={
+                      () => {
+                        return(
+                          <React.Fragment>
+                            <h1>Profile</h1>
+                          </React.Fragment>
+                        )
+                      }
+                    }
+                  />
+
+
+                  {/* 
                     Films:
                     --------------
                     - ...

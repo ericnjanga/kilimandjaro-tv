@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import firebase from './../../settings/firebase-configs';
 import MenuUserConnectedStyles from './../styles/StyleMenuUserConnected';
 
@@ -45,13 +46,13 @@ export default class MenuUserConnected extends React.Component {
   render() {
 
     const { 
-      Div
+      DivContainer
     } = MenuUserConnectedStyles;
 
     const { openMenu } = this.state;
 
     return (
-      <Div>
+      <DivContainer>
         <IconButton
           className={'icon'}
           aria-label="User Account"
@@ -76,16 +77,24 @@ export default class MenuUserConnected extends React.Component {
               <Paper>
                 <ClickAwayListener onClickAway={this.handleCloseMenu}>
                   <MenuList>
-                    <MenuItem onClick={this.handleCloseMenu}>Profile</MenuItem>
-                    <MenuItem onClick={this.handleCloseMenu}>My account</MenuItem>
-                    <MenuItem onClick={this.handleLogout}>Logout</MenuItem>
+                    <MenuItem className="menu-item" onClick={this.handleCloseMenu}>
+                      <NavLink exact to="/profile" className="App-brand" activeClassName="active">
+                        Profile
+                      </NavLink>
+                    </MenuItem>
+                    <MenuItem className="menu-item" onClick={this.handleCloseMenu}>
+                      <NavLink exact to="/my-account" className="App-brand" activeClassName="active">
+                        My account
+                      </NavLink>
+                    </MenuItem>
+                    <MenuItem className="menu-item menu-item-block" onClick={this.handleLogout}>Logout</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
             </Grow>
           )}
         </Popper>
-      </Div>
+      </DivContainer>
     );
   }
 
