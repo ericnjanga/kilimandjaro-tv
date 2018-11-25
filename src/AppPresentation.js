@@ -112,23 +112,6 @@ class AppPresentation extends React.Component {
                       () => {
                         return(
                           <React.Fragment>
-                            {/*
-                              Display only auth panel is user is not admin
-                              -----------------
-                            */}
-                            {/* <GlobalContext.Consumer>
-                              {
-                                (global) => (
-                                  global && !global.adminUser &&
-                                  <AuthPresentation
-                                    className="screen-auth screen-fixed opaque-black full-screen"
-                                    active={authPanel.active}
-                                    handleLogin={handleUserLogin}
-                                  />
-                                )
-                              }
-                            </GlobalContext.Consumer> */}
-
                             <VideosFeed /> 
                           </React.Fragment>
                         )
@@ -190,6 +173,22 @@ class AppPresentation extends React.Component {
                         return(
                           <React.Fragment>
                             <h1>Profile</h1>
+
+                            {/*
+                              ...
+                              -----------------
+                            */}
+                            <GlobalContext.Consumer>
+                              {
+                                (global) => (
+                                  global && global.user &&
+                                  <div>
+                                    { global.user.email } <br />
+                                    { global.user.uid } <br />
+                                  </div>
+                                )
+                              }
+                            </GlobalContext.Consumer>
                           </React.Fragment>
                         )
                       }

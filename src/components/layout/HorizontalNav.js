@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { GlobalContext } from './../../settings/basics.js';
 import HorizontalNavStyles from './../styles/StyleHorizontalNav';
 
 import MenuUserConnected from './../content/MenuUserConnected';
@@ -98,15 +99,34 @@ class HorizontalNav extends React.Component {
           </IconButton>
         </Link>
 
-        <IconButton
-          className={'icon'}
-          aria-label="Connect"
-          onClick={dialogLoginHandleOpen}
-        >
-          <IconLogin />
-        </IconButton>
 
-        <MenuUserConnected />
+
+        <GlobalContext.Consumer>
+          {
+            (global) => (
+              global && global.user 
+              
+              ?
+
+              <MenuUserConnected />
+
+              :
+
+              <IconButton
+                className={'icon'}
+                aria-label="Connect"
+                onClick={dialogLoginHandleOpen}
+              >
+                <IconLogin />
+              </IconButton>
+
+            )
+          }
+        </GlobalContext.Consumer>
+
+
+
+        
       </Nav>
     );
   }

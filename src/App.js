@@ -273,8 +273,10 @@ function getAppInfo () {
       uid,
       providerData,
     };
+    const { globals } = this.state;
+    globals.user = user;
 
-    this.setState({ user });
+    this.setState({ globals });
   }
 
 
@@ -314,9 +316,9 @@ class App extends Component {
         appInfo: false,
         userInfo: false,
       },
-      // globals: {
-      //   handleSubmit: this.handleAdminDataSubmit,
-      // }, 
+      globals: {
+        // handleSubmit: this.handleAdminDataSubmit,
+      }, 
       // dialogInfo: {
       //   active: false,
       //   message: '',

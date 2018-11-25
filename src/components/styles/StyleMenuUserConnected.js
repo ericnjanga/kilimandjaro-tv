@@ -14,11 +14,13 @@ const style = {
     .menu-item {
       padding: 0;
       height: initial;
+      a {
+        width: 100%;
+      }
     }
     .menu-item a,
     .menu-item-block {
       display: block;
-      width: 100%;
       padding: 11px 16px;
     }
   `,
