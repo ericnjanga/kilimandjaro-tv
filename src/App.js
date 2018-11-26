@@ -259,9 +259,9 @@ function getAppInfo () {
    */
   function saveLoggedUserInfo(userData) {
     const { globals } = this.state;
-    let user;
+    let user = userData;
 
-    if(userData) {
+    if(user) {
       const {
         displayName,
         email,
@@ -270,7 +270,7 @@ function getAppInfo () {
         isAnonymous,
         uid,
         providerData,
-      } = userData;
+      } = user;
       user = {
         displayName,
         email,
@@ -280,14 +280,16 @@ function getAppInfo () {
         uid,
         providerData,
       };
-    } else {
-      user = null;
+    }
+
+    if(!user) {
+      this.dialogLoginHandleClose();
     }
 
     globals.user = user;
 
     this.setState({ globals });
-  }
+  } // [end] saveLoggedUserInfo
 
 
 
@@ -321,38 +323,35 @@ class App extends Component {
 
     this.state = {
       drawer: false,
+      dialogLogin: false,
       appLoader: {
         firstRenderReady: true, // Prevent app from rendering multiple times "on first render"
         appInfo: false,
         userInfo: false,
       },
       globals: {
-        // handleSubmit: this.handleAdminDataSubmit,
       }, 
-      // dialogInfo: {
-      //   active: false,
-      //   message: '',
-      //   set: ({ active, message }) => {
-      //     const { dialogInfo } = this.state;
-      //     dialogInfo.active = active;
-      //     dialogInfo.message = message;
-      //     this.setState({ dialogInfo });
-      //   },
-      // },
     };  
   }
 
 
-
-
-
   toggleDrawer = () => {
-    // console.log('???????')
     this.setState((prevState) => {
       return { drawer: !prevState.drawer }
     });
   }
 
+  dialogLoginHandleOpen = () => {
+    let { dialogLogin } = this.state;
+    dialogLogin = true;
+    this.setState({ dialogLogin });
+  };
+
+  dialogLoginHandleClose = () => {
+    let { dialogLogin } = this.state;
+    dialogLogin = false;
+    this.setState({ dialogLogin });
+  };
 
   /**
    * APP INIT
@@ -365,13 +364,9 @@ class App extends Component {
 
     executeAppInitProcess.call(this, null);
 
-    // Set an authentication state observer and get user data
+    // Authentication state observer keeps user global data
     firebase.auth().onAuthStateChanged((user) => {
 
-      console.log('******user=', user);
-
-      // User is signed in.
-      console.log('[authentication state observer] user has signed in');
       saveLoggedUserInfo.call(this, user);
 
     });
@@ -379,25 +374,21 @@ class App extends Component {
   } // [end] componentDidMount
 
 
-
-
- 
-
   render() {
     // console.log('....********', this.state);
 
 
     var user = firebase.auth().currentUser;
 
-if (user != null) {
-  user.providerData.forEach(function (profile) {
-    console.log("Sign-in provider: " + profile.providerId);
-    console.log("  Provider-specific UID: " + profile.uid);
-    console.log("  Name: " + profile.displayName);
-    console.log("  Email: " + profile.email);
-    console.log("  Photo URL: " + profile.photoURL);
-  });
-}
+    // if (user != null) {
+    //   user.providerData.forEach(function (profile) {
+    //     console.log("Sign-in provider: " + profile.providerId);
+    //     console.log("  Provider-specific UID: " + profile.uid);
+    //     console.log("  Name: " + profile.displayName);
+    //     console.log("  Email: " + profile.email);
+    //     console.log("  Photo URL: " + profile.photoURL);
+    //   });
+    // }
 
 
 
@@ -407,6 +398,8 @@ if (user != null) {
         <AppPresentation
           {...this.state} 
           toggleDrawer={this.toggleDrawer}
+          dialogLoginHandleOpen={this.dialogLoginHandleOpen}
+          dialogLoginHandleClose={this.dialogLoginHandleClose}
           // handleAdminDataSubmit={this.handleAdminDataSubmit}
         />
       </GlobalContext.Provider>

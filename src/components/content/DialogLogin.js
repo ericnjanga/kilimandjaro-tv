@@ -5,24 +5,28 @@ import firebase from './../../settings/firebase-init';
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
-// import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-// import DialogContentText from "@material-ui/core/DialogContentText";
-// import DialogTitle from "@material-ui/core/DialogTitle";
-
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export default class DialogLogin extends React.Component {
   state = {
     open: false,
     register: false, // Login form should first be displayed
+    inProgress: false,
     form: {
       email: '',
       password: '',
       passwordConfirm: '',
     }
   };
-  
+
+
+  toggleProgressFlag = () => {
+    this.setState((prevState) => {
+      return { inProgress: !prevState.inProgress }
+    });
+  }
+
 
   toggleConnectionStatus = () => {
     this.setState(prevState => {
@@ -50,6 +54,8 @@ export default class DialogLogin extends React.Component {
 
     const { email, password } = this.state.form;
 
+    this.toggleProgressFlag();
+
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
       // Handle Errors here.
       // var errorCode = error.code;
@@ -66,6 +72,8 @@ export default class DialogLogin extends React.Component {
   handleEmailSignin = () => {
 
     const { email, password } = this.state.form;
+
+    this.toggleProgressFlag();
 
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
       // Handle Errors here.
@@ -89,7 +97,7 @@ export default class DialogLogin extends React.Component {
       DivContainer,
     } = StyledDialogLogin;
 
-    const { register, form } = this.state;
+    const { register, form, inProgress } = this.state;
     const brandName = "Kilimandjaro TV";
 
     return (
@@ -123,6 +131,7 @@ export default class DialogLogin extends React.Component {
                   /> : 
                   <LoginInputs
                     {...form}
+                    inProgress={inProgress}
                     handleChange={this.handleChange}
                     handleEmailSignin={this.handleEmailSignin}
                   />
@@ -223,6 +232,7 @@ const RegisterInputs = ({
 const LoginInputs = ({
   email,
   password,
+  inProgress,
   handleChange,
   handleEmailSignin,
 }) => {
@@ -256,7 +266,11 @@ const LoginInputs = ({
         color="secondary"
         onClick={handleEmailSignin}
       >
-        Connectez-vous ...
+        Connectez-vous 
+
+        {
+          inProgress && <CircularProgress className="progress" />
+        }
       </Button>
     </React.Fragment>
   );

@@ -17,25 +17,25 @@ import IconMenu from '@material-ui/icons/Menu';
 
 class AppPresentation extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      dialogLogin: false,
-      // drawer: false,
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     dialogLogin: false,
+  //     // drawer: false,
+  //   };
+  // }
 
-  dialogLoginHandleOpen = () => {
-    let { dialogLogin } = this.state;
-    dialogLogin = true;
-    this.setState({ dialogLogin });
-  };
+  // dialogLoginHandleOpen = () => {
+  //   let { dialogLogin } = this.state;
+  //   dialogLogin = true;
+  //   this.setState({ dialogLogin });
+  // };
 
-  dialogLoginHandleClose = () => {
-    let { dialogLogin } = this.state;
-    dialogLogin = false;
-    this.setState({ dialogLogin });
-  };
+  // dialogLoginHandleClose = () => {
+  //   let { dialogLogin } = this.state;
+  //   dialogLogin = false;
+  //   this.setState({ dialogLogin });
+  // };
 
 
   render() {
@@ -49,7 +49,10 @@ class AppPresentation extends React.Component {
     const {
       appLoader,
       drawer,
+      dialogLogin,
       toggleDrawer,
+      dialogLoginHandleOpen,
+      dialogLoginHandleClose,
     } = this.props;
 
     if(!appLoader.firstRenderReady) {
@@ -65,12 +68,24 @@ class AppPresentation extends React.Component {
 
         <Router>
           <DivApp>
+            {/* ... */}
+            <GlobalContext.Consumer>
+              {
+                (global) => (
+                  global && !global.user
+                  &&
+                  <DialogLogin
+                    open={dialogLogin}
+                    handleOpen={dialogLoginHandleOpen}
+                    handleClose={dialogLoginHandleClose}
+                  />
+                  // :
+                  // this.dialogLoginHandleClose()
+                )
+              }
+            </GlobalContext.Consumer>
 
-            <DialogLogin
-              open={this.state.dialogLogin}
-              handleOpen={this.dialogLoginHandleOpen}
-              handleClose={this.dialogLoginHandleClose}
-            />
+            
 
             <Drawer
               active={drawer}
@@ -83,7 +98,7 @@ class AppPresentation extends React.Component {
             <DivAppMainContent>
               <HorizontalNav
                 className="App-horizontalNav"
-                dialogLoginHandleOpen={this.dialogLoginHandleOpen}
+                dialogLoginHandleOpen={dialogLoginHandleOpen}
               >
                 <section className="App-brand__large">
                   <button

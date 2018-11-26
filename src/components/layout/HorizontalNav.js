@@ -99,8 +99,6 @@ class HorizontalNav extends React.Component {
           </IconButton>
         </Link>
 
-
-
         <GlobalContext.Consumer>
           {
             (global) => (
@@ -124,9 +122,6 @@ class HorizontalNav extends React.Component {
           }
         </GlobalContext.Consumer>
 
-
-
-        
       </Nav>
     );
   }

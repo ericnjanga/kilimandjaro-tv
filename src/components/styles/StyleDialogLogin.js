@@ -37,6 +37,14 @@ style.DivContainer = styled.div`
     padding: 30px 60px;
   }
 
+  .progress {
+    position: absolute;
+    right: 10px;
+    width: 30px!important;
+    height: 30px!important;
+    background: transparent;
+  }
+
   h1 {
     margin-bottom: 10px;
     line-height: 2.5rem;
