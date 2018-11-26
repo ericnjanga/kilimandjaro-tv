@@ -1,12 +1,8 @@
-/**
- * Firebase configuration
- */
 
-import firebase from 'firebase';
 
-// const env
+// Firebase configurations for 'dev' end 'prod' environments
 
-export const firebaseConfig = {
+const firebaseConfig = {
   dev: {
     apiKey: 'AIzaSyBNwAzZXD-vtUS2w1o-EcdfbYu5FslLZaQ',
     authDomain: 'kilimandjaro-tv-c09af.firebaseapp.com',
@@ -25,17 +21,4 @@ export const firebaseConfig = {
   },
 };
 
-
-
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig.dev); // 'dev or 'prod'
-
-// Get Firebase references
-export const DATABASE = firebase.database(); // database
-export const STORAGE = firebase.storage(); // images and ...
-// export const PROVIDER = new firebase.auth.GoogleAuthProvider(); // provider
-// export const AUTH = firebase.auth(); // auth
-
-
-export default firebase;
+export default  firebaseConfig;

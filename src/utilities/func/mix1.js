@@ -1,6 +1,6 @@
 
 
-import { DATABASE, STORAGE } from './../../settings/firebase-configs.js';
+import { DATABASE, STORAGE } from './../../settings/firebase-init.js';
 import { TEXT_COPY } from './../../settings/language-and-text.js';
 import { dataURItoBlob, stringToSlug } from './mix2.js';
 

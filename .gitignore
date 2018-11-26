@@ -9,6 +9,9 @@
 # production
 /build
 
+# Hide firebase configurations
+/src/firebase-configs.js
+
 /src/settings/firebase-configs.js
 
 # misc

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import firebase from './settings/firebase-configs';
+import firebase from './settings/firebase-init';
 // import { dbGetNode, dbGetSnapshotData, dbSaveRecord, dbUpdateRecord, dbUploadFile } from './utilities/func/mix1.js';
 import { /*APP_PREFIX,*/ GlobalContext } from './settings/basics.js';
 import AppPresentation from './AppPresentation.js';

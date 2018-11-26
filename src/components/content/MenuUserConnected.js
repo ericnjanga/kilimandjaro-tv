@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import firebase from './../../settings/firebase-configs';
+import firebase from './../../settings/firebase-init';
 import MenuUserConnectedStyles from './../styles/StyleMenuUserConnected';
 
 import IconButton from '@material-ui/core/IconButton'; 
