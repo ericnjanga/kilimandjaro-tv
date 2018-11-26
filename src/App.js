@@ -253,27 +253,37 @@ function getAppInfo () {
 
   /**
    * Save user object in the state
+   * - Extract only specific properties if @userData is evailable
+   * - set "user" value as null otherwise
    * info: https://firebase.google.com/docs/auth/web/start
    */
-  function saveLoggedUserInfo({
-    displayName,
-    email,
-    emailVerified,
-    photoURL,
-    isAnonymous,
-    uid,
-    providerData,
-  }) {
-    const user = {
-      displayName,
-      email,
-      emailVerified,
-      photoURL,
-      isAnonymous,
-      uid,
-      providerData,
-    };
+  function saveLoggedUserInfo(userData) {
     const { globals } = this.state;
+    let user;
+
+    if(userData) {
+      const {
+        displayName,
+        email,
+        emailVerified,
+        photoURL,
+        isAnonymous,
+        uid,
+        providerData,
+      } = userData;
+      user = {
+        displayName,
+        email,
+        emailVerified,
+        photoURL,
+        isAnonymous,
+        uid,
+        providerData,
+      };
+    } else {
+      user = null;
+    }
+
     globals.user = user;
 
     this.setState({ globals });
@@ -358,12 +368,11 @@ class App extends Component {
     // Set an authentication state observer and get user data
     firebase.auth().onAuthStateChanged((user) => {
 
-      if (user) {
-        // User is signed in.
-        console.log('[authentication state observer] user has signed in');
-        saveLoggedUserInfo.call(this, user);
-        
-      }
+      console.log('******user=', user);
+
+      // User is signed in.
+      console.log('[authentication state observer] user has signed in');
+      saveLoggedUserInfo.call(this, user);
 
     });
 
