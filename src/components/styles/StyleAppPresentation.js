@@ -4,16 +4,14 @@ import theme from './../../settings/theme';
 
 const style = {};
 style.DivApp = styled.div`
-  position: fixed;
-  display: flex;
-  height: 100vh;
-  width: 100%;
-
 
   // Toggling "vertical nav" and "large logo" on viewport change
   // ------------------------
   .App-verticalNav {
     display: none;
+    position: fixed;
+    z-index: 10;
+    height: 100vh;
   }
   .App-brand__large {
     display: flex!important;
@@ -57,7 +55,7 @@ style.DivAppMainContent = styled.section`
   .maincontent-center {
     padding: 15px;
     padding-top: ${theme.hNav.height}px;
-    overflow-y: scroll;
+    // overflow-y: scroll;
   }
 `;
 
