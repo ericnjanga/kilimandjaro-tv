@@ -309,6 +309,7 @@ class AppPresentation extends React.Component {
                         return(
                           <React.Fragment>
                             <h1>Tickets</h1>
+                            <p>Inspiration from: https://tlcketmaster-ca.com</p>
                           </React.Fragment>
                         )
                       }

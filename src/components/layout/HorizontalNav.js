@@ -8,7 +8,6 @@ import MenuUserConnected from './../content/MenuUserConnected';
 import IconButton from '@material-ui/core/IconButton';
 import IconSrc from '@material-ui/icons/Search';
 import IconLogin from '@material-ui/icons/Person';
-import IconTickets from '@material-ui/icons/Loyalty';
 // // import Logo from './../content/Logo';
 
 
@@ -87,15 +86,6 @@ class HorizontalNav extends React.Component {
         <Link to="/search">
           <IconButton className={'icon'} aria-label="Search">
             <IconSrc />
-          </IconButton>
-        </Link>
-        
-        <Link to="/tickets">
-          <IconButton
-            className={'icon'}
-            aria-label="Tickets"
-          >
-            <IconTickets />
           </IconButton>
         </Link>
 

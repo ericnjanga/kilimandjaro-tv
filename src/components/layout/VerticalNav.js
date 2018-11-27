@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import VerticalNavStyles from './../styles/StyleVerticalNav';
 import IconMovies from '@material-ui/icons/LocalMovies';
-import IconNews from '@material-ui/icons/KeyboardVoice';
+import IconTickets from '@material-ui/icons/Loyalty';
 import BuzzIcon from '@material-ui/icons/Whatshot';
 import ListOfAdds from './../tests/ListOfAdds'; 
 import Logo from './../content/Logo';
@@ -37,9 +37,9 @@ const VerticalNav = ({
           </NavLink>
         </li>
         <li>
-          <NavLink className="item" to="/news" activeClassName="active">
-            <IconNews />
-            <span>Nouvelles</span>
+          <NavLink className="item" to="/tickets" activeClassName="active">
+            <IconTickets />
+            <span>Tickets</span>
           </NavLink>
         </li>
       </ul>
