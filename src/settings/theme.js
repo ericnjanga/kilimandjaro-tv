@@ -22,6 +22,9 @@ const theme1 = {
     maxWidth: 250,
     padding: 15,
   },
+  hNav: {
+    height: 60,
+  }
 };
 
 

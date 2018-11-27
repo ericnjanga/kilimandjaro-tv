@@ -4,12 +4,27 @@ import theme from './../../settings/theme';
 
 const style = {};
 style.Nav = styled.nav`
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+
   display: flex;
   align-items: center;
   justify-content: flex-end;
   background: transparent;
   padding: 0 15px;
-  height: 80px;
+  height: ${theme.hNav.height}px;
+
+  &:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; //#666;
+    opacity: 0.5;
+  }
 
   .App-brand__large {
     display: flex;
@@ -29,6 +44,7 @@ style.Nav = styled.nav`
     overflow: hidden;
     ul {
       list-style: none;
+      margin: 0;
       padding: 0;
       li {
         display: inline-block;
@@ -37,6 +53,11 @@ style.Nav = styled.nav`
         animation: marquee 15s linear infinite;
       }
     }
+  }
+
+  .App-brand__large, .announces, a, button {
+    position: relative;
+    z-index: 1;
   }
 
 

@@ -55,8 +55,9 @@ style.DivAppMainContent = styled.section`
 
 
   .maincontent-center {
-    overflow-y: scroll;
     padding: 15px;
+    padding-top: ${theme.hNav.height}px;
+    overflow-y: scroll;
   }
 `;
 
