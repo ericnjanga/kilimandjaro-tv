@@ -5,7 +5,8 @@ import IconVideo from '@material-ui/icons/PlayCircleOutline';
 
 
 const { 
-  DivContainer,
+  DivGlobalContainer,
+  DivVidObjectContainer,
 } = VideoStyle;
 
 class Video extends React.Component {
@@ -32,18 +33,18 @@ class Video extends React.Component {
 
     const {
       // data:{category, id},
-      data:{uri, pictures, metadata},
+      data:{uri, pictures, metadata, name, duration},
     } = this.props;
 
-    console.log('[render] - video');
+    console.log('[render] - video', this.props.data);
 
     const { modal } = this.state; 
     const videoId = uri.split('/videos/')[1];
     const imgUrl = pictures.sizes[3].link;
 
     return(
-      <React.Fragment>
-        <DivContainer
+      <DivGlobalContainer>
+        <DivVidObjectContainer
           onClick={this.toggleModal}
         >
           <IconVideo className="icon" />
@@ -51,16 +52,33 @@ class Video extends React.Component {
             src={imgUrl}
             alt={metadata.name}
           />
-        </DivContainer> 
+        </DivVidObjectContainer>
+
+        <section className="metadata">
+          <p>{name}</p>
+          <Duration />
+        </section>
+
         <ModalVideo
           active={modal.active}
           toggle={this.toggleModal}
           videoId={videoId}
         />
-      </React.Fragment>
+      </DivGlobalContainer>
     );
 
   }
+}
+
+
+/**
+ * Convert milliseconds into HHh MMm SSs format
+ */
+const Duration = ({ duration }) => {
+  // Duration calculations will happen here
+  return (
+    <time datetime="3m 30s">3:30 min</time>
+  );
 }
 
 
