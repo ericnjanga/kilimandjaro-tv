@@ -9,7 +9,7 @@ style.DivApp = styled.div`
   // ------------------------
   .App-verticalNav {
     display: none;
-    position: fixed;
+    // position: fixed;
     z-index: 10;
     height: 100vh;
   }
@@ -29,7 +29,6 @@ style.DivApp = styled.div`
   @media (max-width: 899px) {
     .maincontent-center {
       padding-top: 0;
-      margin-top: 30px;
     }
   }
 
@@ -54,8 +53,6 @@ style.DivAppMainContent = styled.section`
 
   .maincontent-center {
     padding: 15px;
-    padding-top: ${theme.hNav.height}px;
-    // overflow-y: scroll;
   }
 `;
 
