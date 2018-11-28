@@ -77,7 +77,7 @@ class Video extends React.Component {
 const Duration = ({ duration }) => {
   // Duration calculations will happen here
   return (
-    <time datetime="3m 30s">3:30 min</time>
+    <time dateTime="3m 30s">3:30 min</time>
   );
 }
 
