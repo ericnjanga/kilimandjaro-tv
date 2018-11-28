@@ -7,6 +7,7 @@ import { GlobalContext } from './settings/basics.js';
 import PreloaderScreen from './components/PrelaoderScreen';
 import Page404 from './terminals/404Page';
 import VideosFeed from './components/tests/VideosFeed'; 
+import Hero from './components/content/Hero';
 import DialogLogin from './components/content/DialogLogin';
 import Drawer from './components/layout/Drawer';
 import HorizontalNav from './components/layout/HorizontalNav';
@@ -113,7 +114,6 @@ class AppPresentation extends React.Component {
               </HorizontalNav>
                
               
-              <section className="maincontent-center">
                 <Switch>
                   {/* 
                     Welcome screen:
@@ -126,9 +126,13 @@ class AppPresentation extends React.Component {
                     render={
                       () => {
                         return(
-                          <React.Fragment>
+                          <div>
+                            <Hero />
+                            <section className="maincontent-center">
                             <VideosFeed /> 
-                          </React.Fragment>
+
+                            </section>
+                          </div>
                         )
                       }
                     }
@@ -389,7 +393,6 @@ class AppPresentation extends React.Component {
               </Switch>
             
 
-              </section>
                 
             </DivAppMainContent>
           </DivApp>  
