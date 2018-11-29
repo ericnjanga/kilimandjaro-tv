@@ -14,6 +14,7 @@ const theme1 = {
     secondary: '#38307F',
     lightGray: '#d6d6d6',
     gray: '#666',
+    darkGray: '#333',
   },
   transition: {
     basic: 'all 0.2s ease-in-out',

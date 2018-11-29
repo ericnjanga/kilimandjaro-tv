@@ -6,7 +6,16 @@ const style = {
   DivGlobalContainer: styled.div `
 
   .metadata {
+    margin-top: 5px;
     font-size: 0.8rem;
+
+    p {
+      margin-bottom: 0;
+      color: ${theme.color.lightGray}
+    }
+    time {
+      color: ${theme.color.gray}
+    }
   }
   `,
   DivVidObjectContainer: styled.div`
