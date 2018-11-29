@@ -32,6 +32,15 @@ const theme1 = {
   breakpoints: {},
 };
 
+// transparent back/white
+theme1.gradient1 = `
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+49,000000+49,333333+90,333333+100&0+0,0.65+100 */
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.32) 49%, rgba(51,51,51,0.59) 90%, rgba(51,51,51,0.65) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.32) 49%,rgba(51,51,51,0.59) 90%,rgba(51,51,51,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.6) 49%,rgba(51,51,51,0.8) 90%,rgba(51,51,51,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6333333',GradientType=0 ); /* IE6-9 */
+`;
+
 // 4 video thumbnails put together
 theme1.vid4cols = (theme1.videoThumbnail.maxWidth * 4);
 
