@@ -3,17 +3,24 @@ import styled from 'styled-components'; //https://www.styled-components.com/docs
 import theme from './../../settings/theme';
 
 const style = {};
-style.Nav = styled.nav`
+style.Container = styled.section`
   position: fixed;
   width: 100%;
   z-index: 9;
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
   background: transparent;
-  padding: 0 15px;
   height: ${theme.hNav.height}px;
+
+  @media (min-width: 900px) {
+    /* Make room for sidebar nav */
+    width: calc(100% - ${theme.vNav.width}px);
+  }
+
+  nav.hNav__frame {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    border: 1px solid lime;
+  }
 
   &:after {
     position: absolute;

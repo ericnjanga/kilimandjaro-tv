@@ -65,7 +65,7 @@ class HorizontalNav extends React.Component {
   render () {
 
     const { 
-      Nav
+      Container
     } = HorizontalNavStyles;
 
     const {
@@ -76,43 +76,44 @@ class HorizontalNav extends React.Component {
 
 
     return (
-      <Nav className={className}>
+      <Container className={className}>
         { children }
+        <nav className="hNav__frame">
+          <ScrollingText
+            className="announces"
+          />
 
-        <ScrollingText
-          className="announces"
-        />
+          <Link to="/search">
+            <IconButton className={'icon'} aria-label="Search">
+              <IconSrc />
+            </IconButton>
+          </Link>
 
-        <Link to="/search">
-          <IconButton className={'icon'} aria-label="Search">
-            <IconSrc />
-          </IconButton>
-        </Link>
+          <GlobalContext.Consumer>
+            {
+              (global) => (
+                global && global.user 
+                
+                ?
 
-        <GlobalContext.Consumer>
-          {
-            (global) => (
-              global && global.user 
-              
-              ?
+                <MenuUserConnected />
 
-              <MenuUserConnected />
+                :
 
-              :
+                <IconButton
+                  className={'icon'}
+                  aria-label="Connect"
+                  onClick={dialogLoginHandleOpen}
+                >
+                  <IconLogin />
+                </IconButton>
 
-              <IconButton
-                className={'icon'}
-                aria-label="Connect"
-                onClick={dialogLoginHandleOpen}
-              >
-                <IconLogin />
-              </IconButton>
+              )
+            }
+          </GlobalContext.Consumer>
 
-            )
-          }
-        </GlobalContext.Consumer>
-
-      </Nav>
+        </nav>
+      </Container>
     );
   }
 };

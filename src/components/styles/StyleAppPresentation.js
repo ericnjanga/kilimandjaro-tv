@@ -37,7 +37,7 @@ style.DivApp = styled.div`
 
   
   @media (min-width: ${theme.breakpoints.leftNavMainContent}px) {
-    .App-horizontalNav,
+    .App-horizontalNav .hNav__frame,
     .maincontent-center {
       margin: 0 auto;
       width: ${theme.vid4cols}px;
