@@ -10,6 +10,7 @@ style.Container = styled.div`
   align-items: flex-end;
   text-align: center;
   height: 300px;
+  background-size: cover!important;
 
   .hero-title {
     margin-bottom: 0;
