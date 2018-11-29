@@ -12,6 +12,9 @@ style.DivApp = styled.div`
     // position: fixed;
     z-index: 10;
     height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
   }
   .App-brand__large {
     display: flex!important;
@@ -32,12 +35,12 @@ style.DivApp = styled.div`
     }
   }
 
-
-  @media (min-width: 900px) {
+  
+  @media (min-width: ${theme.breakpoints.leftNavMainContent}px) {
     .App-horizontalNav,
     .maincontent-center {
       margin: 0 auto;
-      width: ${(theme.videoThumbnail.maxWidth * 4) + theme.videoThumbnail.padding}px;
+      width: ${theme.vid4cols}px;
     }
   }
 
@@ -49,6 +52,12 @@ style.DivAppMainContent = styled.section`
   flex-direction: column;
   flex: 1;
   background: ${theme.color.lightGray};
+
+  @media (min-width: 900px) {
+    /* Make room for sidebar nav */
+    margin-left: auto;
+    width: calc(100% - ${theme.vNav.width}px);
+  }
 
 
   .maincontent-center {

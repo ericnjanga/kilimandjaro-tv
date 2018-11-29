@@ -7,7 +7,7 @@
  * 
  * App Layout: https://dribbble.com/shots/1732793-Task-App-Dashboard-UI
  */
-const theme1 = {
+const theme1 = {  
   color: {
     primary: '#DA6A2D',
     primaryHover: '#fff',
@@ -22,10 +22,20 @@ const theme1 = {
     maxWidth: 250,
     padding: 15,
   },
+  vNav: {
+    width: 170,
+  },
   hNav: {
     height: 60,
-  }
+  },
+  breakpoints: {},
 };
+
+// 4 video thumbnails put together
+theme1.vid4cols = (theme1.videoThumbnail.maxWidth * 4);
+
+// left sidebar nav + 4 video thumbnails put together
+theme1.breakpoints.leftNavMainContent = theme1.vNav.width + theme1.vid4cols +  + theme1.videoThumbnail.padding;
 
 
 const hoverEffect1_iconSize = 32;

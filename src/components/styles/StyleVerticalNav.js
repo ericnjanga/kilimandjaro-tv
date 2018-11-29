@@ -7,7 +7,7 @@ const asidePadding = '30px';
 style.Aside = styled.aside`
   display: flex;
   flex-direction: column;
-  width: 170px;
+  width: ${theme.vNav.width}px;
   background-color: ${theme.color.secondary};
   transition: background-color 0.2s ease-in-out;
 
