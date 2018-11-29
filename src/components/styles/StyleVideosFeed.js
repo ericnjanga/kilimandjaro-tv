@@ -83,7 +83,7 @@ style.DivRow = styled.div`
       flex: 0 0 ${theme.videoThumbnail.maxWidth}px;
       max-width: ${theme.videoThumbnail.maxWidth}px; 
       padding-left: ${theme.videoThumbnail.padding}px!important;
-      padding-right: 0!important;
+      padding-right: ${theme.videoThumbnail.padding}px!important;
     }
   }
 
