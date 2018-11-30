@@ -41,6 +41,16 @@ theme1.gradient1 = `
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6333333',GradientType=0 ); /* IE6-9 */
 `;
 
+theme1.gradient2 = `
+  background: -moz-linear-gradient(90deg, rgba(51,51,51,1) 0%, rgba(51,51,51,1) 0%, rgba(255,255,255,0) 100%); /* ff3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(100%, rgba(51,51,51,1)), color-stop(100%, rgba(51,51,51,1))); /* safari4+,chrome */
+  background: -webkit-linear-gradient(90deg, rgba(51,51,51,1) 0%, rgba(51,51,51,1) 0%, rgba(255,255,255,0) 100%); /* safari5.1+,chrome10+ */
+  background: -o-linear-gradient(90deg, rgba(51,51,51,1) 0%, rgba(51,51,51,1) 0%, rgba(255,255,255,0) 100%); /* opera 11.10+ */
+  background: -ms-linear-gradient(90deg, rgba(51,51,51,1) 0%, rgba(51,51,51,1) 0%, rgba(255,255,255,0) 100%); /* ie10+ */
+  background: linear-gradient(0deg, rgba(51,51,51,1) 0%, rgba(51,51,51,1) 0%, rgba(255,255,255,0) 100%); /* w3c */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#333333',GradientType=0 ); /* ie6-9 */
+`;
+
 // 4 video thumbnails put together
 theme1.vid4cols = (theme1.videoThumbnail.maxWidth * 4);
 

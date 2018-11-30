@@ -22,18 +22,31 @@ style.Container = styled.div`
     left: 0;
     width: 100%;
     height: 200px;
-    ${theme.gradient1}
+    ${theme.gradient2}
   }
 
   .hero-title {
-    margin-bottom: 0;
+    margin-bottom: 10px;
     font-size: 1.8rem;
     text-transform: uppercase;
-    color: ${theme.color.primary}
+    color: #a5ef00;
+    font-family: 'Anton', sans-serif;
   }
 
   .hero-time {
     font-size: 0.7rem;
+    background: #333;
+    border-radius: 10px;
+    padding: 2px 10px;
+  }
+
+  .hero-location {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    .icon {
+      color: #e53e4f;
+    }
   }
 
   time {
@@ -45,7 +58,7 @@ style.Container = styled.div`
     z-index: 1;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
     padding-left: 20px;
     padding-right: 20px;
     font-size: 0.7rem;
@@ -54,7 +67,7 @@ style.Container = styled.div`
     @media(min-width: 600px) {
       max-width: 400px;
       font-size: 0.8rem;
-      margin-bottom: 30px;
+      // margin-bottom: 30px;
     }
     @media(min-width: 900px) {
       max-width: 500px;

@@ -2,27 +2,32 @@ import React from 'react';
 import HeroStyle from './../styles/StyleHero';
 import Button from "@material-ui/core/Button";
 import imgBanner from './../../img/banner-1.jpg';
+import IconLocation from '@material-ui/icons/LocationOn';
+
 
 
 const Hero = () => {
   const { Container } = HeroStyle;
   const maxTxtLenght = 100;
-  let text = 'Donec adipiscing mattis taciti consectetur netus tristique duis erat consectetur mi eget dignissim a mollis a quisque nec vestibulum praesent a a.At a vestibulum.';
+  let text = 'Phoenix Concert Theatre toronto';
   text = (text.length > maxTxtLenght) ? text.substr(0, maxTxtLenght) + ' ...' : text;
   
   return (
     <Container style={{ background:`url(${imgBanner})` }}>
       <article>
-        <h1 className="hero-title">Hero title</h1>
-        <time className="hero-time">hero date here ...</time>
-        <p>{ text }</p>
+        <h1 className="hero-title">Kaysha en concert</h1>
+        <time className="hero-time">19 Janvier 2019 à 20hrs</time>
+        <div className="hero-location">
+          <IconLocation className="icon" />
+          <span>{ text }</span>
+        </div>
 
         <Button
           className="button button-bottom-spacing"
           variant="contained"
           color="primary"
         >
-          CTA Button
+          Savoir plus
         </Button>
       </article>
     </Container>
