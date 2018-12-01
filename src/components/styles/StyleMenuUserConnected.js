@@ -7,10 +7,6 @@ const style = {
     position: relative;
     z-index: 9;
 
-    .icon {
-      color: ${theme.color.gray}!important;
-    }
-
     .menu-item {
       padding: 0;
       height: initial;

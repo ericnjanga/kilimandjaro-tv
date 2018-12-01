@@ -11,10 +11,10 @@ const style = {
 
     p {
       margin-bottom: 0;
-      color: ${theme.color.lightGray}
+      color: ${theme.color.primaryHover}
     }
     time {
-      color: ${theme.color.gray}
+      color: ${theme.color.lightGrayLow}
     }
   }
   `,

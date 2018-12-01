@@ -18,8 +18,8 @@ style.Container = styled.section`
   nav.hNav__frame {
     display: flex;
     align-items: center;
-    padding: 0 15px;
-    border: 1px solid lime;
+    // padding: 0 15px;
+    // border: 1px solid lime;
   }
 
   &:after {
@@ -57,7 +57,9 @@ style.Container = styled.section`
         display: inline-block;
         margin-right: 50px;
         font-size: 0.8rem;
+        font-weight: bold;
         animation: marquee 15s linear infinite;
+        text-shadow: 2px 2px 2px rgba(255,255,255, 1);
       }
     }
   }
@@ -67,6 +69,10 @@ style.Container = styled.section`
     z-index: 1;
   }
 
+
+  .icon {
+    color: ${theme.color.secondaryLight}!important;
+  }
 
   @media (max-width: 899px) {
     .announces {

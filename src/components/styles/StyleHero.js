@@ -31,6 +31,7 @@ style.Container = styled.div`
     text-transform: uppercase;
     color: #a5ef00;
     font-family: 'Anton', sans-serif;
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 1);
   }
 
   .hero-time {
@@ -38,6 +39,11 @@ style.Container = styled.div`
     background: #333;
     border-radius: 10px;
     padding: 2px 10px;
+    color: lime;
+    span {
+      color: #fff;
+      padding: 0 5px;
+    }
   }
 
   .hero-location {
@@ -46,6 +52,9 @@ style.Container = styled.div`
     align-items: center;
     .icon {
       color: #e53e4f;
+    }
+    span {
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     }
   }
 
@@ -58,7 +67,7 @@ style.Container = styled.div`
     z-index: 1;
     margin-left: auto;
     margin-right: auto;
-    // margin-bottom: 15px;
+    margin-bottom: 15px;
     padding-left: 20px;
     padding-right: 20px;
     font-size: 0.7rem;

@@ -16,7 +16,7 @@ const Hero = () => {
     <Container style={{ background:`url(${imgBanner})` }}>
       <article>
         <h1 className="hero-title">Kaysha en concert</h1>
-        <time className="hero-time">19 Janvier 2019 à 20hrs</time>
+        <time className="hero-time">19 Janvier 2019 <span>à</span> 20hrs</time>
         <div className="hero-location">
           <IconLocation className="icon" />
           <span>{ text }</span>
