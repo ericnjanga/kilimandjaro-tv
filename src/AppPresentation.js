@@ -15,6 +15,8 @@ import VerticalNav from './components/layout/VerticalNav';
 import Logo from './components/content/Logo';
 import IconMenu from '@material-ui/icons/Menu';
 
+import RouteProfile from './components/routes/profile';
+
 
 class AppPresentation extends React.Component {
 
@@ -112,6 +114,14 @@ class AppPresentation extends React.Component {
                   </Link>
                 </section>
               </HorizontalNav>
+
+
+              {
+                /**
+                 * TODO: FIND A WAY TO DEFINE THESE ROUTES IN EXTERNAL FILES
+                 * ---------------------------------------------------------
+                 */
+              }
                
               
                 <Switch>
@@ -178,7 +188,8 @@ class AppPresentation extends React.Component {
                     }
                   />
 
-
+                  
+                  {/* <RouteProfile /> */}
                   {/* 
                     Profile:
                     --------------
@@ -192,11 +203,7 @@ class AppPresentation extends React.Component {
                         return(
                           <React.Fragment>
                             <h1>Profile</h1>
-
-                            {/*
-                              ...
-                              -----------------
-                            */}
+ 
                             <GlobalContext.Consumer>
                               {
                                 (global) => (
@@ -306,7 +313,7 @@ class AppPresentation extends React.Component {
                     - ...
                   */}
                   <Route 
-                    path={'/Tickets'}
+                    path={'/tickets'}
                     exact
                     render={
                       () => {
