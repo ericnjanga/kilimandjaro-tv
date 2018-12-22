@@ -1,7 +1,7 @@
 import React from 'react';
-import img404 from './../img/404-1.png';
+import img404 from './../../img/404-1.png';
 import { NavLink } from "react-router-dom"; 
-import Style404 from './../components/styles/Style404';
+import Style404 from './../styles/Style404';
 
 
 const { View } = Style404;
