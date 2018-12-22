@@ -51,7 +51,7 @@ style.DivAppMainContent = styled.section`
   display: flex;
   flex-direction: column;
   flex: 1;
-  background: ${theme.color.darkGray};
+  // background: ${theme.color.darkGray};
 
   @media (min-width: 900px) {
     /* Make room for sidebar nav */

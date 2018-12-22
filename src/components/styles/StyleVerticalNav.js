@@ -65,6 +65,10 @@ style.Aside = styled.aside`
     }
   } // .item
 
+  .item.deactivated {
+    opacity: 0.3;
+  }
+
   .add-container {
     flex: 1;
     overflow-y: scroll;

@@ -137,6 +137,7 @@ class AppPresentation extends React.Component {
                       () => {
                         return(
                           <div>
+                            {/* <Redirect to='/films' /> */}
                             <Hero />
                             <section className="maincontent-center">
                             <VideosFeed /> 

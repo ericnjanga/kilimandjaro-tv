@@ -4,7 +4,11 @@ import theme from './../../settings/theme';
 
 const style = {
   View: styled.div`
+    padding-top: 70px;
     text-align: center;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
 
     h1, p {
     } 
@@ -29,7 +33,7 @@ const style = {
       }
     }
     figcaption a {
-      color: ${theme.color.primary};
+      color: ${theme.color.darkGray};
     }
 
     @media (min-width: 501px) { 

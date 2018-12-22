@@ -31,13 +31,23 @@ const VerticalNav = ({
           </NavLink>
         </li>
         <li>
-          <NavLink className="item" to="/buzz" activeClassName="active">
+          <NavLink
+            className="item deactivated"
+            to="/buzz"
+            activeClassName="active"
+            onClick={ (event)=>{ event.preventDefault() } }
+          >
             <BuzzIcon />
             <span>Buzz</span>
           </NavLink>
         </li>
         <li>
-          <NavLink className="item" to="/tickets" activeClassName="active">
+          <NavLink
+            className="item deactivated"
+            to="/tickets"
+            activeClassName="active"
+            onClick={ (event)=>{ event.preventDefault() } }
+          >
             <IconTickets />
             <span>Tickets</span>
           </NavLink>
