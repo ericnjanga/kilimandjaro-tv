@@ -1,20 +1,24 @@
+/**
+ * Feeds for: Videos For Free (VFFFeed)
+ */
+
 import React from 'react';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import VideosFeedStyle from './../styles/StyleVideosFeed';
 import Vimeo from 'vimeo';
-import configs from './../../settings/vimeoConfig'
+import CircularProgress from '@material-ui/core/CircularProgress';
+import VFFFeedStyle from './styles/StyleVFFFeed';
+import configs from './../settings/vimeoConfig'
+import Video from './Video';
 // import PropTypes from 'prop-types';
 
-import Video from './../Video';
 
 
 
 
 const { 
   DivRow,
-} = VideosFeedStyle;
+} = VFFFeedStyle;
  
-class VideosFeed extends React.Component {
+class VFFFeed extends React.Component {
 
   constructor(props) {
     super(props);
@@ -23,7 +27,7 @@ class VideosFeed extends React.Component {
       contentReady: false,
     };
 
-    this.user_id = '90813794';
+    this.user_id = configs.user_id;
     this.uri = `/users/${this.user_id}/videos`;
     this.client_id = configs.client_id
     this.client_secret = configs.client_secret
@@ -37,7 +41,7 @@ class VideosFeed extends React.Component {
    * - save result into state.data
    */
   fetchVideos = ({ category }) => {
-    console.log(` [fetchData] ---------: ${category}`);
+    // console.log(` [fetchData] ---------: ${category}`);
 
     // Let state know that content isn't ready (will trigger "circular progress")
     this.setState({ contentReady:false }); 
@@ -58,16 +62,9 @@ class VideosFeed extends React.Component {
           data = data.filter(data => data.tags[0] && data.tags[0].name===category)
         }
         
-        console.log(' [fetchData] ---------: ', data);
+        // console.log(' [fetchData] ---------: ', data);
         this.setState({ data, category });
       }
-      
-      // Body contains:
-      // data: (3) [{…}, {…}, {…}]
-      // page: 1
-      // paging: {next: null, previous: null, first: "/users/90813794/videos?page=1", last: "/users/90813794/videos?page=1"}
-      // per_page: 25
-      // total: 3
     
     }); // [end] client.request
   };
@@ -75,7 +72,7 @@ class VideosFeed extends React.Component {
 
   componentDidMount() {
 
-    console.log('- [VideosFeed] componentDidMount ' );
+    // console.log('- [VFFFeed] componentDidMount ' );
     this.fetchVideos(this.props);
 
   }
@@ -90,14 +87,14 @@ class VideosFeed extends React.Component {
 
     if(category !== this.state.category) {
 
-      console.log(`- [VideosFeed] componentWillReceiveProps - Fetching new videos filtered by ${category}`);
+      // console.log(`- [VFFFeed] componentWillReceiveProps - Fetching new videos filtered by ${category}`);
       this.fetchVideos(newProps);
     }
   }
 
 
   componentWillUnmount() {
-    console.log('- [VideosFeed] componentWillUnmount ' );
+    console.log('- [VFFFeed] componentWillUnmount ' );
     // this._isMounted = false;
     // OFF vimeo.request ???
   }
@@ -105,7 +102,7 @@ class VideosFeed extends React.Component {
 
   render() {
 
-    console.log('- [VideosFeed] render');
+    // console.log('- [VFFFeed] render');
 
     const { data } = this.state;
   
@@ -131,8 +128,8 @@ class VideosFeed extends React.Component {
   }
 }
 
-// VideosFeed.propTypes = {
+// VFFFeed.propTypes = {
 //   classes: PropTypes.object.isRequired,
 // };
 
-export default VideosFeed;
+export default VFFFeed;

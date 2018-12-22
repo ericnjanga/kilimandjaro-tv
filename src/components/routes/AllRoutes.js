@@ -1,8 +1,8 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch, Redirect, Link } from "react-router-dom"
-import { GlobalContext } from './../../settings/basics'
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 import Hero from './../content/Hero'
-import VideosFeed from './../tests/VideosFeed' 
+import VFFFeed from './../VFFFeed' 
+import VODFeed from './../VODFeed' 
 import Page404 from './../views/404Page'
 import MoviesStyle from './../styles/StyleMoviesPage';
 
@@ -35,7 +35,7 @@ const AllRoutes = () => {
                 //   <Redirect to='/films' />
                 //   <Hero />
                 //   <section className="maincontent-center">
-                //     <VideosFeed /> 
+                //     <VFFFeed /> 
                 //   </section>
                 // </div>
               )
@@ -58,7 +58,7 @@ const AllRoutes = () => {
                 <MoviesContainer>
                   <Hero />
                   <section className="maincontent-center">
-                    <VideosFeed
+                    <VODFeed
                       category="film"
                     />
                   </section>
@@ -162,7 +162,7 @@ const AllRoutes = () => {
                 return(
                   <React.Fragment>
                     <h1>Buzz</h1>
-                    <VideosFeed
+                    <VFFFeed
                       category="buzz"
                     /> 
                   </React.Fragment>

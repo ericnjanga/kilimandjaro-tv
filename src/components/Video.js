@@ -33,10 +33,10 @@ class Video extends React.Component {
 
     const {
       // data:{category, id},
-      data:{uri, pictures, metadata, name, duration},
+      data:{ uri, pictures, metadata, name }, //duration},
     } = this.props;
 
-    console.log('[render] - video', this.props.data);
+    // console.log('[render] - video', this.props.data);
 
     const { modal } = this.state; 
     const videoId = uri.split('/videos/')[1];

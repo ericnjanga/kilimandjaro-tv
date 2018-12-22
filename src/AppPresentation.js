@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect, Link } from "react-router-dom";
 import AppPresentationStyles from './components/styles/StyleAppPresentation';
 // import PropTypes from 'prop-types';
-import Admin from './terminals/admin/Admin.js'; 
+// import Admin from './terminals/admin/Admin.js'; 
 import { GlobalContext } from './settings/basics.js';
 import PreloaderScreen from './components/PrelaoderScreen';
 import DialogLogin from './components/content/DialogLogin';

@@ -86,7 +86,7 @@ export default class DialogLogin extends React.Component {
 
   render() {
 
-    console.log('[render] DialogLogin');
+    // console.log('[render] DialogLogin');
 
     const {
       handleClose,
@@ -290,7 +290,7 @@ const RegisterFooter = ({ brandName, action }) => {
 const LoginFooter = ({ brandName, action }) => {
   return (
     <div>
-      <a href="#">Mot de passe oublié?</a>
+      <a href="/">Mot de passe oublié?</a>
       <br />
       {`Pas encore chez ${brandName}? `}
       <Button className="btn-link" onClick={action}>

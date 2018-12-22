@@ -378,7 +378,7 @@ class App extends Component {
     // console.log('....********', this.state);
 
 
-    var user = firebase.auth().currentUser;
+    // var user = firebase.auth().currentUser;
 
     // if (user != null) {
     //   user.providerData.forEach(function (profile) {
