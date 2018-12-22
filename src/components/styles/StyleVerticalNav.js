@@ -69,7 +69,7 @@ style.Aside = styled.aside`
     opacity: 0.3;
   }
 
-  .add-container {
+  .adds-list {
     flex: 1;
     overflow-y: scroll;
     margin: 40px 0 50px 0;
@@ -77,6 +77,7 @@ style.Aside = styled.aside`
   }
 
   footer {
+    margin-top: auto;
     padding: 0 ${asidePadding} ${asidePadding} ${asidePadding};
     color: #ccc;
     font-size: .65rem;

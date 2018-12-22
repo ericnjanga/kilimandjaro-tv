@@ -9,7 +9,9 @@ const {
   DivContainer,
 } = AppPresentationStyles;
 
-const ListOfAdds = () => {
+const ListOfAdds = ({
+  className
+}) => {
     
   const list = [
     {
@@ -45,7 +47,7 @@ const ListOfAdds = () => {
   
  
   return (
-    <DivContainer>
+    <DivContainer className={className}>
       {
         list.map(add => {
           return (

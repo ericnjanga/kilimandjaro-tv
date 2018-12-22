@@ -54,14 +54,18 @@ const VerticalNav = ({
         </li>
       </ul>
 
-      <section className="add-container">
-        <ListOfAdds />
-      </section>
+
+      {
+        false && <ListOfAdds
+          className="adds-list"
+        />
+      }
+
 
       <footer>
         <p><b>Kilimandjaro TV</b></p>
-        <p>416 - 000 - 0000</p>
-        <p>kili@gmail.com</p>
+        <p>647 - 825 - 1694</p>
+        <p>kilitvlive@gmail.com</p>
         <p>&copy; 2018, Toronto</p>
       </footer>
     </Aside>
