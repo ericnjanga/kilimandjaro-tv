@@ -4,6 +4,7 @@ import { GlobalContext } from './../../settings/basics'
 import Hero from './../content/Hero'
 import VideosFeed from './../tests/VideosFeed' 
 import Page404 from './../views/404Page'
+import MoviesStyle from './../styles/StyleMoviesPage';
 
 
 /**
@@ -12,6 +13,9 @@ import Page404 from './../views/404Page'
  */
 
 const AllRoutes = () => {
+
+  const { MoviesContainer } = MoviesStyle
+
   return (
     <React.Fragment>
       <Switch>
@@ -51,15 +55,14 @@ const AllRoutes = () => {
           render={
             () => {
               return(
-                <div>
-                  {/* <Redirect to='/films' /> */}
+                <MoviesContainer>
                   <Hero />
                   <section className="maincontent-center">
                     <VideosFeed
                       category="film"
                     />
                   </section>
-                </div>
+                </MoviesContainer>
               )
             }
           }
