@@ -151,6 +151,28 @@ class AppPresentation extends React.Component {
 
 
                   {/* 
+                    Films: StyleMoviesPage.js
+                    --------------
+                    - ...
+                  */}
+                  <Route 
+                    path={'/Films'}
+                    exact
+                    render={
+                      () => {
+                        return(
+                          <React.Fragment>
+                            <VideosFeed
+                              category="film"
+                            /> 
+                          </React.Fragment>
+                        )
+                      }
+                    }
+                  />
+
+
+                  {/* 
                     Search:
                     --------------
                     - ...
@@ -216,28 +238,6 @@ class AppPresentation extends React.Component {
                                 )
                               }
                             </GlobalContext.Consumer>
-                          </React.Fragment>
-                        )
-                      }
-                    }
-                  />
-
-
-                  {/* 
-                    Films:
-                    --------------
-                    - ...
-                  */}
-                  <Route 
-                    path={'/Films'}
-                    exact
-                    render={
-                      () => {
-                        return(
-                          <React.Fragment>
-                            <VideosFeed
-                              category="film"
-                            /> 
                           </React.Fragment>
                         )
                       }
