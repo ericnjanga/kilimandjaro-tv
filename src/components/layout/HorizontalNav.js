@@ -83,11 +83,13 @@ class HorizontalNav extends React.Component {
             className="announces"
           />
 
-          <Link to="/search">
-            <IconButton className={'icon'} aria-label="Search">
-              <IconSrc />
-            </IconButton>
-          </Link>
+          { // Hidding Search for now
+            false && <Link to="/search">
+              <IconButton className={'icon'} aria-label="Search">
+                <IconSrc />
+              </IconButton>
+            </Link>
+          }
 
           <GlobalContext.Consumer>
             {
