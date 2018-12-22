@@ -12,8 +12,9 @@ const style = {
 
     h1, p {
     } 
-    .btn-primary {
-      padding: 10px 30px;
+    .btn {
+      background: #666;
+      border: 1px solid #666;
     }
     figure {
       margin: 0;

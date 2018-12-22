@@ -26,14 +26,14 @@ const AllRoutes = () => {
           render={
             () => {
               return(
-                <div>
-                  {/* <Redirect to='/films' /> */}
-                  <Hero />
-                  <section className="maincontent-center">
-                  <VideosFeed /> 
-
-                  </section>
-                </div>
+                <Redirect to='/films' />
+                // <div>
+                //   <Redirect to='/films' />
+                //   <Hero />
+                //   <section className="maincontent-center">
+                //     <VideosFeed /> 
+                //   </section>
+                // </div>
               )
             }
           }
@@ -51,11 +51,15 @@ const AllRoutes = () => {
           render={
             () => {
               return(
-                <React.Fragment>
-                  <VideosFeed
-                    category="film"
-                  /> 
-                </React.Fragment>
+                <div>
+                  {/* <Redirect to='/films' /> */}
+                  <Hero />
+                  <section className="maincontent-center">
+                    <VideosFeed
+                      category="film"
+                    />
+                  </section>
+                </div>
               )
             }
           }

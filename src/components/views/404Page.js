@@ -1,10 +1,11 @@
-import React from 'react';
-import img404 from './../../img/404-1.png';
-import { NavLink } from "react-router-dom"; 
-import Style404 from './../styles/Style404';
+import React from 'react'
+import Button from "@material-ui/core/Button"
+import img404 from './../../img/404-1.png'
+import { NavLink } from "react-router-dom" 
+import Style404 from './../styles/Style404'
 
 
-const { View } = Style404;
+const { View } = Style404
 
 const Page404 = () => {
   return (
@@ -25,9 +26,15 @@ const Page404 = () => {
       <div>
         <NavLink
           to="/"
-          className="btn btn-primary text-uppercase"
+          className="btn"
         >
-        Retour à la page d'acceuil
+          <Button
+            className="button button-bottom-spacing"
+            variant="contained"
+            color="primary"
+          >
+            Retour à la page d'accueil
+          </Button>
         </NavLink>
       </div>
     </View>
