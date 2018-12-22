@@ -22,11 +22,7 @@ const ScrollingText = ({
     <section className={className}>
       <marquee>
         <ul>
-          <li>KMA 2018 Awards</li>
-          <li>Gramen end of year party</li>
-          <li>North West Cameroon ladies galla</li>
-          <li>Binam end of year party</li>
-          <li>Soccer tournament in Brampton</li>
+          <li>Lancement officiel de Kilimandjaro TV: 26 Janvier 2019</li>
         </ul>
       </marquee>
     </section>
