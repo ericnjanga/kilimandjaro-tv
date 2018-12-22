@@ -2,6 +2,7 @@ import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import VideosFeedStyle from './../styles/StyleVideosFeed';
 import Vimeo from 'vimeo';
+import configs from './../../settings/vimeoConfig'
 // import PropTypes from 'prop-types';
 
 import Video from './../Video';
@@ -24,9 +25,9 @@ class VideosFeed extends React.Component {
 
     this.user_id = '90813794';
     this.uri = `/users/${this.user_id}/videos`;
-    this.client_id = '042ddc682208ca1874ccb4f8831a233de87f6a30';
-    this.client_secret = 'zbNBFvoWuLupNmfAcn47zzKj//rWnzzxPtBwU+NCGkVfsssI7yl7iCbYxcreHB44AvmvGaDSft88jUctA+FsT0Sjw9TbasCwpNL0LHmlQyiiuwojsj/ZVonYwcM2Exnj';
-    this.access_token = '7830efffa2f9efa32b104041452c552b';
+    this.client_id = configs.client_id
+    this.client_secret = configs.client_secret
+    this.access_token = configs.access_token
     this.client = new Vimeo.Vimeo(this.client_id, this.client_secret, this.access_token);
   }
 

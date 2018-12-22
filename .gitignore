@@ -9,9 +9,9 @@
 # production
 /build
 
-# Hide firebase configurations
+# Hide secret configurations
 /src/firebase-configs.js
-
+/src/settings/vimeo.js
 /src/settings/firebase-configs.js
 
 # misc
