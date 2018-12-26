@@ -8,6 +8,9 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import VFFFeedStyle from './styles/StyleVFFFeed';
 import configs from './../settings/vimeoConfig'
 import Video from './Video';
+import Currency from 'react-currency-formatter'
+import Button from "@material-ui/core/Button"
+import { NavLink } from "react-router-dom" 
 // import PropTypes from 'prop-types';
 
 
@@ -117,7 +120,26 @@ class VODFeed extends React.Component {
                 data={video}
                 isOnDemand
               />
-              { console.log('*******video.uri=', video.uri) }
+              <MetaInfo
+                {...video.rent}
+              />
+              <footer className="footer-cta">
+                <NavLink
+                  to={{
+                      pathname: `/films/${video.film.uri.split('/videos/')[1]}`,
+                      query:{ video:video }
+                    }}
+                  
+                >
+                  <Button 
+                      size="small"
+                      variant="contained"
+                    >
+                    Visionner
+                  </Button>
+                </NavLink>
+              </footer>
+              { console.log('*******video.rent=', video.rent) }
             </div>
           ))
           :
@@ -129,6 +151,41 @@ class VODFeed extends React.Component {
       </DivRow>
     );
   }
+}
+
+
+const MetaInfo = ({
+  active,
+  price,
+}) => {
+  if(!active) {
+    return false
+  }
+
+  return (
+    <div>
+      <ul className="pricing-rent">
+        <li className="price-us">
+          <Currency
+            quantity={ price.USD }
+            currency="USD"
+          />
+        </li>
+        <li className="price-ca">
+          <Currency
+            quantity={ price.CAD }
+            currency="CAD"
+          />
+        </li>
+        <li className="price-eu">
+          <Currency
+            quantity={ price.EUR }
+            currency="EUR"
+          />
+        </li>
+      </ul>
+    </div>
+  )
 }
 
 // VODFeed.propTypes = {

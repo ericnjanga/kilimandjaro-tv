@@ -5,6 +5,10 @@ import theme from './../../settings/theme'
 const style = {
   MoviesContainer: styled.div`
     background: ${theme.color.darkGray};
+
+    .spinner-frame {
+      color: ${theme.color.lightGray};
+    }
   `,
 }
 

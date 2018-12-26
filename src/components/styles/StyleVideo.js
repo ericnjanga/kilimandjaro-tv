@@ -13,9 +13,27 @@ const style = {
       margin-bottom: 0;
       color: ${theme.color.primaryHover}
     }
-    time {
-      color: ${theme.color.lightGrayLow}
-    }
+  }
+
+  time {
+    position: absolute;
+    z-index: 12344;
+    background: #999;
+    right: 0;
+    bottom: 0;
+    font-size: 0.6rem;
+    padding: 3px 10px;
+    color: #000;
+    font-weight: bold;
+    /* border-radius: 5px; */
+    border-top-left-radius: 5px;
+  }
+
+  .metadata-title {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: ${theme.color.primaryHover}
   }
   `,
   DivVidObjectContainer: styled.div`

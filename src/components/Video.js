@@ -59,11 +59,11 @@ class Video extends React.Component {
             src={imgUrl}
             alt={metadata.name}
           />
+          <Duration />
         </DivVidObjectContainer>
 
         <section className="metadata">
-          <p>{name}</p>
-          <Duration />
+          <h3 className="metadata-title">{name}</h3>
         </section>
 
         <ModalVideo

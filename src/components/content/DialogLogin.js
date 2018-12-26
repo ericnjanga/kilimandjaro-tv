@@ -1,12 +1,12 @@
 import React from "react";
-import StyledDialogLogin from './../styles/StyleDialogLogin';
-import firebase from './../../settings/firebase-init';
+import StyledDialogLogin from './../styles/StyleDialogLogin'
+import firebase from './../../settings/firebase-init'
 
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Dialog from "@material-ui/core/Dialog";
-import DialogContent from "@material-ui/core/DialogContent";
-import CircularProgress from '@material-ui/core/CircularProgress';
+import Button from "@material-ui/core/Button"
+import TextField from "@material-ui/core/TextField"
+import Dialog from "@material-ui/core/Dialog"
+import DialogContent from "@material-ui/core/DialogContent"
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 export default class DialogLogin extends React.Component {
   state = {
@@ -18,21 +18,21 @@ export default class DialogLogin extends React.Component {
       password: '',
       passwordConfirm: '',
     }
-  };
+  }
 
 
   toggleProgressFlag = () => {
     this.setState((prevState) => {
       return { inProgress: !prevState.inProgress }
-    });
+    })
   }
 
 
   toggleConnectionStatus = () => {
     this.setState(prevState => {
-      return { register: !prevState.register };
-    });
-  };
+      return { register: !prevState.register }
+    })
+  }
 
 
   /**

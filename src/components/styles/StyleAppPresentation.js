@@ -62,6 +62,7 @@ style.DivAppMainContent = styled.section`
 
   .maincontent-center {
     margin-top: 30px;
+    margin-bottom: 30px;
     padding: 15px;
   }
 `;

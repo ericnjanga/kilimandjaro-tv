@@ -68,6 +68,39 @@ const AllRoutes = () => {
           }
         />
 
+
+        {/* 
+          Films: StyleMoviesPage.js
+          --------------
+          - ...
+        */}
+        <Route 
+          path={'/Films/:id'}
+          exact
+          render={
+            (props) => {
+              return(
+                <MoviesContainer>
+                  {/* <Hero /> */}
+                  <section className="maincontent-center">
+                    <iframe src="https://player.vimeo.com/video/306421018?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=137077" width="100%" height="620" frameBorder="0" title="Choices we make" allow="autoplay; fullscreen" allowFullscreen></iframe>
+
+
+                    <h1>
+                      ID: {props.match.params.id}
+
+                      { console.log(props)}
+                    </h1>
+                    {/* <VODFeed
+                      category="film"
+                    /> */}
+                  </section>
+                </MoviesContainer>
+              )
+            }
+          }
+        />
+
       
         {/*
           404 Page: 
