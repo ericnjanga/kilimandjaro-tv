@@ -28,7 +28,7 @@ class VODFeed extends React.Component {
     };
 
     this.user_id = configs.user_id;
-    this.uri = `/users/${this.user_id}/videos`;
+    this.uri = `/users/${this.user_id}/ondemand/pages/`;
     this.client_id = configs.client_id
     this.client_secret = configs.client_secret
     this.access_token = configs.access_token
@@ -58,11 +58,11 @@ class VODFeed extends React.Component {
       // Filter result by category (if available)
       if (body) {
         let { data } = body;
-        if(category){
-          data = data.filter(data => data.tags[0] && data.tags[0].name===category)
-        }
+        // if(category){
+        //   data = data.filter(data => data.tags[0] && data.tags[0].name===category)
+        // }
         
-        // console.log(' [fetchData] ---------: ', data);
+        console.log(' [fetchData] ---------: ', data);
         this.setState({ data, category });
       }
     
@@ -72,7 +72,7 @@ class VODFeed extends React.Component {
 
   componentDidMount() {
 
-    // console.log('- [VODFeed] componentDidMount ' );
+    console.log('- [VODFeed] componentDidMount ' );
     this.fetchVideos(this.props);
 
   }
@@ -113,8 +113,11 @@ class VODFeed extends React.Component {
           ?
           data.map((video, index) => (
             <div className="col" key={video.uri}>
-              <Video data={video} />
-              {/* { console.log('*******video=', video) } */}
+              <Video
+                data={video}
+                isOnDemand
+              />
+              { console.log('*******video.uri=', video.uri) }
             </div>
           ))
           :

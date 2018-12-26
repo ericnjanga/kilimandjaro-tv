@@ -1,3 +1,8 @@
+/**
+ * VIDEO:
+ * for ondemand videos: video.isOnDemand?
+ */
+
 import React from 'react';
 import VideoStyle from './styles/StyleVideo';
 import ModalVideo from './ModalVideo';
@@ -33,13 +38,15 @@ class Video extends React.Component {
 
     const {
       // data:{category, id},
-      data:{ uri, pictures, metadata, name }, //duration},
+      data:{ uri, trailer, pictures, metadata, name }, //duration},
     } = this.props;
 
     // console.log('[render] - video', this.props.data);
+    console.log('trailer', trailer);
 
     const { modal } = this.state; 
-    const videoId = uri.split('/videos/')[1];
+    const trailerVideoId = trailer.uri.split('/videos/')[1]; 
+    const freeVideoId = uri.split('/videos/')[1];
     const imgUrl = pictures.sizes[3].link;
 
     return(
@@ -62,7 +69,7 @@ class Video extends React.Component {
         <ModalVideo
           active={modal.active}
           toggle={this.toggleModal}
-          videoId={videoId}
+          videoId={trailerVideoId}
         />
       </DivGlobalContainer>
     );
