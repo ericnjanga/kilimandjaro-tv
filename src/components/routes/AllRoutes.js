@@ -2,8 +2,9 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 import HorizontalNav from './../layout/HorizontalNav'
 import Hero from './../content/Hero'
-import VFFFeed from './../VFFFeed' 
-import VODFeed from './../VODFeed' 
+// import VFFFeed from './../VFFFeed' 
+// import VODFeed from './../VODFeed' 
+import FetchOnDemandVideos from './../../containers/FetchOnDemandVideos'
 import Page404 from './../views/404Page'
 import MoviesStyle from './../styles/StyleMoviesPage'
 
@@ -61,8 +62,8 @@ const AllRoutes = ({
                   />
                   <Hero />
                   <section className="maincontent-center">
-                    <VODFeed
-                      category="film"
+                    <FetchOnDemandVideos
+                      category="..."
                     />
                   </section>
                 </MoviesContainer>
@@ -91,17 +92,9 @@ const AllRoutes = ({
                   />
                   {/* <Hero /> */}
                   <section className="maincontent-center">
-                    <iframe src="https://player.vimeo.com/video/306421018?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=137077" width="100%" height="620" frameBorder="0" title="Choices we make" allow="autoplay; fullscreen" allowFullScreen></iframe>
-
-
-                    <h1 className="title">
-                      ID: {props.match.params.id}
-
-                      { console.log(props)}
-                    </h1>
-                    {/* <VODFeed
-                      category="film"
-                    /> */}
+                    <FetchOnDemandVideos
+                      id={props.match.params.id}
+                    />
                   </section>
                 </MoviesContainer>
               )

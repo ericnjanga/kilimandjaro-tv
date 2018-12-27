@@ -1,27 +1,24 @@
 /**
- * Feeds for: Videos On Demand (VODFeed)
+ * Feeds for: Videos On Demand (FetchOnDemandVideos)
  */
 
 import React from 'react'
 import Vimeo from 'vimeo'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import VFFFeedStyle from './styles/StyleVFFFeed'
 import configs from './../settings/vimeoConfig'
-import Video from './Video'
-import VODPricing from './VODPricing'
-import Button from "@material-ui/core/Button"
-import { NavLink } from "react-router-dom" 
+import VODPage from './../components/VODPage'
+import VODFeed from './../components/VODFeed' 
 // import PropTypes from 'prop-types'
 
 
 
 
 
-const { 
-  DivRow,
-} = VFFFeedStyle
+// const { 
+//   DivRow,
+// } = VFFFeedStyle
  
-class VODFeed extends React.Component {
+class FetchOnDemandVideos extends React.Component {
 
   constructor(props) {
     super(props)
@@ -75,7 +72,7 @@ class VODFeed extends React.Component {
 
   componentDidMount() {
 
-    console.log('- [VODFeed] componentDidMount ' )
+    console.log('- [FetchOnDemandVideos] componentDidMount ' )
     this.fetchVideos(this.props)
 
   }
@@ -90,14 +87,14 @@ class VODFeed extends React.Component {
 
     if(category !== this.state.category) {
 
-      // console.log(`- [VODFeed] componentWillReceiveProps - Fetching new videos filtered by ${category}`)
+      // console.log(`- [FetchOnDemandVideos] componentWillReceiveProps - Fetching new videos filtered by ${category}`)
       this.fetchVideos(newProps)
     }
   }
 
 
   componentWillUnmount() {
-    console.log('- [VODFeed] componentWillUnmount ' )
+    console.log('- [FetchOnDemandVideos] componentWillUnmount ' )
     // this._isMounted = false
     // OFF vimeo.request ???
   }
@@ -105,57 +102,54 @@ class VODFeed extends React.Component {
 
   render() {
 
-    // console.log('- [VODFeed] render')
+    // console.log('- [FetchOnDemandVideos] render')
 
     const { data } = this.state
+    const { id } = this.props
   
     return (
-      <DivRow>
+      <div>
         {
           data 
           ?
-          data.map((video, index) => (
-            <div className="col" key={video.uri}>
-              <Video
-                data={video}
-                isOnDemand
-              />
-              <VODPricing
-                {...video.rent}
-              />
-              <footer className="footer-cta">
-                <NavLink
-                  to={{
-                    pathname: `/films/${video.film.uri.split('/videos/')[1]}`
-                  }}
-                >
-                  <Button 
-                      size="small"
-                      variant="contained"
-                      className="btn-cta"
-                    >
-                    Visionner
-                  </Button>
-                </NavLink>
-              </footer>
-              { console.log('*******video.rent=', video.rent) }
-            </div>
-          ))
+          <Result
+            id={id}
+            data={data}
+          />
           :
           <div className="spinner-frame">
             <p>En train de chercher des vidéos</p>
             <CircularProgress />
           </div>
         }
-      </DivRow>
+      </div>
     )
   }
 }
+// 
 
 
+const Result = (props) => {
+  if(props.id) {
+    const video = props.data.filter(video => video.film.uri.split('/videos/')[1]===props.id )
+    return (
+      <VODPage
+        id={props.id}
+        video={video[0]}
+      />
+    )
+  }
 
-// VODFeed.propTypes = {
+  return (
+    <VODFeed
+      category="film"
+    />
+  )
+}
+
+
+// FetchOnDemandVideos.propTypes = {
 //   classes: PropTypes.object.isRequired,
 // }
 
-export default VODFeed
+export default FetchOnDemandVideos
