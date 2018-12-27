@@ -1,10 +1,11 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
+import HorizontalNav from './../layout/HorizontalNav'
 import Hero from './../content/Hero'
 import VFFFeed from './../VFFFeed' 
 import VODFeed from './../VODFeed' 
 import Page404 from './../views/404Page'
-import MoviesStyle from './../styles/StyleMoviesPage';
+import MoviesStyle from './../styles/StyleMoviesPage'
 
 
 /**
@@ -12,7 +13,10 @@ import MoviesStyle from './../styles/StyleMoviesPage';
  * ---------------------------------------------------------
  */
 
-const AllRoutes = () => {
+const AllRoutes = ({
+  openDialog,
+  toggleDrawer
+}) => {
 
   const { MoviesContainer } = MoviesStyle
 
@@ -31,13 +35,6 @@ const AllRoutes = () => {
             () => {
               return(
                 <Redirect to='/films' />
-                // <div>
-                //   <Redirect to='/films' />
-                //   <Hero />
-                //   <section className="maincontent-center">
-                //     <VFFFeed /> 
-                //   </section>
-                // </div>
               )
             }
           }
@@ -56,6 +53,12 @@ const AllRoutes = () => {
             () => {
               return(
                 <MoviesContainer>
+                  <HorizontalNav
+                    className="App-horizontalNav"
+                    dialogLoginHandleOpen={openDialog}
+                    onClick1={toggleDrawer}
+                    leftNavActive={true}
+                  />
                   <Hero />
                   <section className="maincontent-center">
                     <VODFeed
@@ -81,12 +84,17 @@ const AllRoutes = () => {
             (props) => {
               return(
                 <MoviesContainer>
+                  <HorizontalNav
+                    className="App-horizontalNav"
+                    dialogLoginHandleOpen={openDialog}
+                    onClick1={toggleDrawer}
+                  />
                   {/* <Hero /> */}
                   <section className="maincontent-center">
-                    <iframe src="https://player.vimeo.com/video/306421018?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=137077" width="100%" height="620" frameBorder="0" title="Choices we make" allow="autoplay; fullscreen" allowFullscreen></iframe>
+                    <iframe src="https://player.vimeo.com/video/306421018?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=137077" width="100%" height="620" frameBorder="0" title="Choices we make" allow="autoplay; fullscreen" allowFullScreen></iframe>
 
 
-                    <h1>
+                    <h1 className="title">
                       ID: {props.match.params.id}
 
                       { console.log(props)}
@@ -266,7 +274,7 @@ const AllRoutes = () => {
     </Switch>
   
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default AllRoutes;
+export default AllRoutes

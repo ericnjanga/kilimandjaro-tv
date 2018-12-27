@@ -12,6 +12,7 @@ const theme1 = {
     primary: '#DA6A2D',
     primaryHover: '#fff',
     secondary: '#38307F',
+    tertiary: '#3f51b5',
     secondaryLight: 'rgb(66,133,244)',
     lightGray: '#d6d6d6',
     lightGrayLow: '#999',
@@ -58,6 +59,12 @@ theme1.vid4cols = (theme1.videoThumbnail.maxWidth * 4);
 
 // left sidebar nav + 4 video thumbnails put together
 theme1.breakpoints.leftNavMainContent = theme1.vNav.width + theme1.vid4cols +  + theme1.videoThumbnail.padding;
+
+// ...
+theme1.breakpoints.largeScreen = 900;
+
+
+
 
 
 const hoverEffect1_iconSize = 32;

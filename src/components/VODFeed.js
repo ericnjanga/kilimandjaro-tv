@@ -134,6 +134,7 @@ class VODFeed extends React.Component {
                   <Button 
                       size="small"
                       variant="contained"
+                      className="btn-cta"
                     >
                     Visionner
                   </Button>

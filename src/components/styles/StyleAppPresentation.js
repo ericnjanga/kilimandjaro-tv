@@ -18,8 +18,9 @@ style.DivApp = styled.div`
   }
   .App-brand__large {
     display: flex!important;
+    padding: 10px;
   }
-  @media (min-width: 900px) {
+  @media (min-width: ${theme.breakpoints.largeScreen}px) {
     .App-verticalNav {
       display: flex;
     }
@@ -29,7 +30,7 @@ style.DivApp = styled.div`
   }
 
 
-  @media (max-width: 899px) {
+  @media (max-width: ${theme.breakpoints.largeScreen - 1}px) {
     .maincontent-center {
       padding-top: 0;
     }
@@ -53,7 +54,7 @@ style.DivAppMainContent = styled.section`
   flex: 1;
   // background: ${theme.color.darkGray};
 
-  @media (min-width: 900px) {
+  @media (min-width: ${theme.breakpoints.largeScreen}px) {
     /* Make room for sidebar nav */
     margin-left: auto;
     width: calc(100% - ${theme.vNav.width}px);

@@ -7,10 +7,7 @@ import { GlobalContext } from './settings/basics.js';
 import PreloaderScreen from './components/PrelaoderScreen';
 import DialogLogin from './components/content/DialogLogin';
 import Drawer from './components/layout/Drawer';
-import HorizontalNav from './components/layout/HorizontalNav';
 import VerticalNav from './components/layout/VerticalNav';
-import Logo from './components/content/Logo';
-import IconMenu from '@material-ui/icons/Menu';
 
 import AllRoutes from './components/routes/AllRoutes';
 
@@ -95,28 +92,14 @@ class AppPresentation extends React.Component {
             <VerticalNav
               className="App-verticalNav"
             />
+
             <DivAppMainContent>
-              <HorizontalNav
-                className="App-horizontalNav"
-                dialogLoginHandleOpen={dialogLoginHandleOpen}
-              >
-                <section className="App-brand__large">
-                  <button
-                    onClick={toggleDrawer}
-                  >
-                    <IconMenu />
-                  </button>
-                  <Link to="/">
-                    <Logo size="large" />
-                  </Link>
-                </section>
-              </HorizontalNav>
-
-              {/* Contains the App's entire routing system */}
-              <AllRoutes />
-
-            
+              <AllRoutes
+                openDialog={dialogLoginHandleOpen}
+                toggleDrawer={toggleDrawer}
+              />
             </DivAppMainContent>
+
           </DivApp>  
         </Router>
       </React.Fragment>

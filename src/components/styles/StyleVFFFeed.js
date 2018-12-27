@@ -33,6 +33,13 @@ style.DivRow = styled.div`
 
   .footer-cta {
     margin-top: 10px;
+    .btn-cta {
+      &:hover {
+        text-decoration: none;
+        color: #fff;
+        background: ${theme.color.tertiary};
+      }
+    }
   }
 
   .col {
@@ -77,7 +84,7 @@ style.DivRow = styled.div`
   }
 
 
-  @media (min-width: 900px) {
+  @media (min-width: ${theme.breakpoints.largeScreen}px) {
     .col {  
       flex: 0 0 25%;
       max-width: 25%; 

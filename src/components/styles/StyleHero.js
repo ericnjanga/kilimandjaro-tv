@@ -78,7 +78,7 @@ style.Container = styled.div`
       font-size: 0.8rem;
       // margin-bottom: 30px;
     }
-    @media(min-width: 900px) {
+    @media(min-width: ${theme.breakpoints.largeScreen}px) {
       max-width: 500px;
     }
   }
@@ -87,7 +87,7 @@ style.Container = styled.div`
     height: 350px;
   }
 
-  @media(min-width: 900px) {
+  @media(min-width: ${theme.breakpoints.largeScreen}px) {
     height: 450px;
   }
 `;

@@ -9,6 +9,10 @@ const style = {
     .spinner-frame {
       color: ${theme.color.lightGray};
     }
+
+    .title {
+      color: #ccc;
+    }
   `,
 }
 
