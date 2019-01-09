@@ -94,7 +94,6 @@ class AppPresentation extends React.Component {
             />
 
             <DivAppMainContent>
-              <h1>Enable bootstrap modal</h1>
               <AllRoutes
                 openDialog={dialogLoginHandleOpen}
                 toggleDrawer={toggleDrawer}

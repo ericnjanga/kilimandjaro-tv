@@ -38,31 +38,38 @@ class Video extends React.Component {
 
     const {
       // data:{category, id},
-      data:{ uri, trailer, pictures, metadata, name }, //duration},
+      onClick,
+      data, //:{ uri, trailer, pictures, metadata, name }, //duration},
+    } = this.props;
+
+    const {
+      // data:{category, id},
+      data:{ name, pictures }, //duration},
     } = this.props;
 
     // console.log('[render] - video', this.props.data);
-    console.log('trailer', trailer);
+    // console.log('trailer', data);
 
-    const { modal } = this.state; 
-    const trailerVideoId = trailer.uri.split('/videos/')[1]; 
-    const freeVideoId = uri.split('/videos/')[1];
-    const imgUrl = pictures.sizes[3].link;
+    // const { modal } = this.state; 
+    // const trailerVideoId = trailer.uri.split('/videos/')[1]; 
+    // const freeVideoId = uri.split('/videos/')[1];
+    // const imgUrl = pictures.sizes[3].link;
 
     return(
       <DivGlobalContainer>
         <DivVidObjectContainer
-          onClick={this.toggleModal}
+          onClick={onClick}
         >
           <IconVideo className="icon" />
           <img 
-            src={imgUrl}
-            alt={metadata.name}
+            src={pictures.sizes[3].link}
+            // alt={metadata.name}
           />
           <Duration />
         </DivVidObjectContainer>
+        { name }
 
-        <section className="metadata">
+        {/* <section className="metadata">
           <h3 className="metadata-title">{name}</h3>
         </section>
 
@@ -70,7 +77,7 @@ class Video extends React.Component {
           active={modal.active}
           toggle={this.toggleModal}
           videoId={trailerVideoId}
-        />
+        /> */}
       </DivGlobalContainer>
     );
 

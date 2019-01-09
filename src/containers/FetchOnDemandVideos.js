@@ -7,11 +7,11 @@ import Vimeo from 'vimeo'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import configs from './../settings/vimeoConfig'
 import VODPage from './../components/VODPage'
-import VODFeed from './../components/VODFeed' 
+import DisplayVideoThumbnails from './../components/DisplayVideoThumbnails' 
 // import PropTypes from 'prop-types'
 
 
-
+alert("vod ID hidden in tags on vimeo API. Check if that's active")
 
 
 // const { 
@@ -28,7 +28,8 @@ class FetchOnDemandVideos extends React.Component {
     }
 
     this.user_id = configs.user_id
-    this.uri = `/users/${this.user_id}/ondemand/pages/`
+    this.uri = `/users/${this.user_id}/videos`;
+    // this.uri = `/users/${this.user_id}/ondemand/pages/`
     this.client_id = configs.client_id
     this.client_secret = configs.client_secret
     this.access_token = configs.access_token
@@ -40,9 +41,7 @@ class FetchOnDemandVideos extends React.Component {
    * - If a category is provided, filter result, otherwise return result
    * - save result into state.data
    */
-  fetchVideos = ({ category }) => {
-    // console.log(` [fetchData] ---------: ${category}`)
-
+  fetchVideos = ({ category }) => { 
     // Let state know that content isn't ready (will trigger "circular progress")
     this.setState({ contentReady:false }) 
 
@@ -58,21 +57,38 @@ class FetchOnDemandVideos extends React.Component {
       // Filter result by category (if available)
       if (body) {
         let { data } = body
-        // if(category){
-        //   data = data.filter(data => data.tags[0] && data.tags[0].name===category)
-        // }
+        // console.log(' ............. [fetchData] ---------: ', data)
+
+        const tempVods = data.filter(video => video.tags[0] && video.tags[0].name === 'trailer')
+
+        /**
+         * For now:
+         * Artificially add more information on videos (better option coming)
+         */
+        const vods = tempVods.map(vod => {
+          const onDemand = {
+            id: '', // vimeoID
+            price: {
+              cad: '',
+              usd: '',
+              eur: '',
+            }
+          }
+ 
+          vod.onDemand = onDemand
+          return vod
+        })
         
-        console.log(' [fetchData] ---------: ', data)
-        this.setState({ data, category })
+        console.log(' ............. [fetchData] ---------: ', vods)
+        this.setState({ data:vods , category })
       }
     
     }) // [end] client.request
   }
 
 
-  componentDidMount() {
-
-    console.log('- [FetchOnDemandVideos] componentDidMount ' )
+  componentDidMount() { 
+    // console.log('- [FetchOnDemandVideos] componentDidMount ' )
     this.fetchVideos(this.props)
 
   }
@@ -94,7 +110,7 @@ class FetchOnDemandVideos extends React.Component {
 
 
   componentWillUnmount() {
-    console.log('- [FetchOnDemandVideos] componentWillUnmount ' )
+    // console.log('- [FetchOnDemandVideos] componentWillUnmount ' )
     // this._isMounted = false
     // OFF vimeo.request ???
   }
@@ -128,21 +144,28 @@ class FetchOnDemandVideos extends React.Component {
 }
 // 
 
-
+// Renders a "video page" or a "list of videos" thumbnails
 const Result = (props) => {
-  if(props.id) {
-    const video = props.data.filter(video => video.film.uri.split('/videos/')[1]===props.id )
+
+  const { id, data } = props
+
+  console.group('- Result')
+  console.log(data)
+  console.groupEnd()
+
+  if(id) {
+    const video = data.filter(video => video.film.uri.split('/videos/')[1]===id )
     return (
       <VODPage
-        id={props.id}
+        id={id}
         video={video[0]}
       />
     )
   }
 
   return (
-    <VODFeed
-      category="film"
+    <DisplayVideoThumbnails
+      list={data}
     />
   )
 }

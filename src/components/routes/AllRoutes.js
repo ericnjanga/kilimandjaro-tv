@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import HorizontalNav from './../layout/HorizontalNav'
 import Hero from './../content/Hero'
 // import VFFFeed from './../VFFFeed' 
-// import VODFeed from './../VODFeed' 
+// import DisplayVideoThumbnails from './../DisplayVideoThumbnails' 
 import FetchOnDemandVideos from './../../containers/FetchOnDemandVideos'
 import Page404 from './../views/404Page'
 import MoviesStyle from './../styles/StyleMoviesPage'
