@@ -11,7 +11,9 @@ import DisplayVideoThumbnails from './../components/DisplayVideoThumbnails'
 // import PropTypes from 'prop-types'
 
 
-alert("vod ID hidden in tags on vimeo API. Check if that's active")
+console.group("Reminder 1")
+console.log("vod ID hidden in tags on vimeo API. Check if that's active")
+console.groupEnd()
 
 
 // const { 
@@ -79,7 +81,7 @@ class FetchOnDemandVideos extends React.Component {
           return vod
         })
         
-        console.log(' ............. [fetchData] ---------: ', vods)
+        // console.log(' ............. [fetchData] ---------: ', vods)
         this.setState({ data:vods , category })
       }
     

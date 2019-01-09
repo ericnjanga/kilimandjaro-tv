@@ -2,7 +2,6 @@
 // import Dialog from '@material-ui/core/Dialog'; 
 // import DialogContent from '@material-ui/core/DialogContent';  
 // import Slide from '@material-ui/core/Slide';
-// import VimeoPlayer from '@vimeo/player';
 // import { withStyles } from '@material-ui/core/styles';
 // import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -32,33 +31,10 @@
 //     this.state = {
 //       open: false,
 //     };
-//     this.vimeoIframe = React.createRef();
 //   }
 
 
-//   /**
-//    * Destroy player and close modal
-//    * (Pause first, then destroy)
-//    */
-//   destroyPlayer = () => {
 
-//     var player = new VimeoPlayer(this.vimeoIframe.current);
- 
-//     player.pause().then(function() { // Pause player
-  
-//       // player.destroy().then(function() { // Destroy it 
-//       //   // Player destroyed
-//       // }).catch(function(error) {
-//       //   console.error('Something happened, we couldn\'t destroy the player');
-//       // });
-//     }).catch(function(error) {
-//       console.error('Something happened, we couldn\'t pause the player');
-//     });
-
-//     // Close modal
-//     this.props.toggle();
-
-//   }
 
 
 //   render() {
@@ -75,18 +51,18 @@
 //         aria-describedby="alert-dialog-slide-description"
 //         style={{margin:0}}
 //       >
-//         <DialogContent style={{ width:'600px' }}>
-//         <CircularProgress className={classes.progress} />
-//           <iframe
-//             src={`https://player.vimeo.com/video/${videoId}`}
-//             className={`kilimansjaro-iframe ${classes.iFrame}`}
-//             width="100%"
-//             height="320"
-//             frameBorder="0"
-//             allowFullScreen="true"
-//             allow="autoplay; encrypted-media"
-//             ref={this.vimeoIframe}
-//           />
+        // <DialogContent style={{ width:'600px' }}>
+        // <CircularProgress className={classes.progress} />
+        //   <iframe
+        //     src={`https://player.vimeo.com/video/${videoId}`}
+        //     className={`kilimansjaro-iframe ${classes.iFrame}`}
+        //     width="100%"
+        //     height="320"
+        //     frameBorder="0"
+        //     allowFullScreen="true"
+        //     allow="autoplay; encrypted-media"
+        //     ref={this.vimeoIframe}
+        //   />
 //         </DialogContent>
 //       </Dialog> 
 //     );
@@ -101,7 +77,10 @@
 
 
 import React from 'react';
+import VimeoPlayer from '@vimeo/player';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import IframeResponsiveStyle from './styles/StyleIframeResponsive'
+import ModalVideoStyle from './styles/StyleModalVideo'
 
 class ModalVideo extends React.Component {
   constructor(props) {
@@ -109,21 +88,51 @@ class ModalVideo extends React.Component {
     this.state = {
       modal: false
     };
+    this.vimeoIframe = React.createRef();
  
   }
 
-  // toggle() {
-  //   this.setState({
-  //     modal: !active
-  //   });
-  // }
+  /**
+   * Destroy player and close modal
+   * (Pause first, then destroy)
+   */
+  destroyPlayer = () => {
+
+    var player = new VimeoPlayer(this.vimeoIframe.current);
+ 
+    player.pause().then(function() { // Pause player
+  
+      // player.destroy().then(function() { // Destroy it 
+      //   // Player destroyed
+      // }).catch(function(error) {
+      //   console.error('Something happened, we couldn\'t destroy the player');
+      // });
+    }).catch(function(error) {
+      console.error('Something happened, we couldn\'t pause the player');
+    });
+
+    // Close modal
+    this.props.toggle();
+
+  }
 
   render() {
 
     const { 
       toggle,
-      active
+      active,
+      videoId,
+      title
     } = this.props
+    const {
+      Iframe,
+    } = IframeResponsiveStyle
+    const {
+      ModalContainer,
+    } = ModalVideoStyle
+
+
+    
 
     return (
       <div>
@@ -131,14 +140,30 @@ class ModalVideo extends React.Component {
         Visionner
         </Button> */}
         <Modal isOpen={active} toggle={toggle} className={this.props.className}>
-          <ModalHeader toggle={toggle}>Modal title</ModalHeader>
-          <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
-          </ModalFooter>
+          <ModalContainer>
+            <ModalHeader toggle={toggle}>
+              {title}
+            </ModalHeader>
+            <ModalBody>
+              <Iframe>
+                {/* <CircularProgress className={classes.progress} /> */}
+                <iframe
+                  src={`https://player.vimeo.com/video/${videoId}`}
+                  className={`kilimansjaro-iframe classes.iFrame`}
+                  width="100%"
+                  height="320"
+                  frameBorder="0"
+                  allowFullScreen="true"
+                  allow="autoplay; encrypted-media"
+                  ref={this.vimeoIframe}
+                />
+              </Iframe>
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={toggle}>Voir le film</Button>{' '}
+              {/* <Button color="secondary" onClick={toggle}>Cancel</Button> */}
+            </ModalFooter>
+          </ModalContainer>
         </Modal>
       </div>
     );

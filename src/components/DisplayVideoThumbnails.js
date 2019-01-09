@@ -15,7 +15,7 @@ import ModalVideo from './ModalVideo'
 // import PropTypes from 'prop-types'
 
 
-
+alert('Regroup "ModalVideo", "footer" into 1 component | Move active modal state into that component')
 
 
 const { 
@@ -56,9 +56,14 @@ class DisplayVideoThumbnails extends React.Component {
                 isOnDemand
                 onClick={this.toggleModal}
               />
+              {
+                console.log(' .........video : ', video.uri.split('/videos/')[1])
+              }
               <ModalVideo
                 active={modalActive}
                 toggle={this.toggleModal}
+                videoId={video.uri.split('/videos/')[1]}
+                title={video.name}
               />
               {/* <VODPricing
                 {...video.rent}
