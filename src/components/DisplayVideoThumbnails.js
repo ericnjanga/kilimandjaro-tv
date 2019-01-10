@@ -37,7 +37,6 @@ class DisplayVideoThumbnails extends React.Component {
               <VideoThumbnail
                 data={video}
                 isOnDemand
-                onClick={this.toggleModal}
               />
             </div>
           ))

@@ -58,7 +58,7 @@ class VideoThumbnail extends React.Component {
     return(
       <DivGlobalContainer>
         <DivVidObjectContainer
-          onClick={onClick}
+          onClick={this.toggleModal}
         >
           <IconVideo className="icon" />
           <img 
