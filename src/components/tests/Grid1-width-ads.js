@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 
 import GetVimeoData from './../../utilities/funcAsChild/getVimeoData';
 
-import Video from './../Video';
+import VideoThumbnail from './../Video';
 import Ad from './../Ad';
 
 const styles = theme => ({

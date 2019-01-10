@@ -7,7 +7,7 @@ import Vimeo from 'vimeo';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import VFFFeedStyle from './styles/StyleVFFFeed';
 import configs from './../settings/vimeoConfig'
-import Video from './Video';
+import VideoThumbnail from './Video';
 // import PropTypes from 'prop-types';
 
 
