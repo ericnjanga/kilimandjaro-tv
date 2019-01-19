@@ -10,6 +10,7 @@
     "firebase-app": "0.0.1",
     "moment": "^2.22.2",
     "npm": "^6.4.1",
+    "paypal-checkout": "^4.0.247",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-currency-formatter": "^1.1.0",
