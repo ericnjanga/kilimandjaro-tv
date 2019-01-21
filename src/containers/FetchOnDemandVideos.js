@@ -89,7 +89,8 @@ class FetchOnDemandVideos extends React.Component {
   }
 
 
-  componentDidMount() { 
+  componentDidMount() {
+
     // console.log('- [FetchOnDemandVideos] componentDidMount ' )
     this.fetchVideos(this.props)
 

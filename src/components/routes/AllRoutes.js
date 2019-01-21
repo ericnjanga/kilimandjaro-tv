@@ -7,6 +7,7 @@ import Hero from './../content/Hero'
 import FetchOnDemandVideos from './../../containers/FetchOnDemandVideos'
 import Page404 from './../views/404Page'
 import MoviesStyle from './../styles/StyleMoviesPage'
+import PaypalCheckout from './../PaypalCheckout'
 
 
 /**
@@ -62,6 +63,7 @@ const AllRoutes = ({
                   />
                   <Hero />
                   <section className="maincontent-center">
+                    <PaypalCheckout />
                     <FetchOnDemandVideos
                       category="..."
                     />
