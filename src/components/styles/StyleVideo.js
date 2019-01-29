@@ -17,7 +17,7 @@ const style = {
 
   time {
     position: absolute;
-    z-index: 12344;
+    z-index: 12;
     background: #999;
     right: 0;
     bottom: 0;

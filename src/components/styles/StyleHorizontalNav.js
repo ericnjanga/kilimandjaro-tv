@@ -4,7 +4,9 @@ import theme from './../../settings/theme';
 
 const style = {};
 style.Container = styled.section`
-  position: fixed;
+  display: flex;
+  align-items: center;
+  position: relative;
   width: 100%;
   z-index: 9;
   background: transparent;
@@ -35,11 +37,19 @@ style.Container = styled.section`
     align-items: center;
     font-weight: bold;
     margin-right: auto;
-    color: ${theme.color.secondary};
     button {
+      position: relative;
+      top: 1px;
       padding-left: 0;
       border: 0;
       background: transparent;
+      color: #666;
+    }
+    a {
+      color: #fff;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 
@@ -56,7 +66,7 @@ style.Container = styled.section`
         font-size: 0.8rem;
         font-weight: bold;
         animation: marquee 15s linear infinite;
-        text-shadow: 2px 2px 2px rgba(255,255,255, 1);
+        color: #999;
       }
     }
   }
@@ -88,7 +98,7 @@ style.Container = styled.section`
 
   @media (min-width: ${theme.breakpoints.largeScreen}px) {
     /* Make room for sidebar nav */
-    width: calc(100% - ${theme.vNav.width}px);
+    // width: calc(100% - ${theme.vNav.width}px);
 
     nav.hNav__frame {
       display: flex;

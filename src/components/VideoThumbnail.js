@@ -5,6 +5,7 @@
 
 import React from 'react'
 import Button from "@material-ui/core/Button"
+import { NavLink } from 'react-router-dom'
 import IconVideo from '@material-ui/icons/PlayCircleOutline'
 
 import VideoStyle from './styles/StyleVideo'
@@ -37,8 +38,8 @@ class VideoThumbnail extends React.Component {
 
     const { modalActive } = this.state
     const {
-      // data:{category, id},
-      onClick,
+      id,
+      isOnDemand,
       data, //:{ uri, trailer, pictures, metadata, name }, //duration},
     } = this.props
 
@@ -55,9 +56,18 @@ class VideoThumbnail extends React.Component {
     // const freeVideoId = uri.split('/videos/')[1]
     // const imgUrl = pictures.sizes[3].link
 
+    /*
+
+      <NavLink exact to="/" className="App-brand" activeClassName="active">
+        <Logo
+          size="small'"
+        /> 
+      </NavLink>
+      */
+
     return(
       <DivGlobalContainer>
-        <DivVidObjectContainer
+        {/* <DivVidObjectContainer
           onClick={this.toggleModal}
         >
           <IconVideo className="icon" />
@@ -66,54 +76,35 @@ class VideoThumbnail extends React.Component {
             // alt={metadata.name}
           />
           <Duration />
-        </DivVidObjectContainer>
-        { name }
-              {/* <VODPricing
-                {...video.rent}
-              /> */}
-              <footer className="footer-cta">
-                <Button 
-                    size="small"
-                    variant="contained"
-                    className="btn-cta"
-                    onClick={this.toggleModal}
-                  >
-                  Bande D'annonce
-                </Button>
-                {/* 
-                <NavLink
-                  to={{
-                    pathname: `/films/${video.film.uri.split('/videos/')[1]}`
-                  }}
-                >
-                  <Button 
-                      size="small"
-                      variant="contained"
-                      className="btn-cta"
-                    >
-                    Visionner
-                  </Button>
-                </NavLink> */}
-              </footer>
-              {/* { console.log('*******video.rent=', video.rent) } */}
+        </DivVidObjectContainer> */}
 
-
-        <ModalVideo
-          active={modalActive}
-          toggle={this.toggleModal}
-          videoId={data.uri.split('/videos/')[1]}
-          title={data.name}
+        <ThumbnailDisplay
+          id={id}
+          isOnDemand={isOnDemand}
+          img={pictures}
+          onClick={this.toggleModal}
         />
 
-        {/* <section className="metadata">
-          <h3 className="metadata-title">{name}</h3>
-        </section>
+        {
+          !isOnDemand &&
+          <h3 className="thumbnail-title">{ name }</h3>
+        }
+        
 
-        <ModalVideo
-          active={modal.active}
-          toggle={this.toggleModal}
-          videoId={trailerVideoId}
-        /> */}
+        <FooterDisplay
+          isOnDemand={isOnDemand}
+          onClick={this.toggleModal}
+        />
+            
+        {
+          isOnDemand &&
+          <ModalVideo
+            active={modalActive}
+            toggle={this.toggleModal}
+            videoId={data.uri.split('/videos/')[1]}
+            title={data.name}
+          />
+        }
       </DivGlobalContainer>
     )
 
@@ -128,6 +119,83 @@ const Duration = ({ duration }) => {
   // Duration calculations will happen here
   return (
     <time dateTime="3m 30s">3:30 min</time>
+  )
+}
+
+
+const ThumbnailDisplay = ({
+  id,
+  img,
+  onClick,
+  isOnDemand,
+}) => {
+
+  const imgSrc = img.sizes[3].link
+
+  if (isOnDemand) {
+    return (
+      <DivVidObjectContainer
+        onClick={onClick}
+      >
+        <IconVideo className="icon" />
+        <img
+          src={imgSrc}
+          // alt={metadata.name}
+        />
+        <Duration />
+      </DivVidObjectContainer>
+    ) 
+  } else {
+    return (
+      <div>
+        <NavLink
+          to={`/tv/${id}`}
+        >
+          <img
+            src={imgSrc}
+            // alt={metadata.name}
+          />
+        </NavLink>
+      </div>
+    ) 
+  }
+
+}
+
+
+const FooterDisplay = ({
+  isOnDemand,
+  onClick
+}) => {
+  if(!isOnDemand) {
+    return false
+  }
+
+  return (
+    <footer className="footer-cta">
+      <Button 
+          size="small"
+          variant="contained"
+          className="btn-cta"
+          onClick={onClick}
+        >
+        Bande D'annonce
+      </Button>
+      {/* 
+      <NavLink
+        to={{
+          pathname: `/films/${video.film.uri.split('/videos/')[1]}`
+        }}
+      >
+        <Button 
+            size="small"
+            variant="contained"
+            className="btn-cta"
+          >
+          Visionner
+        </Button>
+      </NavLink> */}
+    </footer>
   )
 }
 

@@ -23,7 +23,7 @@ style.Aside = styled.aside`
     width: 100%;
     padding: 0 20px;
     text-align: center;
-    height: 80px;
+    height: 60px;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: center;

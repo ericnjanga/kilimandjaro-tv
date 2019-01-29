@@ -6,15 +6,16 @@ const style = {
   MoviesContainer: styled.div`
     background: ${theme.color.darkGray};
 
-    .spinner-frame {
-      color: ${theme.color.lightGray};
-    }
-
     .title {
       color: #999;
     }
     p {
       color: #ccc;
+    }
+
+    .player-container {
+      background: #000;
+      margin-bottom: 30px;
     }
   `,
 }

@@ -1,27 +1,18 @@
 /**
- * Feeds for: Videos On Demand (FetchOnDemandVideos)
+ * Feeds for: Videos On Demand (FetchVideos)
  */
 
 import React from 'react'
 import Vimeo from 'vimeo'
-
 import configs from './../settings/vimeoConfig'
-import VODPage from './../components/VODPage'
-import Preloader from './../components/Preloader'
-import DisplayVideoThumbnails from './../components/DisplayVideoThumbnails' 
 // import PropTypes from 'prop-types'
-
-
-console.group("Reminder 1")
-console.log("vod ID hidden in tags on vimeo API. Check if that's active")
-console.groupEnd()
 
 
 // const { 
 //   DivRow,
 // } = VFFFeedStyle
  
-class FetchOnDemandVideos extends React.Component {
+class FetchVideos extends React.Component {
 
   constructor(props) {
     super(props)
@@ -45,6 +36,9 @@ class FetchOnDemandVideos extends React.Component {
    * - save result into state.data
    */
   fetchVideos = ({ category }) => { 
+
+    console.log(' =========================== ')
+
     // Let state know that content isn't ready (will trigger "circular progress")
     this.setState({ contentReady:false }) 
 
@@ -60,39 +54,38 @@ class FetchOnDemandVideos extends React.Component {
       // Filter result by category (if available)
       if (body) {
         let { data } = body
+        this.setState({ data, category })
         // console.log(' ............. [fetchData] ---------: ', data)
 
-        const tempVods = data.filter(video => video.tags[0] && video.tags[0].name === 'trailer')
+        // const tempVods = data.filter(video => video.tags[0] && video.tags[0].name === 'trailer')
 
-        /**
-         * For now:
-         * Artificially add more information on videos (better option coming)
-         */
-        const vods = tempVods.map(vod => {
-          const onDemand = {
-            id: '', // vimeoID
-            price: {
-              cad: '',
-              usd: '',
-              eur: '',
-            }
-          }
+        // /**
+        //  * For now:
+        //  * Artificially add more information on videos (better option coming)
+        //  */
+        // const vods = tempVods.map(vod => {
+        //   const onDemand = {
+        //     id: '', // vimeoID
+        //     price: {
+        //       cad: '',
+        //       usd: '',
+        //       eur: '',
+        //     }
+        //   }
  
-          vod.onDemand = onDemand
-          return vod
-        })
+        //   vod.onDemand = onDemand
+        //   return vod
+        // })
         
         // console.log(' ............. [fetchData] ---------: ', vods)
-        this.setState({ data:vods , category })
       }
-    
     }) // [end] client.request
   }
 
 
   componentDidMount() {
 
-    // console.log('- [FetchOnDemandVideos] componentDidMount ' )
+    // console.log('- [FetchVideos] componentDidMount ' )
     this.fetchVideos(this.props)
 
   }
@@ -107,14 +100,14 @@ class FetchOnDemandVideos extends React.Component {
 
     if(category !== this.state.category) {
 
-      // console.log(`- [FetchOnDemandVideos] componentWillReceiveProps - Fetching new videos filtered by ${category}`)
+      // console.log(`- [FetchVideos] componentWillReceiveProps - Fetching new videos filtered by ${category}`)
       this.fetchVideos(newProps)
     }
   }
 
 
   componentWillUnmount() {
-    // console.log('- [FetchOnDemandVideos] componentWillUnmount ' )
+    // console.log('- [FetchVideos] componentWillUnmount ' )
     // this._isMounted = false
     // OFF vimeo.request ???
   }
@@ -122,7 +115,7 @@ class FetchOnDemandVideos extends React.Component {
 
   render() {
 
-    // console.log('- [FetchOnDemandVideos] render')
+    // console.log('- [FetchVideos] render')
 
     const { data } = this.state
     const { id } = this.props
@@ -130,52 +123,20 @@ class FetchOnDemandVideos extends React.Component {
     return (
       <div>
         {
-          data 
-          ?
-          <Result
-            id={id}
-            data={data}
-          />
-          :
-          <Preloader
-            text={'Chargement des films'}
-          />
+          this.props.children(data)
         }
       </div>
     )
   }
 }
-// 
-
-// Renders a "video page" or a "list of videos" thumbnails
-const Result = (props) => {
-
-  const { id, data } = props
-
-  console.group('- Result')
-  console.log(data)
-  console.groupEnd()
-
-  if(id) {
-    const video = data.filter(video => video.film.uri.split('/videos/')[1]===id )
-    return (
-      <VODPage
-        id={id}
-        video={video[0]}
-      />
-    )
-  }
-
-  return (
-    <DisplayVideoThumbnails
-      list={data}
-    />
-  )
-}
 
 
-// FetchOnDemandVideos.propTypes = {
+
+
+
+
+// FetchVideos.propTypes = {
 //   classes: PropTypes.object.isRequired,
 // }
 
-export default FetchOnDemandVideos
+export default FetchVideos

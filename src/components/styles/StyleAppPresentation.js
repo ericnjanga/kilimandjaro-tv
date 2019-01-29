@@ -9,7 +9,6 @@ style.DivApp = styled.div`
   // ------------------------
   .App-verticalNav {
     display: none;
-    // position: fixed;
     z-index: 10;
     height: 100vh;
     position: fixed;
@@ -30,9 +29,17 @@ style.DivApp = styled.div`
   }
 
 
-  @media (max-width: ${theme.breakpoints.largeScreen - 1}px) {
-    .maincontent-center {
-      padding-top: 0;
+  @media (max-width: 1182px) {
+    .maincontent-center.padding {
+      padding: 0 20px;
+    }
+  }
+
+
+  @media (min-width: 1182px) {
+    .App-horizontalNav .hNav__frame {
+      position: relative;
+      right: -15px;
     }
   }
 
@@ -58,13 +65,6 @@ style.DivAppMainContent = styled.section`
     /* Make room for sidebar nav */
     margin-left: auto;
     width: calc(100% - ${theme.vNav.width}px);
-  }
-
-
-  .maincontent-center {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding: 15px;
   }
 `;
 

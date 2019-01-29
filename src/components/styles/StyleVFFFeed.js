@@ -120,15 +120,6 @@ style.DivRow = styled.div`
       padding-right: ${theme.videoThumbnail.padding}px!important;
     }
   }
-
-  .spinner-frame {
-    flex-direction: column;
-    display: flex;    
-    min-height: 200px;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
 `;
 
 export default style;

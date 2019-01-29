@@ -1,12 +1,13 @@
-import React from "react";
-import StyledDialogLogin from './../styles/StyleDialogLogin'
-import firebase from './../../settings/firebase-init'
+import React from "react"
 
 import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
 import Dialog from "@material-ui/core/Dialog"
 import DialogContent from "@material-ui/core/DialogContent"
-import CircularProgress from '@material-ui/core/CircularProgress'
+
+import StyledDialogLogin from './../styles/StyleDialogLogin'
+import firebase from './../../settings/firebase-init'
+import Preloader from './../Preloader'
 
 export default class DialogLogin extends React.Component {
   state = {
@@ -37,14 +38,14 @@ export default class DialogLogin extends React.Component {
 
   /**
    * Handles changes on inputs
-   * (TODO; INPUT VALIDATION)
+   * (TODO INPUT VALIDATION)
    */
   handleChange = (event) => {
-    const { form } = this.state;
-    const { target: {name, value} } = event;
-    form[name] = value;
-    this.setState({ form });
-  };
+    const { form } = this.state
+    const { target: {name, value} } = event
+    form[name] = value
+    this.setState({ form })
+  }
 
 
   /**
@@ -52,16 +53,16 @@ export default class DialogLogin extends React.Component {
    */
   handleEmailRegistration = () => {
 
-    const { email, password } = this.state.form;
+    const { email, password } = this.state.form
 
-    this.toggleProgressFlag();
+    this.toggleProgressFlag()
 
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
       // Handle Errors here.
-      // var errorCode = error.code;
-      // var errorMessage = error.message;
+      // var errorCode = error.code
+      // var errorMessage = error.message
       // ...
-    });
+    })
   }
 
 
@@ -71,34 +72,34 @@ export default class DialogLogin extends React.Component {
    */
   handleEmailSignin = () => {
 
-    const { email, password } = this.state.form;
+    const { email, password } = this.state.form
 
-    this.toggleProgressFlag();
+    this.toggleProgressFlag()
 
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
       // Handle Errors here.
-      // var errorCode = error.code;
-      // var errorMessage = error.message;
+      // var errorCode = error.code
+      // var errorMessage = error.message
       // ...
-    });
+    })
   }
 
 
   render() {
 
-    // console.log('[render] DialogLogin');
+    // console.log('[render] DialogLogin')
 
     const {
       handleClose,
       open,
-    } = this.props;
+    } = this.props
 
     const {
       DivContainer,
-    } = StyledDialogLogin;
+    } = StyledDialogLogin
 
-    const { register, form, inProgress } = this.state;
-    const brandName = "Kilimandjaro TV";
+    const { register, form, inProgress } = this.state
+    const brandName = "Kilimandjaro TV"
 
     return (
       <div>
@@ -172,7 +173,7 @@ export default class DialogLogin extends React.Component {
           </DivContainer>
         </Dialog>
       </div>
-    );
+    )
   }
 }
 
@@ -226,8 +227,8 @@ const RegisterInputs = ({
         Enregistrez-vous
       </Button>
     </React.Fragment>
-  );
-};
+  )
+}
 
 const LoginInputs = ({
   email,
@@ -269,12 +270,12 @@ const LoginInputs = ({
         Connectez-vous 
 
         {
-          inProgress && <CircularProgress className="progress" />
+          inProgress && <Preloader />
         }
       </Button>
     </React.Fragment>
-  );
-};
+  )
+}
 
 const RegisterFooter = ({ brandName, action }) => {
   return (
@@ -284,8 +285,8 @@ const RegisterFooter = ({ brandName, action }) => {
       identifiez-vous
       </Button>
     </div>
-  );
-};
+  )
+}
 
 const LoginFooter = ({ brandName, action }) => {
   return (
@@ -297,5 +298,5 @@ const LoginFooter = ({ brandName, action }) => {
         enregistrez-vous
       </Button>
     </div>
-  );
-};
+  )
+}

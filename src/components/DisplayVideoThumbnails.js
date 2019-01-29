@@ -3,13 +3,10 @@
  */
 
 import React from 'react'
-// import Vimeo from 'vimeo'
-// import { NavLink } from "react-router-dom" 
 import CircularProgress from '@material-ui/core/CircularProgress'
 import VFFFeedStyle from './styles/StyleVFFFeed'
-// import configs from './../settings/vimeoConfig'
 import VideoThumbnail from './VideoThumbnail'
-// import PropTypes from 'prop-types'
+import Preloader from './../components/Preloader'
 
 
 const { 
@@ -41,10 +38,9 @@ class DisplayVideoThumbnails extends React.Component {
             </div>
           ))
           :
-          <div className="spinner-frame">
-            <p>En train de chercher des vidéos</p>
-            <CircularProgress />
-          </div>
+          <Preloader
+            text={'Chargement des vidéos'}
+          />
         }
       </DivRow>
     )

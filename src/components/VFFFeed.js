@@ -4,10 +4,9 @@
 
 import React from 'react';
 import Vimeo from 'vimeo';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import VFFFeedStyle from './styles/StyleVFFFeed';
 import configs from './../settings/vimeoConfig'
-import VideoThumbnail from './Video';
+import Preloader from './../components/Preloader'
 // import PropTypes from 'prop-types';
 
 
@@ -118,10 +117,9 @@ class VFFFeed extends React.Component {
             </div>
           ))
           :
-          <div className="spinner-frame">
-            <p>En train de chercher des vidéos</p>
-            <CircularProgress />
-          </div>
+          <Preloader
+            text={'Chargement des vidéos'}
+          />
         }
       </DivRow>
     );

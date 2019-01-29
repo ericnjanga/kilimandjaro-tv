@@ -1,16 +1,16 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import VerticalNavStyles from './../styles/StyleVerticalNav';
-import IconMovies from '@material-ui/icons/LocalMovies';
-import IconTickets from '@material-ui/icons/Loyalty';
-import BuzzIcon from '@material-ui/icons/Whatshot';
-import ListOfAdds from './../tests/ListOfAdds'; 
-import Logo from './../content/Logo';
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import VerticalNavStyles from './../styles/StyleVerticalNav'
+import IconMovies from '@material-ui/icons/LocalMovies'
+import IconTickets from '@material-ui/icons/Loyalty'
+import BuzzIcon from '@material-ui/icons/Whatshot'
+import ListOfAdds from './../tests/ListOfAdds' 
+import Logo from './../content/Logo'
 
 
 const { 
   Aside,
-} = VerticalNavStyles;
+} = VerticalNavStyles
 
 const VerticalNav = ({
   className,
@@ -24,6 +24,12 @@ const VerticalNav = ({
       </NavLink>
       
       <ul>
+        <li>
+          <NavLink className="item" to="/tv" activeClassName="active">
+            <IconMovies />
+            <span>TV</span>
+          </NavLink>
+        </li>
         <li>
           <NavLink className="item" to="/films" activeClassName="active">
             <IconMovies />
