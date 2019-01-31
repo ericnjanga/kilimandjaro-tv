@@ -38,6 +38,7 @@ class AppPresentation extends React.Component {
   render() {
 
     // console.log('[render] -AppPresentation');
+
     const { 
       DivApp,
       DivAppMainContent,

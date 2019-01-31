@@ -24,7 +24,8 @@ class PageDisplayAllVideos extends Component {
     const {
       allVideos,
       openDialog,
-      toggleDrawer
+      toggleDrawer,
+      category
     } = this.props
 
     const {
@@ -44,7 +45,9 @@ class PageDisplayAllVideos extends Component {
       )
     }
 
-    const tvShowList = allVideos.filter(video => video.tags[0] && video.tags[0].name==='tv')
+    const videoList = allVideos.filter(video => video.tags[0] && video.tags[0].name===category)
+
+    console.log('>>>>>>>>', category==='vod' || false)
   
     return (
       <MoviesContainer>
@@ -57,13 +60,13 @@ class PageDisplayAllVideos extends Component {
         <section className="maincontent-center">
           <DivRow>
             {
-              tvShowList.map((video, index) => 
+              videoList.map((video, index) => 
                 <div className="col">
                   <VideoThumbnail
                     id={video.uri.split('/videos/')[1]}
                     key={index}
                     data={video}
-                    isOnDemand={false}
+                    isOnDemand={category==='vod' || false}
                   />
                   {
                     // <div>

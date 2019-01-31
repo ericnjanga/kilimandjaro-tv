@@ -19,7 +19,9 @@ const List = ({ data: listData, className }) => {
     <ul className={`list ${className}`}>
       {
         listData.map(item => (
-          <li key={item.id}>
+          <li
+            key={item.id}
+          >
             <b>{item.name}</b>{' - '}
             {item.description}
           </li>

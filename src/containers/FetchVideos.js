@@ -8,9 +8,6 @@ import configs from './../settings/vimeoConfig'
 // import PropTypes from 'prop-types'
 
 
-// const { 
-//   DivRow,
-// } = VFFFeedStyle
  
 class FetchVideos extends React.Component {
 
@@ -37,10 +34,7 @@ class FetchVideos extends React.Component {
    */
   fetchVideos = ({ category }) => { 
 
-    console.log(' =========================== ')
-
-    // Let state know that content isn't ready (will trigger "circular progress")
-    this.setState({ contentReady:false }) 
+    // console.log(' =========================== ', this.client.request)
 
     // Fetch videos from vimeo API
     this.client.request({
@@ -52,40 +46,16 @@ class FetchVideos extends React.Component {
       }
 
       // Filter result by category (if available)
-      if (body) {
+      if (body && this._isMounted) {
         let { data } = body
         this.setState({ data, category })
-        // console.log(' ............. [fetchData] ---------: ', data)
-
-        // const tempVods = data.filter(video => video.tags[0] && video.tags[0].name === 'trailer')
-
-        // /**
-        //  * For now:
-        //  * Artificially add more information on videos (better option coming)
-        //  */
-        // const vods = tempVods.map(vod => {
-        //   const onDemand = {
-        //     id: '', // vimeoID
-        //     price: {
-        //       cad: '',
-        //       usd: '',
-        //       eur: '',
-        //     }
-        //   }
- 
-        //   vod.onDemand = onDemand
-        //   return vod
-        // })
-        
-        // console.log(' ............. [fetchData] ---------: ', vods)
       }
     }) // [end] client.request
   }
 
 
   componentDidMount() {
-
-    // console.log('- [FetchVideos] componentDidMount ' )
+    this._isMounted = true
     this.fetchVideos(this.props)
 
   }
@@ -107,9 +77,7 @@ class FetchVideos extends React.Component {
 
 
   componentWillUnmount() {
-    // console.log('- [FetchVideos] componentWillUnmount ' )
-    // this._isMounted = false
-    // OFF vimeo.request ???
+    this._isMounted = false
   }
 
 

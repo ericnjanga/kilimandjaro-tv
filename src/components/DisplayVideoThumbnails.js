@@ -32,6 +32,7 @@ class DisplayVideoThumbnails extends React.Component {
           list.map((video, index) => (
             <div className="col" key={video.uri}>
               <VideoThumbnail
+                key={index}
                 data={video}
                 isOnDemand
               />

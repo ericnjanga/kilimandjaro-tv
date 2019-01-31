@@ -78,7 +78,7 @@ class ModalVideo extends React.Component {
               </Iframe>
             </ModalBody>
             <ModalFooter>
-              <Button color="primary" onClick={toggle}>Voir le film</Button>{' '}
+              {/* <Button color="primary" onClick={toggle}>Voir le film</Button>{' '} */}
               {/* <Button color="secondary" onClick={toggle}>Cancel</Button> */}
             </ModalFooter>
           </ModalContainer>

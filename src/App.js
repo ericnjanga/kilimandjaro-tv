@@ -376,6 +376,9 @@ class App extends Component {
 
   render() {
     // console.log('....********', this.state);
+    // console.log('....********', this.state);
+    // console.log('....********', this.state);
+    // console.log('....********', this.state);
 
 
     // var user = firebase.auth().currentUser;

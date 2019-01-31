@@ -44,7 +44,10 @@ class TodoList extends React.Component {
   render() {
     const { classes } = this.props;
     const items = this.state.items.map((item, i) => (
-      <div key={item} onClick={() => this.handleRemove(i)}>
+      <div
+        key={item}
+        onClick={() => this.handleRemove(i)
+      }>
         {item}
       </div>
     ));

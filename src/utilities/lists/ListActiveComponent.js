@@ -19,7 +19,10 @@ const ListActiveComponent = ({ data: listData, Component }) => {
       {
         listData.map((item, itemIndex) => {
           const Comp = withActiveProp(Component)();
-          return (<Comp key={item.id} {...item} />);
+          return (<Comp
+            key={item.id}
+            {...item}
+          />);
         })
       }
     </React.Fragment>

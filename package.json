@@ -4,9 +4,8 @@
   "description": "coming soon",
   "main": "index.js",
   "scripts": {
-    "start:dev": "webpack-dev-server",
-    "build": "webpack && serve",
-    "watch": "webpack --w"
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",

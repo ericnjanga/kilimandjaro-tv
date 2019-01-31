@@ -24,9 +24,7 @@ const ListWithKeys = ({ data: listData, properties, className }) => {
           <li key={item.id}>
             {
               properties.map((ppt) => {
-
                 return item[ppt];
-
               })
             }
           </li>

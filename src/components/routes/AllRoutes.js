@@ -1,11 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 import HorizontalNav from './../layout/HorizontalNav'
-import Hero from './../content/Hero'
-// import VFFFeed from './../VFFFeed' 
-// import DisplayVideoThumbnails from './../DisplayVideoThumbnails' 
+import Hero from './../content/Hero' 
 import FetchVideos from './../../containers/FetchVideos'
-import FetchOnDemandVideos from './../../containers/FetchOnDemandVideos'
 import Page404 from './../views/404Page'
 import MoviesStyle from './../styles/StyleMoviesPage'
 import PaypalCheckout from './../PaypalCheckout'
@@ -31,9 +28,9 @@ const AllRoutes = ({
       >
         {
           (allVideos) => {
-            console.group('**** allVideos ****')
+            // console.group('**** allVideos ****')
             console.log(allVideos)
-            console.groupEnd()
+            // console.groupEnd()
 
             return (
               <Switch>
@@ -68,6 +65,7 @@ const AllRoutes = ({
                       return(
                         <PageDisplayAllVideos
                           allVideos={allVideos}
+                          category='tv'
                           openDialog={openDialog}
                           toggleDrawer={toggleDrawer}
                         />
@@ -109,23 +107,12 @@ const AllRoutes = ({
                   render={
                     () => {
                       return(
-                        <MoviesContainer>
-                          <HorizontalNav
-                            className="App-horizontalNav"
-                            dialogLoginHandleOpen={openDialog}
-                            onClick1={toggleDrawer}
-                            leftNavActive={true}
-                          />
-                          {/* <Hero /> */}
-                          <section className="maincontent-center">
-                            {/* 
-                              <PaypalCheckout /> 
-                              */}
-                            <FetchOnDemandVideos
-                              category="..."
-                            />
-                          </section>
-                        </MoviesContainer>
+                        <PageDisplayAllVideos
+                          allVideos={allVideos}
+                          category='vod'
+                          openDialog={openDialog}
+                          toggleDrawer={toggleDrawer}
+                        />
                       )
                     }
                   }
@@ -151,9 +138,9 @@ const AllRoutes = ({
                           />
                           {/* <Hero /> */}
                           <section className="maincontent-center">
-                            <FetchOnDemandVideos
+                            {/* <PageDisplayAllVideos
                               id={props.match.params.id}
-                            />
+                            /> */}
                           </section>
                         </MoviesContainer>
                       )

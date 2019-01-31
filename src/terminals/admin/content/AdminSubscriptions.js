@@ -48,7 +48,9 @@ const SubscriptionsTable = ({ data }) => {
         {
           data.map((item, index) =>{
             return (
-              <tr key={item.id}>
+              <tr
+                key={item.id}
+              >
                 <th scope="row">{ index + 1}</th>
                 <td>{ item.name }</td>
                 <td>{ item.email }</td>
