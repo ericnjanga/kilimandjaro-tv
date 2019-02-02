@@ -31,6 +31,7 @@ class VideoThumbnail extends React.Component {
 
 
   toggleModal = () => {
+    console.log('>>>>>>>>>>>>>>>>>>toggleModal')
     this.setState({
       modalActive: !this.state.modalActive
     })
@@ -89,26 +90,20 @@ class VideoThumbnail extends React.Component {
           onClick={this.toggleModal}
         />
 
-        {
-          !isOnDemand &&
-          <h3 className="thumbnail-title">{ name }</h3>
-        }
-        
+        <h3 className="thumbnail-title">{ name }</h3>
 
         <FooterDisplay
           isOnDemand={isOnDemand}
           onClick={this.toggleModal}
         />
             
-        {
-          isOnDemand &&
-          <ModalVideo
-            active={modalActive}
-            toggle={this.toggleModal}
-            videoId={data.uri.split('/videos/')[1]}
-            title={data.name}
-          />
-        }
+        <ModalVideo
+          isOnDemand={isOnDemand}
+          active={modalActive}
+          toggle={this.toggleModal}
+          videoId={data.uri.split('/videos/')[1]}
+          title={data.name}
+        />
       </ThumbContainer>
     )
 
@@ -169,43 +164,18 @@ const ThumbnailDisplay = (props) => {
   return (
     <ThumbnailWrapper {...props}>
       {
-        isOnDemand && <IconVideo className="icon" />
+        !isOnDemand && <IconVideo className="icon" />
       }    
       <img
         src={imgSrc}
         className='img-thumbnail'
         // alt={metadata.name}
       />
+      <Duration
+
+      />
     </ThumbnailWrapper>
   )
-
-  // if (isOnDemand) {
-  //   return (
-  //     <ThumbailVODContainer
-  //       onClick={onClick}
-  //     >
-  //       <IconVideo className="icon" />
-        // <img
-        //   src={imgSrc}
-        //   // alt={metadata.name}
-        // />
-  //       <Duration />
-  //     </ThumbailVODContainer>
-  //   ) 
-  // } else {
-  //   return (
-  //     <div>
-  //       <NavLink
-  //         to={`/tv/${id}`}
-  //       >
-  //         <img
-  //           src={imgSrc}
-  //           // alt={metadata.name}
-  //         />
-  //       </NavLink>
-  //     </div>
-  //   ) 
-  // }
 
 }
 
@@ -221,11 +191,12 @@ const FooterDisplay = ({
   return (
     <footer className="footer-cta">
       <Button 
-          size="small"
-          variant="contained"
-          className="btn-cta"
-          onClick={onClick}
-        >
+        size="small"
+        color="primary"
+        variant="contained"
+        className="btn-cta"
+        onClick={onClick}
+      >
         Bande D'annonce
       </Button>
       {/* 

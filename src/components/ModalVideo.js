@@ -44,7 +44,8 @@ class ModalVideo extends React.Component {
       toggle,
       active,
       videoId,
-      title
+      title,
+      isOnDemand
     } = this.props
     const {
       Iframe,
@@ -53,7 +54,9 @@ class ModalVideo extends React.Component {
       ModalContainer,
     } = ModalVideoStyle
 
-
+    if (!isOnDemand) {
+      return false
+    }
     
 
     return (
