@@ -20,6 +20,10 @@ import Preloader from './Preloader'
 
 class PageDisplayAllVideos extends Component {
 
+  // getVideoId = (video) => {
+  //   return video.uri.split('/videos/')[1]
+  // }
+
   render() {
 
     const {
@@ -47,6 +51,8 @@ class PageDisplayAllVideos extends Component {
     }
 
     const videoList = allVideos.filter(video => video.tags[0] && video.tags[0].name===category)
+    const isOnDemand = category==='vod' || false
+    const colSize = isOnDemand ? {  md:4, sm:6, xs:6 } : {  md:6, sm:12 }
 
     console.log('>>>>>>>>', category==='vod' || false)
   
@@ -64,11 +70,12 @@ class PageDisplayAllVideos extends Component {
               videoList.map((video, index) => 
                 <Col
                   key={index}
+                  {...colSize}
                 >
                   <VideoThumbnail
                     id={video.uri.split('/videos/')[1]}
                     data={video}
-                    isOnDemand={category==='vod' || false}
+                    isOnDemand={isOnDemand}
                   />
               </Col>
               )

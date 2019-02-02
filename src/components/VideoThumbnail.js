@@ -53,9 +53,9 @@ class VideoThumbnail extends React.Component {
 
     const ThumbContainer = isOnDemand ? ThumbailVODContainer : ThumbailTVContainer;
 
-    console.group('VideoThumbnail')
-    console.log(this.props)
-    console.groupEnd()
+    // console.group('VideoThumbnail')
+    // console.log(this.props)
+    // console.groupEnd()
 
     
     return(
@@ -131,18 +131,18 @@ const ThumbnailWrapper = (props) => {
 
   if (props.isOnDemand) {
     return (
+      <div {...props}>
+        { props.children }
+      </div>
+    )
+  }
+  else {
+    return (
       <NavLink
         to={`/tv/${props.id}`}
       >
         { props.children }
       </NavLink>
-    )
-  }
-  else {
-    return (
-      <div {...props}>
-        { props.children }
-      </div>
     )
   }
 }
@@ -157,12 +157,12 @@ const ThumbnailDisplay = (props) => {
     isOnDemand,
   } = props
 
-  console.group('VideoThumbnail')
-  console.log(id,
-    img,
-    onClick,
-    isOnDemand)
-  console.groupEnd()
+  // console.group('VideoThumbnail')
+  // console.log(id,
+  //   img,
+  //   onClick,
+  //   isOnDemand)
+  // console.groupEnd()
 
   const imgSrc = img.sizes[3].link
 
@@ -173,6 +173,7 @@ const ThumbnailDisplay = (props) => {
       }    
       <img
         src={imgSrc}
+        className='img-thumbnail'
         // alt={metadata.name}
       />
     </ThumbnailWrapper>

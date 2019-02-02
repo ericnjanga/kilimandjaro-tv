@@ -36,6 +36,30 @@ style.ThumbailVODContainer = styled.div`
 
 
 
+  // .metadata {
+  //   margin-top: 5px;
+  //   font-size: 0.8rem;
+
+  //   p {
+  //     margin-bottom: 0;
+  //     color: ${theme.color.primaryHover}
+  //   }
+  // }
+
+  // time {
+  //   position: absolute;
+  //   z-index: 12;
+  //   background: #999;
+  //   right: 0;
+  //   bottom: 0;
+  //   font-size: 0.6rem;
+  //   padding: 3px 10px;
+  //   color: #000;
+  //   font-weight: bold;
+  //   /* border-radius: 5px; */
+  //   border-top-left-radius: 5px;
+  // }
+
 
 
   // .footer-cta {

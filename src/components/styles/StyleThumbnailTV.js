@@ -5,50 +5,35 @@ import styled from 'styled-components'; //https://www.styled-components.com/docs
 const style = {
   ThumbailTVContainer: styled.div `
 
-  border: 10px solid blue;
+  margin-bottom: 30px;
+  .thumbnail-title,
+  .img-thumbnail {
+    transition: all 0.4s ease-out;
+  }
 
-  .metadata {
-    margin-top: 5px;
-    font-size: 0.8rem;
+  a {
+    display: block;
+  }
 
-    p {
-      margin-bottom: 0;
-      color: ${theme.color.primaryHover}
+  &:hover {
+    cursor: pointer;
+    .thumbnail-title {
+      color: ${theme.color.primary};
+    }
+    .img-thumbnail {
+      background-color: ${theme.color.primary};
+      border: 1px solid ${theme.color.primary};
     }
   }
 
-  time {
-    position: absolute;
-    z-index: 12;
-    background: #999;
-    right: 0;
-    bottom: 0;
-    font-size: 0.6rem;
-    padding: 3px 10px;
-    color: #000;
-    font-weight: bold;
-    /* border-radius: 5px; */
-    border-top-left-radius: 5px;
-  }
-
-  .metadata-title {
+  .thumbnail-title {
+    margin-top: 10px;
     margin-bottom: 0;
     text-transform: uppercase;
     font-size: 1rem;
     color: ${theme.color.primaryHover}
   }
   `,
-  // DivVidObjectContainer: styled.div`
-  //   position: relative;
-  //   border-radius: 5px;
-  //   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); 
-
-  //   > img {
-  //     max-width: 100%;
-  //   }
-
-  //   ${theme.hoverEffect1}
-  // `,
 };
 
 export default style;
