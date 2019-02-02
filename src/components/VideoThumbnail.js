@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button"
 import { NavLink } from 'react-router-dom'
 import IconVideo from '@material-ui/icons/PlayCircleOutline'
 
-import VideoStyle from './styles/StyleVideo'
+import VideoStyle from './styles/StyleThumbnailTV'
 import ThumbailVODStyle from './styles/StyleThumbailVOD'
 import ModalVideo from './ModalVideo'
 // import VODPricing from './VODPricing'
@@ -51,9 +51,24 @@ class VideoThumbnail extends React.Component {
       data:{ name, pictures }, //duration},
     } = this.props
 
+    const ThumbContainer = isOnDemand ? ThumbailVODContainer : ThumbailTVContainer;
+
+    console.group('VideoThumbnail')
+    console.log(this.props)
+    console.groupEnd()
+
     
     return(
-      <ThumbailTVContainer>
+      <ThumbContainer>
+
+{
+                    // <div>
+                  //   -video 1
+                  //   -video.name
+                  //   -video.uri
+                  //   -video.pictures.sizes[0].link
+                  // </div>
+                  }
         {/* <DivVidObjectContainer
           onClick={this.toggleModal}
         >
@@ -64,6 +79,8 @@ class VideoThumbnail extends React.Component {
           />
           <Duration />
         </DivVidObjectContainer> */}
+
+
 
         <ThumbnailDisplay
           id={id}
@@ -92,7 +109,7 @@ class VideoThumbnail extends React.Component {
             title={data.name}
           />
         }
-      </ThumbailTVContainer>
+      </ThumbContainer>
     )
 
   }
@@ -110,42 +127,84 @@ const Duration = ({ duration }) => {
 }
 
 
-const ThumbnailDisplay = ({
-  id,
-  img,
-  onClick,
-  isOnDemand,
-}) => {
+const ThumbnailWrapper = (props) => {
+
+  if (props.isOnDemand) {
+    return (
+      <NavLink
+        to={`/tv/${props.id}`}
+      >
+        { props.children }
+      </NavLink>
+    )
+  }
+  else {
+    return (
+      <div {...props}>
+        { props.children }
+      </div>
+    )
+  }
+}
+
+
+const ThumbnailDisplay = (props) => {
+
+  const {
+    id,
+    img,
+    onClick,
+    isOnDemand,
+  } = props
+
+  console.group('VideoThumbnail')
+  console.log(id,
+    img,
+    onClick,
+    isOnDemand)
+  console.groupEnd()
 
   const imgSrc = img.sizes[3].link
 
-  if (isOnDemand) {
-    return (
-      <ThumbailVODContainer
-        onClick={onClick}
-      >
-        <IconVideo className="icon" />
-        <img
-          src={imgSrc}
-          // alt={metadata.name}
-        />
-        <Duration />
-      </ThumbailVODContainer>
-    ) 
-  } else {
-    return (
-      <div>
-        <NavLink
-          to={`/tv/${id}`}
-        >
-          <img
-            src={imgSrc}
-            // alt={metadata.name}
-          />
-        </NavLink>
-      </div>
-    ) 
-  }
+  return (
+    <ThumbnailWrapper {...props}>
+      {
+        isOnDemand && <IconVideo className="icon" />
+      }    
+      <img
+        src={imgSrc}
+        // alt={metadata.name}
+      />
+    </ThumbnailWrapper>
+  )
+
+  // if (isOnDemand) {
+  //   return (
+  //     <ThumbailVODContainer
+  //       onClick={onClick}
+  //     >
+  //       <IconVideo className="icon" />
+        // <img
+        //   src={imgSrc}
+        //   // alt={metadata.name}
+        // />
+  //       <Duration />
+  //     </ThumbailVODContainer>
+  //   ) 
+  // } else {
+  //   return (
+  //     <div>
+  //       <NavLink
+  //         to={`/tv/${id}`}
+  //       >
+  //         <img
+  //           src={imgSrc}
+  //           // alt={metadata.name}
+  //         />
+  //       </NavLink>
+  //     </div>
+  //   ) 
+  // }
 
 }
 

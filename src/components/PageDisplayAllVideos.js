@@ -4,6 +4,7 @@
 
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Redirect } from 'react-router-dom'
+import { Container, Row, Col } from 'reactstrap'
 /**
  * Code optimization:
  * `memoize-one` will reuse the last return value if  arguments haven't changed since the last render.
@@ -12,7 +13,7 @@ import { BrowserRouter as Router, Redirect } from 'react-router-dom'
 
 import MoviesStyle from './styles/StyleMoviesPage'
 import HorizontalNav from './layout/HorizontalNav'
-import TvVideosGridStyle from './styles/StyleTvVideosGrid'
+import ThumbailGridStyle from './styles/StyleThumbailGrid'
 import VideoThumbnail from './VideoThumbnail'
 import Preloader from './Preloader'
 
@@ -33,8 +34,8 @@ class PageDisplayAllVideos extends Component {
     } = MoviesStyle
 
     const {
-      DivRow,
-    } = TvVideosGridStyle
+      ThumbnailsRow,
+    } = ThumbailGridStyle
   
     // Display preloader if video is not yet available
     if (!allVideos) {
@@ -57,30 +58,23 @@ class PageDisplayAllVideos extends Component {
           onClick1={toggleDrawer}
           leftNavActive={true}
         />
-        <section className="maincontent-center">
-          <DivRow>
+        <Container className="maincontent-center">
+          <Row>
             {
               videoList.map((video, index) => 
-                <div className="col">
+                <Col
+                  key={index}
+                >
                   <VideoThumbnail
                     id={video.uri.split('/videos/')[1]}
-                    key={index}
                     data={video}
                     isOnDemand={category==='vod' || false}
                   />
-                  {
-                    // <div>
-                  //   -video 1
-                  //   -video.name
-                  //   -video.uri
-                  //   -video.pictures.sizes[0].link
-                  // </div>
-                  }
-                </div>
+              </Col>
               )
             }
-          </DivRow>
-        </section>
+          </Row>
+        </Container>
       </MoviesContainer>
     )
   }

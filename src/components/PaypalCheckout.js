@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // import PayPalButton from 'paypal-checkout'
 import PaypalExpressBtn from 'react-paypal-express-checkout'
-import { paypalClient, paypalEnv } from './../settings/paypal-configs'
+// import { paypalClient, paypalEnv } from './../settings/paypal-configs' ... for some reasons, this is absent
 
 class PaypalCheckout extends Component {
   constructor(props) {
@@ -57,9 +57,7 @@ class PaypalCheckout extends Component {
         </div>
         <p>Buy <strong>Full Body Lobster Onesie - $24.99</strong> now!</p>
 
-        {/* <PaypalExpressBtn client={client} currency={'USD'} total={1.00} /> */}
-
-        <PaypalExpressBtn
+        {/* <PaypalExpressBtn
           env={paypalEnv}
           client={paypalClient}
           currency={currency}
@@ -67,13 +65,7 @@ class PaypalCheckout extends Component {
           onError={this.onError}
           onSuccess={this.onSuccess}
           onCancel={this.onCancel}
-        />
-
-        {/* <PayPalButton
-          client={client}
-          payment={this.payment}
-          commit={true}
-          onAuthorize={this.onAuthorize} /> */}
+        /> */}
      
       </div>
     )

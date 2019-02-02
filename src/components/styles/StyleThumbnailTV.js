@@ -5,7 +5,7 @@ import styled from 'styled-components'; //https://www.styled-components.com/docs
 const style = {
   ThumbailTVContainer: styled.div `
 
-  border: 10px solid red;
+  border: 10px solid blue;
 
   .metadata {
     margin-top: 5px;
