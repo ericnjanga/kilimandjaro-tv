@@ -9,14 +9,17 @@ import { NavLink } from 'react-router-dom'
 import IconVideo from '@material-ui/icons/PlayCircleOutline'
 
 import VideoStyle from './styles/StyleVideo'
+import ThumbailVODStyle from './styles/StyleThumbailVOD'
 import ModalVideo from './ModalVideo'
 // import VODPricing from './VODPricing'
 
 
 const { 
-  DivGlobalContainer,
-  DivVidObjectContainer,
+  ThumbailTVContainer,
 } = VideoStyle
+const {
+  ThumbailVODContainer,
+} = ThumbailVODStyle
 
 class VideoThumbnail extends React.Component {
   constructor(props) {
@@ -48,25 +51,9 @@ class VideoThumbnail extends React.Component {
       data:{ name, pictures }, //duration},
     } = this.props
 
-    // console.log('[render] - video', this.props.data)
-    // console.log('trailer', data)
-
-    // const { modal } = this.state 
-    // const trailerVideoId = trailer.uri.split('/videos/')[1] 
-    // const freeVideoId = uri.split('/videos/')[1]
-    // const imgUrl = pictures.sizes[3].link
-
-    /*
-
-      <NavLink exact to="/" className="App-brand" activeClassName="active">
-        <Logo
-          size="small'"
-        /> 
-      </NavLink>
-      */
-
+    
     return(
-      <DivGlobalContainer>
+      <ThumbailTVContainer>
         {/* <DivVidObjectContainer
           onClick={this.toggleModal}
         >
@@ -105,7 +92,7 @@ class VideoThumbnail extends React.Component {
             title={data.name}
           />
         }
-      </DivGlobalContainer>
+      </ThumbailTVContainer>
     )
 
   }
@@ -134,7 +121,7 @@ const ThumbnailDisplay = ({
 
   if (isOnDemand) {
     return (
-      <DivVidObjectContainer
+      <ThumbailVODContainer
         onClick={onClick}
       >
         <IconVideo className="icon" />
@@ -143,7 +130,7 @@ const ThumbnailDisplay = ({
           // alt={metadata.name}
         />
         <Duration />
-      </DivVidObjectContainer>
+      </ThumbailVODContainer>
     ) 
   } else {
     return (

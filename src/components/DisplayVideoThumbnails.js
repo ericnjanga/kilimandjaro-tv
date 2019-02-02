@@ -4,7 +4,7 @@
 
 import React from 'react'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import VFFFeedStyle from './styles/StyleVFFFeed'
+import VFFFeedStyle from './styles/StyleThumbailVOD'
 import VideoThumbnail from './VideoThumbnail'
 import Preloader from './../components/Preloader'
 

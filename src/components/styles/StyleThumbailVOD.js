@@ -1,9 +1,12 @@
 
 import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
-import theme from './../../settings/theme';
+import theme from '../../settings/theme';
 
 const style = {};
-style.DivRow = styled.div`
+style.ThumbailTVContainer = styled.div`
+
+  border: 10px solid lime;
+
   display: flex; 
   flex-wrap: wrap;
   margin-right: -${theme.videoThumbnail.padding}px;
