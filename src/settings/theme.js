@@ -9,6 +9,7 @@
  */
 const theme1 = {  
   color: {
+    pageBackgroundColor: '#fff',
     primary: '#DA6A2D',
     primaryHover: '#fff',
     secondary: '#38307F',
@@ -27,7 +28,7 @@ const theme1 = {
     padding: 15,
   },
   vNav: {
-    width: 170,
+    width: 270,
   },
   hNav: {
     height: 60,

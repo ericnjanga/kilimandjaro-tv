@@ -39,10 +39,10 @@ const style = {
   }
 
   .thumbnail-title {
-    margin-top: 10px;
+    // margin-top: 10px;
     margin-bottom: 0;
     ${StyleThumbnail.thumbnailTitle}
-    color: ${StyleThumbnail.colorOff};
+    color: ${StyleThumbnail.darkGray};
   }
   .img-thumbnail {
     margin-top: 10px;

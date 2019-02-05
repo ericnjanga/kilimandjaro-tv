@@ -58,12 +58,12 @@ class PageDisplayAllVideos extends Component {
   
     return (
       <MoviesContainer>
-        <HorizontalNav
+        {/* <HorizontalNav
           className="App-horizontalNav"
           dialogLoginHandleOpen={openDialog}
           onClick1={toggleDrawer}
           leftNavActive={true}
-        />
+        /> */}
         <Container className="maincontent-center">
           <Row>
             {

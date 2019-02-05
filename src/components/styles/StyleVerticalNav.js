@@ -8,6 +8,7 @@ style.Aside = styled.aside`
   display: flex;
   flex-direction: column;
   width: ${theme.vNav.width}px;
+  height: 100%;
   background-color: ${theme.color.secondary};
   transition: background-color 0.2s ease-in-out;
 
@@ -17,9 +18,8 @@ style.Aside = styled.aside`
   }
 
 
-  .App-brand { 
-    background: #fff;
-    color: #22343c;
+  .App-brand {
+    color: #fff;
     width: 100%;
     padding: 0 20px;
     text-align: center;
@@ -43,7 +43,7 @@ style.Aside = styled.aside`
   .App-brand.active,
   .App-brand:hover { 
     color: ${theme.color.primaryHover};
-    background: ${theme.color.primary};
+    // background: ${theme.color.primary};
     text-decoration: none;
   }
 
@@ -51,15 +51,13 @@ style.Aside = styled.aside`
   .item {
     padding: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
     color: ${theme.color.lightGray};
 
     span {
       display: block;
-      margin-top: 10px;
       font-size: 0.7rem;
       text-transform: uppercase;
     }

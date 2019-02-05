@@ -19,12 +19,16 @@ style.time = `
   font-size: 0.7rem;
 `
 style.imgThumbnail = `
-  background-color: ${style.colorOff};
-  border: 1px solid ${style.colorOff};
+border-width: 0;
+padding: 0;
+border-radius: 0;
+  // background-color: ${style.colorOff};
+  // border: 1px solid ${style.colorOff};
 `
 style.thumbnailTitle = `
   text-transform: uppercase;
   font-size: 1rem;
+  font-weight: 400;
 `
 
 export default style;

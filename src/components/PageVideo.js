@@ -69,12 +69,12 @@ class PageVideo extends Component {
   
     return (
       <MoviesContainer>
-        <HorizontalNav
+        {/* <HorizontalNav
           className="App-horizontalNav"
           dialogLoginHandleOpen={openDialog}
           onClick1={toggleDrawer}
           leftNavActive={true}
-        />
+        /> */}
   
         <header className="player-container">
           <div className="maincontent-center">

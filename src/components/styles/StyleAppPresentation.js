@@ -59,13 +59,6 @@ style.DivAppMainContent = styled.section`
   display: flex;
   flex-direction: column;
   flex: 1;
-  // background: ${theme.color.darkGray};
-
-  @media (min-width: ${theme.breakpoints.largeScreen}px) {
-    /* Make room for sidebar nav */
-    margin-left: auto;
-    width: calc(100% - ${theme.vNav.width}px);
-  }
 `;
 
 export default style;

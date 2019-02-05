@@ -4,7 +4,7 @@ import theme from './../../settings/theme'
 
 const style = {
   MoviesContainer: styled.div`
-    background: ${theme.color.darkGray};
+    background: ${theme.color.pageBackgroundColor};
 
     .title {
       color: #999;
