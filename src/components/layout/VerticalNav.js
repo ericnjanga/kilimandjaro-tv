@@ -73,6 +73,7 @@ const VerticalNav = ({
         <p>647 - 825 - 1694</p>
         <p>kilitvlive@gmail.com</p>
         <p>&copy; 2018, Toronto</p>
+        <p>Inspiration: <a href="https://jewlia.ru/" target="_blank">jewlia</a></p>
       </footer>
     </Aside>
   );
