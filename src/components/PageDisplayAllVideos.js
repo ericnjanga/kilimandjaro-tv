@@ -16,6 +16,7 @@ import HorizontalNav from './layout/HorizontalNav'
 import ThumbailGridStyle from './styles/StyleThumbailGrid'
 import VideoThumbnail from './VideoThumbnail'
 import Preloader from './Preloader'
+import BigScreen from './BigScreen'
 
 
 class PageDisplayAllVideos extends Component {
@@ -57,32 +58,35 @@ class PageDisplayAllVideos extends Component {
     console.log('>>>>>>>>', category==='vod' || false)
   
     return (
-      <MoviesContainer>
-        {/* <HorizontalNav
-          className="App-horizontalNav"
-          dialogLoginHandleOpen={openDialog}
-          onClick1={toggleDrawer}
-          leftNavActive={true}
-        /> */}
-        <Container className="maincontent-center">
-          <Row>
-            {
-              videoList.map((video, index) => 
-                <Col
-                  key={index}
-                  {...colSize}
-                >
-                  <VideoThumbnail
-                    id={video.uri.split('/videos/')[1]}
-                    data={video}
-                    isOnDemand={isOnDemand}
-                  />
-              </Col>
-              )
-            }
-          </Row>
-        </Container>
-      </MoviesContainer>
+      <div>
+        <BigScreen />
+        <MoviesContainer>
+          {/* <HorizontalNav
+            className="App-horizontalNav"
+            dialogLoginHandleOpen={openDialog}
+            onClick1={toggleDrawer}
+            leftNavActive={true}
+          /> */}
+          <Container className="maincontent-center">
+            <Row>
+              {
+                videoList.map((video, index) => 
+                  <Col
+                    key={index}
+                    {...colSize}
+                  >
+                    <VideoThumbnail
+                      id={video.uri.split('/videos/')[1]}
+                      data={video}
+                      isOnDemand={isOnDemand}
+                    />
+                </Col>
+                )
+              }
+            </Row>
+          </Container>
+        </MoviesContainer>
+      </div>
     )
   }
 }
