@@ -10,18 +10,18 @@ const {
 
 const BigScreen = () => {
   return (
-    <BigScreenContainer>
-      <article className="bigscreen-article">
+    <BigScreenContainer className="bigScreen">
+      <article className="bigScreen-article">
         <BigScreenTitle>EDDY KENZO AND THE GHETTO KIDS AT AFROFEST 2018</BigScreenTitle>
 
         <IconButton
           key="close"
           aria-label="Close"
           color="inherit"
-          className="bigscreen-cta"
+          className="bigScreen-cta"
           // onClick={toggleDrawer}
         >
-          Visionnez <MenuIcon className="bigscreen-cta-icon" />
+          Visionnez <MenuIcon className="bigScreen-cta-icon" />
         </IconButton>
       </article>
       <video autoPlay loop className="video-background" muted playsInline>
@@ -35,7 +35,7 @@ const BigScreenTitle = ({ children }) => {
   const limit = 30
   const textEport = children.length > limit ? children.substr(0, limit-4) + ' ...' : children
   return (
-    <h3 className="bigscreen-title">{ textEport }</h3>
+    <h3 className="bigScreen-title">{ textEport }</h3>
   )
 }
  

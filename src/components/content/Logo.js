@@ -1,22 +1,22 @@
 import React from 'react';
-import styled from 'styled-components'; //https://www.styled-components.com/docs/basics#styling-any-components
 
-
-const Span = styled.span`
-  font-family: 'Oswald', sans-serif;
-`;
+import logoImg from './../../img/kmd-tv1.jpg'
 
 const Logo = ({
-  size,
   className,
 }) => {
 
+  console.log('....logoImg = ', logoImg)
+
   return (
-    <Span className={className}>
-      {
-        size === 'large' ? 'KILIMANDJARO TV' : 'KMD TV'
-      }
-    </Span>
+    <React.Fragment>
+      <img
+        className={className}
+        src={logoImg}
+        alt={'Kilimandjaro TV'}
+      />
+      <span>Kilimandjaro TV</span>
+    </React.Fragment>
   );
 }
 

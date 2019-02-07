@@ -32,24 +32,24 @@ const style = {
       z-index: 1;
     }
 
-    .bigscreen-title {
+    .bigScreen-title {
       text-transform: uppercase;
       font-size: 4rem;
       margin-bottom: 20px;
     }
-    .bigscreen-cta {
+    .bigScreen-cta {
       text-transform: uppercase;
       border: 5px solid #fff;
       border-radius: 0;
       padding: 10px 30px;
-      .bigscreen-cta-icon {
+      .bigScreen-cta-icon {
         margin-left: 10px;
         font-size: 2.5rem;
       }
     }
 
     // https://codepen.io/mattgrosswork/pen/jrdwK
-    .bigscreen-article {
+    .bigScreen-article {
       display: flex;
       flex-direction: column;
       align-items: center;

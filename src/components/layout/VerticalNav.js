@@ -4,7 +4,6 @@ import VerticalNavStyles from './../styles/StyleVerticalNav'
 import IconMovies from '@material-ui/icons/LocalMovies'
 import IconTickets from '@material-ui/icons/Loyalty'
 import BuzzIcon from '@material-ui/icons/Whatshot'
-import Logo from './../content/Logo'
 
 
 const { 
@@ -17,9 +16,7 @@ const VerticalNav = ({
   return (
     <Aside className={className}>
       <NavLink exact to="/" className="App-brand" activeClassName="active">
-        <Logo
-          size="small'"
-        /> 
+        Home
       </NavLink>
       
       <ul>

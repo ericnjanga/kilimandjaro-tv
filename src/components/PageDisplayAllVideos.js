@@ -12,9 +12,7 @@ import { Container, Row, Col } from 'reactstrap'
 // import memoize from 'memoize-one'
 
 import MoviesStyle from './styles/StyleMoviesPage'
-import HorizontalNav from './layout/HorizontalNav'
 import ThumbailGridStyle from './styles/StyleThumbailGrid'
-import PageDisplayAllVideosStyle from './styles/StylePageDisplayAllVideos'
 import VideoThumbnail from './VideoThumbnail'
 import Preloader from './Preloader'
 import BigScreen from './BigScreen'
@@ -34,10 +32,6 @@ class PageDisplayAllVideos extends Component {
       toggleDrawer,
       category
     } = this.props
-
-    const {
-      PageContainer,
-    } = PageDisplayAllVideosStyle
 
     const {
       MoviesContainer,
@@ -63,10 +57,8 @@ class PageDisplayAllVideos extends Component {
     console.log('>>>>>>>>', category==='vod' || false)
   
     return (
-      <PageContainer>
-        <BigScreen
-          className="bigScreen"
-        />
+      <React.Fragment>
+        <BigScreen />
         <MoviesContainer>
           {/* <HorizontalNav
             className="App-horizontalNav"
@@ -93,7 +85,7 @@ class PageDisplayAllVideos extends Component {
             </Row>
           </Container>
         </MoviesContainer>
-      </PageContainer>
+      </React.Fragment>
     )
   }
 }

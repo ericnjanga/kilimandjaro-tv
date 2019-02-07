@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 import HorizontalNav from './../layout/HorizontalNav'
-import Hero from './../content/Hero' 
 import FetchVideos from './../../containers/FetchVideos'
 import Page404 from './../views/404Page'
 import MoviesStyle from './../styles/StyleMoviesPage'

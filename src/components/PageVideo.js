@@ -77,7 +77,7 @@ class PageVideo extends Component {
         /> */}
   
         <header className="player-container">
-          <div className="maincontent-center">
+          <div className="container">
             <Iframe>
               <iframe
                 src={uri}
@@ -94,7 +94,7 @@ class PageVideo extends Component {
         </header>
   
         <section>
-          <div className="maincontent-center padding">
+          <div className="container padding">
             <h1 className="title">
               {name}
             </h1>
