@@ -32,6 +32,23 @@ const style = {
       z-index: 1;
     }
 
+    .bigscreen-title {
+      text-transform: uppercase;
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+    .bigscreen-cta {
+      text-transform: uppercase;
+      border: 5px solid #fff;
+      border-radius: 0;
+      padding: 10px 30px;
+      .bigscreen-cta-icon {
+        margin-left: 10px;
+        font-size: 2.5rem;
+      }
+    }
+
+    // https://codepen.io/mattgrosswork/pen/jrdwK
     .bigscreen-article {
       display: flex;
       flex-direction: column;
@@ -47,7 +64,7 @@ const style = {
     /* The only rule that matters */
     .video-background {
     /*  making the video fullscreen  */
-      position: fixed;
+      position: absolute;
       right: 0; 
       bottom: 0;
       min-width: 100%; 

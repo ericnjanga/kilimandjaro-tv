@@ -99,6 +99,12 @@ class PageVideo extends Component {
               {name}
             </h1>
             <p>{description}</p>
+
+
+            <div>
+              <h3>More videos</h3>
+              <p>Display a list of thumbnails with more videos...</p>
+            </div>
           </div>
         </section>
       </MoviesContainer>

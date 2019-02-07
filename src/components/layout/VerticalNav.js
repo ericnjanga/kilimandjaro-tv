@@ -4,7 +4,6 @@ import VerticalNavStyles from './../styles/StyleVerticalNav'
 import IconMovies from '@material-ui/icons/LocalMovies'
 import IconTickets from '@material-ui/icons/Loyalty'
 import BuzzIcon from '@material-ui/icons/Whatshot'
-import ListOfAdds from './../tests/ListOfAdds' 
 import Logo from './../content/Logo'
 
 
@@ -59,13 +58,6 @@ const VerticalNav = ({
           </NavLink>
         </li>
       </ul>
-
-
-      {
-        false && <ListOfAdds
-          className="adds-list"
-        />
-      }
 
 
       <footer>

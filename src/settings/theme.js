@@ -10,7 +10,7 @@
 const theme1 = {  
   color: {
     pageBackgroundColor: '#fff',
-    primary: '#DA6A2D',
+    primary: '#7C0A02',
     primaryHover: '#fff',
     secondary: '#38307F',
     tertiary: '#3f51b5',
