@@ -12,11 +12,13 @@ style.ProgressContainer = styled.div`
   width: 100%;
   color: ${theme.color.lightGray};
 
-  .darkTone {
-    border: 20px solid red;
+  &.darkTone {
+    color: #fff;
+    background: #000;
   }
-  .lightTone{
-    border: 20px solid lime;
+  &.lightTone{
+    color: #000;
+    background: #fff;
   }
 
 

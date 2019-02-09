@@ -67,7 +67,7 @@ class PageDisplayAllVideos extends Component {
       <React.Fragment>
         <BigScreen
           url={`${category}/${BigScreenVideo.url}`}
-          // video={BigScreenVideo.obj}
+          video={BigScreenVideo.obj}
         />
         <MoviesContainer>
           {/* <HorizontalNav

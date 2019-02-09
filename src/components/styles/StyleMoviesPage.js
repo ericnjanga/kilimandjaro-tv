@@ -22,6 +22,7 @@ const style = {
     position: relative;
     height: 500px;
     overflow: hidden;
+    background: #000;
 
     &:after {
       content: '';
@@ -71,7 +72,7 @@ const style = {
       min-height: 100%;
       width: auto; 
       height: auto;
-      z-index: -100;
+      /* z-index: -100; */
     }
   `
 }

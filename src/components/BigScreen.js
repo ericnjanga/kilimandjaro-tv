@@ -23,7 +23,7 @@ const BigScreen = ({
         !video ?
         <Preloader
           darkTone
-          text={'Chargement des vidéos'}
+          text={'Chargement de la vidéo'}
         />
         :
         <React.Fragment>
