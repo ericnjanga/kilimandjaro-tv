@@ -27,10 +27,6 @@ const AllRoutes = ({
       >
         {
           (allVideos) => {
-            // console.group('**** allVideos ****')
-            console.log(allVideos)
-            // console.groupEnd()
-
             return (
               <Switch>
                 {/* 

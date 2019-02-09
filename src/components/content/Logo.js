@@ -6,8 +6,6 @@ const Logo = ({
   className,
 }) => {
 
-  console.log('....logoImg = ', logoImg)
-
   return (
     <React.Fragment>
       <img

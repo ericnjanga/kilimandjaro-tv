@@ -4,6 +4,8 @@ import ProgressStyle from './styles/StyleProgress'
 
 
 const Preloader = ({
+  darkTone,
+  lightTone,
   text
 }) => {
 
@@ -12,7 +14,9 @@ const Preloader = ({
   } = ProgressStyle
 
   return (
-    <ProgressContainer>
+    <ProgressContainer
+      className={`${darkTone?'darkTone':'lightTone'}`}
+    >
       <CircularProgress
         // className="progress"
         color="secondary"

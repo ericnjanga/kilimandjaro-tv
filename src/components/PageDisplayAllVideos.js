@@ -17,6 +17,12 @@ import VideoThumbnail from './VideoThumbnail'
 import Preloader from './Preloader'
 import BigScreen from './BigScreen'
 
+/**
+ * - Gets the full list of videos (allVideos)
+ * - Extracts a sublist of videos (videoSubList) which will be used to:
+ * - - Extract one video to be displayed for the BigScreen (the latest one)
+ * - - Display video thumbnails (in a grid)
+ */
 
 class PageDisplayAllVideos extends Component {
 
@@ -50,15 +56,19 @@ class PageDisplayAllVideos extends Component {
       )
     }
 
-    const videoList = allVideos.filter(video => video.tags[0] && video.tags[0].name===category)
+    const videoSubList = allVideos.filter(video => video.tags[0] && video.tags[0].name===category)
     const isOnDemand = category==='vod' || false
     const colSize = isOnDemand ? {  md:4, sm:6, xs:6 } : {  md:6, sm:12 }
+    const BigScreenVideo = { obj: videoSubList[0], url:videoSubList[0].uri.split('/videos/')[1] }
 
-    console.log('>>>>>>>>', category==='vod' || false)
+    // console.log('>>>>>>>>', category==='vod' || false)
   
     return (
       <React.Fragment>
-        <BigScreen />
+        <BigScreen
+          url={`${category}/${BigScreenVideo.url}`}
+          // video={BigScreenVideo.obj}
+        />
         <MoviesContainer>
           {/* <HorizontalNav
             className="App-horizontalNav"
@@ -69,7 +79,7 @@ class PageDisplayAllVideos extends Component {
           <Container className="maincontent-center">
             <Row>
               {
-                videoList.map((video, index) => 
+                videoSubList.map((video, index) => 
                   <Col
                     key={index}
                     {...colSize}

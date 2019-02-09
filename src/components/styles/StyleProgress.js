@@ -12,6 +12,13 @@ style.ProgressContainer = styled.div`
   width: 100%;
   color: ${theme.color.lightGray};
 
+  .darkTone {
+    border: 20px solid red;
+  }
+  .lightTone{
+    border: 20px solid lime;
+  }
+
 
   .progress {
     // position: absolute;
