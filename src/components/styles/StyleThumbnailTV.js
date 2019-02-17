@@ -33,8 +33,7 @@ const style = {
     }
     time,
     .img-thumbnail {
-      background-color: ${theme.color.primary};
-      border-color: ${theme.color.primary};
+      background-color: ${theme.color.secondary};
     }
   }
 

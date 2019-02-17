@@ -40,9 +40,16 @@ const style = {
     }
     .bigScreen-cta {
       text-transform: uppercase;
-      border: 5px solid #fff;
+      border: 3px solid #fff;
       border-radius: 0;
       padding: 10px 30px;
+      color: #fff;
+      text-decoration: none;
+      background-color: ${theme.color.primary};
+      transition: all 0.4s ease-out;
+      &:hover {
+        background: ${theme.color.secondary};
+      }
       .bigScreen-cta-icon {
         margin-left: 10px;
         font-size: 2.5rem;

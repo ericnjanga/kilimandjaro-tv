@@ -11,6 +11,7 @@ import IconVideo from '@material-ui/icons/PlayCircleOutline'
 import VideoStyle from './styles/StyleThumbnailTV'
 import ThumbailVODStyle from './styles/StyleThumbailVOD'
 import ModalVideo from './ModalVideo'
+import MenuIcon from '@material-ui/icons/PlayCircleOutline'
 // import VODPricing from './VODPricing'
 
 
@@ -117,7 +118,9 @@ class VideoThumbnail extends React.Component {
 const Duration = ({ duration }) => {
   // Duration calculations will happen here
   return (
-    <time dateTime="3m 30s">3:30 min</time>
+    <time dateTime="3m 30s">
+      <MenuIcon className="time-icon" />
+    </time>
   )
 }
 

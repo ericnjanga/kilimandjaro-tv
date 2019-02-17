@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 import HorizontalNav from './../layout/HorizontalNav'
-import FetchVideos from './../../containers/FetchVideos'
+import { FetchAllVideos } from './../../containers/VimeoComponent'
 import Page404 from './../views/404Page'
 import MoviesStyle from './../styles/StyleMoviesPage'
 import PaypalCheckout from './../PaypalCheckout'
@@ -23,8 +23,7 @@ const AllRoutes = ({
 
   return (
     <React.Fragment>
-      <FetchVideos
-      >
+      <FetchAllVideos>
         {
           (allVideos) => {
             return (
@@ -34,7 +33,7 @@ const AllRoutes = ({
                   --------------
                   - ...
                 */}
-                <Route 
+                {/* <Route 
                   path={'/'}
                   exact
                   render={
@@ -44,7 +43,7 @@ const AllRoutes = ({
                       )
                     }
                   }
-                />
+                /> */}
     
     
                 {/* 
@@ -53,7 +52,7 @@ const AllRoutes = ({
                   - ...
                 */}
                 <Route 
-                  path={'/tv'}
+                  path={'/'}
                   exact
                   render={
                     () => {
@@ -168,7 +167,7 @@ const AllRoutes = ({
             )
           }
         }
-      </FetchVideos>
+      </FetchAllVideos>
     </React.Fragment>
   )
 }

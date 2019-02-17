@@ -56,17 +56,18 @@ class PageDisplayAllVideos extends Component {
       )
     }
 
-    const videoSubList = allVideos.filter(video => video.tags[0] && video.tags[0].name===category)
+    const videoSubList = allVideos.data.filter(video => video.tags[0] && video.tags[0].name===category)
     const isOnDemand = category==='vod' || false
     const colSize = isOnDemand ? {  md:4, sm:6, xs:6 } : {  md:6, sm:12 }
-    const BigScreenVideo = { obj: videoSubList[0], url:videoSubList[0].uri.split('/videos/')[1] }
+    const BigScreenVideo = { obj: videoSubList[0], id:videoSubList[0].uri.split('/videos/')[1] }
 
     // console.log('>>>>>>>>', category==='vod' || false)
   
     return (
       <React.Fragment>
         <BigScreen
-          url={`${category}/${BigScreenVideo.url}`}
+          videoId={BigScreenVideo.id}
+          url={`${category}/${BigScreenVideo.id}`}
           video={BigScreenVideo.obj}
         />
         <MoviesContainer>

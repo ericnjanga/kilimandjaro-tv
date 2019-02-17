@@ -12,11 +12,17 @@ style.time = `
   bottom: 0;
   right: 0;
   display: inline-block;
-  background: ${style.colorOff};
+  background: ${theme.color.primary};
   padding: 5px 10px;
-  color: #000;
   font-weight: bold;
   font-size: 0.7rem;
+
+  &:hover {
+    background: ${theme.color.secondary};
+  }
+  .time-icon {
+    color: #fff;
+  }
 `
 style.imgThumbnail = `
 border-width: 0;

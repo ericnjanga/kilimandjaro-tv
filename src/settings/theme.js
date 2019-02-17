@@ -2,17 +2,22 @@
 
 /**
  * App theme: https://slackthemes.net/#/folio_purple
- * #38307F,#737272,#DA6A2D,#FFFFFF,#737272,#FFFFFF,#DA6A2D,#DA6A2D
  * 
  * 
  * App Layout: https://dribbble.com/shots/1732793-Task-App-Dashboard-UI
  */
+
+const preColors = {
+  cherry: '#990F04',
+  cyan: '#3DA5DB',
+}
+
 const theme1 = {  
   color: {
     pageBackgroundColor: '#fff',
-    primary: '#7C0A02',
+    primary: preColors.cherry,
     primaryHover: '#fff',
-    secondary: '#38307F',
+    secondary: preColors.cyan,
     tertiary: '#3f51b5',
     secondaryLight: 'rgb(66,133,244)',
     lightGray: '#d6d6d6',
