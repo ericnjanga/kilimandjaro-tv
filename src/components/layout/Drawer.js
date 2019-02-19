@@ -35,24 +35,21 @@ class AppDrawer extends React.Component {
     const { toggle } = this.props;
 
     return (
-      <div>
-        <Drawer open={this.props.active} onClose={toggle}>
-          <div
-            tabIndex={0}
-            role="button"
-            onClick={toggle}
-            onKeyDown={toggle}
-          >
-            {/* {sideList} */}
+      <Drawer open={this.props.active} onClose={toggle}>
+        <div
+          tabIndex={0}
+          role="button"
+          onClick={toggle}
+          onKeyDown={toggle}
+        >
+          {/* {sideList} */}
 
 
-            <VerticalNav
-              className="App-verticalNav"
-            />
-          </div>
-        </Drawer>
-      
-      </div>
+          <VerticalNav
+            className="App-verticalNav"
+          />
+        </div>
+      </Drawer>
     );
   }
 }

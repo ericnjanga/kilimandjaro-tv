@@ -22,9 +22,9 @@ const BigScreen = ({
    */
 
   // console.log(video);
-  const videoUrl = `/tv/315407525`
-  const videoName = `REPORTAGE TV KMA 2018`
-  const mp4FileLink = 'https://player.vimeo.com/external/315407525.hd.mp4?s=3535f7f43bd0418571955de8747b9d6759f6e35f&profile_id=175';
+  const videoUrl = `/tv/313790168`
+  const videoName = `KMA 2018 FINAL HIGHLIGHTS`
+  const mp4FileLink = 'https://player.vimeo.com/external/313790168.hd.mp4?s=12397596c6bb18023c1ef211963854c73d9529c4&profile_id=175';
   
   return (
     <BigScreenContainer className="bigScreen">
@@ -39,7 +39,7 @@ const BigScreen = ({
             to={videoUrl}
             className="bigScreen-cta"
           >
-            Visionnez <MenuIcon className="bigScreen-cta-icon" />
+            Watch Now <MenuIcon className="bigScreen-cta-icon" />
           </NavLink>
         </article>
         <video autoPlay loop className="video-background" muted playsInline>
@@ -62,7 +62,7 @@ const BigScreen = ({
         !video ?
         <Preloader
           darkTone
-          text={'Chargement de la vidéo'}
+          text={'Loading The VIdeo'}
         />
         :
       } */}

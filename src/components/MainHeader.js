@@ -18,7 +18,7 @@ const MainHeader = ({
         /> 
       </NavLink>
 
-      {/* <IconButton
+      <IconButton
         key="close"
         aria-label="Close"
         color="inherit"
@@ -26,7 +26,7 @@ const MainHeader = ({
         onClick={toggleDrawer}
       >
         <MenuIcon />
-      </IconButton> */}
+      </IconButton>
     </MainNav>
   );
 }

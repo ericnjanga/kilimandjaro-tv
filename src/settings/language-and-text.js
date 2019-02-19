@@ -65,7 +65,7 @@ export const appTextCopy = {
       aboutus: 'About Us',
       contactus: 'Contact Us',
       confirmDelete: `Do you really want to delete this?`,
-      loading: 'Chargement',
+      loading: 'Loading',
     },
     appInit: {
       settings: 'Settings',
@@ -135,7 +135,7 @@ export const appTextCopy = {
       aboutus: 'À Propos',
       contactus: 'Nous Contacter',
       confirmDelete: `Voulez-vous vraiment supprimer cet element?`,
-      loading: 'Chargement',
+      loading: 'Loading',
     },
     appInit: {
       settings: 'Paramètres',

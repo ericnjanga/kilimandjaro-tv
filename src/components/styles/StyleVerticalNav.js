@@ -8,8 +8,8 @@ style.Aside = styled.aside`
   display: flex;
   flex-direction: column;
   width: ${theme.vNav.width}px;
-  height: 100%;
-  background-color: ${theme.color.secondary};
+  height: 100vh;
+  background-color: ${theme.color.primary};
   transition: background-color 0.2s ease-in-out;
 
   > ul {

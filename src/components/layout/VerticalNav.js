@@ -16,18 +16,23 @@ const VerticalNav = ({
   return (
     <Aside className={className}>
       <NavLink exact to="/" className="App-brand" activeClassName="active">
-        Home
+        Kilimandjaro TV
       </NavLink>
       
       <ul>
         <li>
-          <NavLink className="item" to="/tv" activeClassName="active">
+          <NavLink className="item" to="/" activeClassName="active">
             <IconMovies />
             <span>TV</span>
           </NavLink>
         </li>
         <li>
-          <NavLink className="item" to="/films" activeClassName="active">
+          <NavLink
+            className="item deactivated"
+            to="/films"
+            activeClassName="active"
+            onClick={ (event)=>{ event.preventDefault() } }
+          >
             <IconMovies />
             <span>Films</span>
           </NavLink>
@@ -62,7 +67,7 @@ const VerticalNav = ({
         <p>647 - 825 - 1694</p>
         <p>kilitvlive@gmail.com</p>
         <p>&copy; 2018, Toronto</p>
-        <p>Inspiration: <a href="https://jewlia.ru/" target="_blank">jewlia</a></p>
+        {/* <p>Inspiration: <a href="https://jewlia.ru/" target="_blank">jewlia</a></p> */}
       </footer>
     </Aside>
   );

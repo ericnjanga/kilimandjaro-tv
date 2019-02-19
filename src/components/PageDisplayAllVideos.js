@@ -51,7 +51,7 @@ class PageDisplayAllVideos extends Component {
     if (!allVideos) {
       return (
         <Preloader
-          text={'Chargement des vidéos'}
+          text={'Loading Videos'}
         />
       )
     }

@@ -48,7 +48,7 @@ class PageVideo extends Component {
     if (!allVideos) {
       return (
         <Preloader
-          text={'Chargement'}
+          text={'Loading'}
         />
       )
     } else {
@@ -104,7 +104,7 @@ class PageVideo extends Component {
     
                 <div>
                   <h3>More videos</h3>
-                  <p>Listr of video suggestions coming soon...</p>
+                  <p>List of video suggestions coming soon...</p>
                 </div>
               </div>
             </section>

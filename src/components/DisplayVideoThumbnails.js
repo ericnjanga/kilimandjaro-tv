@@ -40,7 +40,7 @@ class DisplayVideoThumbnails extends React.Component {
           ))
           :
           <Preloader
-            text={'Chargement des vidéos'}
+            text={'Loading Videos'}
           />
         }
       </DivRow>

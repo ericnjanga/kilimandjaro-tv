@@ -74,7 +74,7 @@ const style = {
     /*  making the video fullscreen  */
       position: absolute;
       right: 0; 
-      bottom: 0;
+      top: -40%;
       min-width: 100%; 
       min-height: 100%;
       width: auto; 
